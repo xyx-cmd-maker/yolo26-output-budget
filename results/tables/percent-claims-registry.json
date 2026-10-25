@@ -142,6 +142,18 @@
       "scope": "prose",
       "source": "manuscript-numbers.json: 外部 benchmark 的 mAP50=0.236",
       "note": "外部 benchmark 报告值"
+    },
+    {
+      "value": 0.01,
+      "scope": "prose",
+      "source": "topup-robustness.json: label-free 两臂 spend_err 最大 0.0017% < 0.01%",
+      "note": "Methods Top-up ablation 里的支出匹配阈值（上界表述）"
+    },
+    {
+      "value": 2.75,
+      "scope": "prose",
+      "source": "topup-robustness.json: no_topup spend_err max 2.7495%",
+      "note": "no-topup 臂在最小预算分数下欠支"
     }
   ]
 }

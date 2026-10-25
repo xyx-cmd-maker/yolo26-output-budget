@@ -1,0 +1,406 @@
+{
+  "note": "Top-up ablation. The oracle arm reads true-positive matches; the other three do not. All four are applied identically to uniform and proportional allocations.",
+  "finding": "Reported in the manuscript after inspection.",
+  "rows": [
+    {
+      "head": "o2m",
+      "rho": 0.3,
+      "arm": "no_topup",
+      "dworst": 10.042,
+      "dmicro": 1.576,
+      "spend_u": 11308,
+      "spend_w": 11620,
+      "spend_err_pct": 2.7495
+    },
+    {
+      "head": "o2m",
+      "rho": 0.3,
+      "arm": "largest_remainder",
+      "dworst": 10.042,
+      "dmicro": 0.962,
+      "spend_u": 11628,
+      "spend_w": 11628,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.3,
+      "arm": "most_capacity",
+      "dworst": 9.727,
+      "dmicro": 0.849,
+      "spend_u": 11628,
+      "spend_w": 11628,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.3,
+      "arm": "oracle",
+      "dworst": 9.727,
+      "dmicro": 0.771,
+      "spend_u": 11627,
+      "spend_w": 11627,
+      "spend_err_pct": 0.006
+    },
+    {
+      "head": "o2m",
+      "rho": 0.4,
+      "arm": "no_topup",
+      "dworst": 10.207,
+      "dmicro": 1.256,
+      "spend_u": 15468,
+      "spend_w": 15503,
+      "spend_err_pct": 0.2296
+    },
+    {
+      "head": "o2m",
+      "rho": 0.4,
+      "arm": "largest_remainder",
+      "dworst": 10.207,
+      "dmicro": 1.2,
+      "spend_u": 15504,
+      "spend_w": 15504,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.4,
+      "arm": "most_capacity",
+      "dworst": 9.891,
+      "dmicro": 1.171,
+      "spend_u": 15504,
+      "spend_w": 15504,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.4,
+      "arm": "oracle",
+      "dworst": 10.207,
+      "dmicro": 1.166,
+      "spend_u": 15503,
+      "spend_w": 15503,
+      "spend_err_pct": 0.0039
+    },
+    {
+      "head": "o2m",
+      "rho": 0.5,
+      "arm": "no_topup",
+      "dworst": 8.328,
+      "dmicro": 1.512,
+      "spend_u": 19325,
+      "spend_w": 19376,
+      "spend_err_pct": 0.2812
+    },
+    {
+      "head": "o2m",
+      "rho": 0.5,
+      "arm": "largest_remainder",
+      "dworst": 8.328,
+      "dmicro": 1.44,
+      "spend_u": 19379,
+      "spend_w": 19380,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.5,
+      "arm": "most_capacity",
+      "dworst": 8.013,
+      "dmicro": 1.393,
+      "spend_u": 19379,
+      "spend_w": 19380,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.5,
+      "arm": "oracle",
+      "dworst": 8.328,
+      "dmicro": 1.38,
+      "spend_u": 19379,
+      "spend_w": 19379,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2m",
+      "rho": 0.6,
+      "arm": "no_topup",
+      "dworst": 5.174,
+      "dmicro": 1.54,
+      "spend_u": 23152,
+      "spend_w": 23232,
+      "spend_err_pct": 0.4446
+    },
+    {
+      "head": "o2m",
+      "rho": 0.6,
+      "arm": "largest_remainder",
+      "dworst": 8.507,
+      "dmicro": 1.445,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2m",
+      "rho": 0.6,
+      "arm": "most_capacity",
+      "dworst": 4.858,
+      "dmicro": 1.393,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2m",
+      "rho": 0.6,
+      "arm": "oracle",
+      "dworst": 5.174,
+      "dmicro": 1.334,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2m",
+      "rho": 0.7,
+      "arm": "no_topup",
+      "dworst": 5.352,
+      "dmicro": 1.195,
+      "spend_u": 27080,
+      "spend_w": 27131,
+      "spend_err_pct": 0.1891
+    },
+    {
+      "head": "o2m",
+      "rho": 0.7,
+      "arm": "largest_remainder",
+      "dworst": 5.352,
+      "dmicro": 1.133,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    },
+    {
+      "head": "o2m",
+      "rho": 0.7,
+      "arm": "most_capacity",
+      "dworst": 5.037,
+      "dmicro": 1.097,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    },
+    {
+      "head": "o2m",
+      "rho": 0.7,
+      "arm": "oracle",
+      "dworst": 5.352,
+      "dmicro": 1.063,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    },
+    {
+      "head": "o2o",
+      "rho": 0.3,
+      "arm": "no_topup",
+      "dworst": 9.504,
+      "dmicro": 1.543,
+      "spend_u": 11308,
+      "spend_w": 11620,
+      "spend_err_pct": 2.7495
+    },
+    {
+      "head": "o2o",
+      "rho": 0.3,
+      "arm": "largest_remainder",
+      "dworst": 9.504,
+      "dmicro": 0.949,
+      "spend_u": 11628,
+      "spend_w": 11628,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.3,
+      "arm": "most_capacity",
+      "dworst": 9.189,
+      "dmicro": 0.862,
+      "spend_u": 11628,
+      "spend_w": 11628,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.3,
+      "arm": "oracle",
+      "dworst": 9.189,
+      "dmicro": 0.738,
+      "spend_u": 11627,
+      "spend_w": 11627,
+      "spend_err_pct": 0.006
+    },
+    {
+      "head": "o2o",
+      "rho": 0.4,
+      "arm": "no_topup",
+      "dworst": 7.834,
+      "dmicro": 1.331,
+      "spend_u": 15468,
+      "spend_w": 15503,
+      "spend_err_pct": 0.2296
+    },
+    {
+      "head": "o2o",
+      "rho": 0.4,
+      "arm": "largest_remainder",
+      "dworst": 7.834,
+      "dmicro": 1.282,
+      "spend_u": 15504,
+      "spend_w": 15504,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.4,
+      "arm": "most_capacity",
+      "dworst": 7.518,
+      "dmicro": 1.254,
+      "spend_u": 15504,
+      "spend_w": 15504,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.4,
+      "arm": "oracle",
+      "dworst": 7.834,
+      "dmicro": 1.241,
+      "spend_u": 15503,
+      "spend_w": 15503,
+      "spend_err_pct": 0.0039
+    },
+    {
+      "head": "o2o",
+      "rho": 0.5,
+      "arm": "no_topup",
+      "dworst": 5.31,
+      "dmicro": 1.533,
+      "spend_u": 19325,
+      "spend_w": 19376,
+      "spend_err_pct": 0.2812
+    },
+    {
+      "head": "o2o",
+      "rho": 0.5,
+      "arm": "largest_remainder",
+      "dworst": 5.31,
+      "dmicro": 1.476,
+      "spend_u": 19379,
+      "spend_w": 19380,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.5,
+      "arm": "most_capacity",
+      "dworst": 4.995,
+      "dmicro": 1.427,
+      "spend_u": 19379,
+      "spend_w": 19380,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.5,
+      "arm": "oracle",
+      "dworst": 5.31,
+      "dmicro": 1.401,
+      "spend_u": 19379,
+      "spend_w": 19379,
+      "spend_err_pct": 0.0026
+    },
+    {
+      "head": "o2o",
+      "rho": 0.6,
+      "arm": "no_topup",
+      "dworst": 8.027,
+      "dmicro": 1.535,
+      "spend_u": 23152,
+      "spend_w": 23232,
+      "spend_err_pct": 0.4446
+    },
+    {
+      "head": "o2o",
+      "rho": 0.6,
+      "arm": "largest_remainder",
+      "dworst": 8.027,
+      "dmicro": 1.429,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2o",
+      "rho": 0.6,
+      "arm": "most_capacity",
+      "dworst": 7.711,
+      "dmicro": 1.36,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2o",
+      "rho": 0.6,
+      "arm": "oracle",
+      "dworst": 8.027,
+      "dmicro": 1.329,
+      "spend_u": 23255,
+      "spend_w": 23255,
+      "spend_err_pct": 0.0017
+    },
+    {
+      "head": "o2o",
+      "rho": 0.7,
+      "arm": "no_topup",
+      "dworst": 4.248,
+      "dmicro": 1.264,
+      "spend_u": 27080,
+      "spend_w": 27131,
+      "spend_err_pct": 0.1891
+    },
+    {
+      "head": "o2o",
+      "rho": 0.7,
+      "arm": "largest_remainder",
+      "dworst": 4.248,
+      "dmicro": 1.238,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    },
+    {
+      "head": "o2o",
+      "rho": 0.7,
+      "arm": "most_capacity",
+      "dworst": 3.926,
+      "dmicro": 1.192,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    },
+    {
+      "head": "o2o",
+      "rho": 0.7,
+      "arm": "oracle",
+      "dworst": 4.248,
+      "dmicro": 1.133,
+      "spend_u": 27131,
+      "spend_w": 27131,
+      "spend_err_pct": 0.0011
+    }
+  ]
+}

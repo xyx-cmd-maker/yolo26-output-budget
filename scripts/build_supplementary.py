@@ -306,6 +306,58 @@ def page_table_s5(pdf: PdfPages) -> None:
     plt.close(fig)
 
 
+def page_table_s6(pdf: PdfPages) -> None:
+    """Table S6：top-up 四臂消融（三臂不用标签）。"""
+    import json as _json
+    _d = _json.loads((ROOT / "results" / "tables" / "topup-robustness.json")
+                     .read_text(encoding="utf-8"))
+    _rows = _d["rows"]
+
+    fig = plt.figure(figsize=(W_DOUBLE, 5.2))
+    fig.text(0.005, 0.965, "Table S6.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.083, 0.965,
+             "Worst-image gain under four top-up rules, three of which never read labels.",
+             fontsize=8, va="top")
+    fig.text(0.005, 0.900,
+             "Every condition is the same without the oracle top-up: with the budget matched, the two "
+             "label-free rules land within 0.32 points of the oracle arm. The no-top-up arm under-spends "
+             "by up to 2.75% at the smallest budget fraction and is not a valid control there.\n"
+             "VisDrone2019-DET validation, seed 42, $N$ = 548.  $\\Delta$ worst-image recall, "
+             "proportional minus uniform, in percentage points.",
+             fontsize=6.5, va="top")
+
+    cols = ["head", "$\\rho$", "no top-up", "largest remainder",
+            "most capacity", "oracle", "spend err %"]
+    xs = [0.06, 0.16, 0.27, 0.45, 0.62, 0.77, 0.88]
+    y0, dy = 0.52, 0.043
+    for x, c in zip(xs, cols):
+        fig.text(x, y0 + 0.032, c, fontsize=6, fontweight="bold", va="bottom")
+    fig.lines.append(plt.Line2D([0.03, 0.97], [y0 + 0.024, y0 + 0.024],
+                                color="black", lw=0.5, transform=fig.transFigure))
+
+    def cell(head, rho, arm, key="dworst"):
+        for r in _rows:
+            if r["head"] == head and abs(r["rho"] - rho) < 1e-9 and r["arm"] == arm:
+                return r[key]
+        return float("nan")
+
+    i = 0
+    for head in ("o2m", "o2o"):
+        for rho in (0.30, 0.40, 0.50, 0.60, 0.70):
+            y = y0 - i * dy
+            vals = [head, f"{rho:.2f}",
+                    f"{cell(head, rho, 'no_topup'):+.2f}",
+                    f"{cell(head, rho, 'largest_remainder'):+.2f}",
+                    f"{cell(head, rho, 'most_capacity'):+.2f}",
+                    f"{cell(head, rho, 'oracle'):+.2f}",
+                    f"{cell(head, rho, 'oracle', 'spend_err_pct'):.3f}"]
+            for x, v in zip(xs, vals):
+                fig.text(x, y, v, fontsize=6.2)
+            i += 1
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -409,6 +461,7 @@ def main() -> int:
         page_table_s3(pdf)
         page_table_s4(pdf)
         page_table_s5(pdf)
+        page_table_s6(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)

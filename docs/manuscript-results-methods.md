@@ -34,16 +34,11 @@ can in principle recover.
 | VisDrone val | aerial | 548 | 70.73 | 317 | 0.890 | 0.630 | 0.195 |
 
 At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on which the budget binds spans
-0.000 to 0.195. The ordering follows the mean object count, not the domain: the two ground-level benchmarks
-sit at opposite ends of the table. The largest object count does not predict utilisation either. CrowdHuman
+0.000 to 0.195. The ordering follows the mean object count, not the domain. The largest object count does not predict utilisation either. CrowdHuman
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 
-Two cautions apply. CrowdHuman marks ignore regions through a per-box `extra.ignore` flag; excluding them,
-as the reference conversion script optionally does, lowers the mean object count by 3.8% and
-`frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. And Table 1 bounds the room a
-reallocation has; it does not say whether the reallocation changes the worst-image recall, which depends
-on the detector rather than on the labels. The budget sweep below separates the two questions.
+Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. And Table 1 bounds the room a reallocation has; whether the worst-image recall changes depends on the detector, not on the labels, and the budget sweep below separates the two.
 
 ## R1. Reallocation is positional: worst-image recall rises while mean per-image recall falls
 
@@ -93,9 +88,7 @@ breaks the per-image recall change down by object-count band, for the one-to-man
 ρ = 0.5. Δ is proportional minus uniform, in points. The band boundaries are fixed by the label
 distribution, which does not depend on the model. The interval is a paired percentile bootstrap over
 images within the band (10,000 resamples; the RNG is derived per seed so that re-running one seed alone
-reproduces its row), so it estimates the mean cost of the band and not the membership of the band. The
-one-to-one head gives the same ordering with slightly smaller magnitudes (sparsest 5%: −23.38, interval
-[−29.59, −17.16]; densest 25%: +10.01, interval [+9.08, +10.95]).
+reproduces its row), so it estimates the mean cost of the band and not the membership of the band. The one-to-one head gives the same ordering with slightly smaller magnitudes: −23.4 and +10.0 points at the two extremes, both intervals excluding zero.
 
 | `n_i` band | Images | `n_i` range | Uniform | Proportional | Δ | 95% interval for Δ |
 |---|---|---|---|---|---|---|
@@ -106,8 +99,7 @@ one-to-one head gives the same ordering with slightly smaller magnitudes (sparse
 | densest 25% | 137 | 93–317 | 30.03% | 40.10% | **+10.07** | [+9.11,+11.07] |
 
 The gain is concentrated in the densest quartile (+10.07 points) and the loss in the sparsest images
-(−24.20 points). The sparsest band contains only 27 images, so its interval is the widest, at
-12.14 points, yet it is still bounded away from zero: the cost is present in every one of the 10,000
+(−24.20 points). The sparsest band holds 27 images, so its interval is widest at 12.14 points, yet it is still bounded away from zero: the cost is present in every one of the 10,000
 resamples. Every band's interval excludes zero, and the interval ordering matches the band ordering, so under this scheme the gradient is not an artefact of band membership. In
 VisDrone, sparse images are those containing few and comparatively large objects: mean box area is
 2.31×10⁻² of the frame in the sparsest 5% against 1.18×10⁻³ in the densest quartile, and the Spearman
@@ -130,7 +122,7 @@ head and +5.31 on the one-to-one head**, both inside the middle band, and the 95
 at their upper limits, and neither is bounded away from it, so the point estimate alone would understate
 the uncertainty. The measured effect is therefore too uncertain to decide whether the allocation is worth reporting as a standalone result, and we report it as a component while stating the uncertainty explicitly.
 
-The gain is not an artefact of the particular budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
+A label-free top-up reproduces the gain (Table S6), and it is not an artefact of the budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
 **+4.25 to +10.21 points**. Nine of the ten fall in the middle band; **one condition reaches the
 standalone band**: the one-to-many head at ρ = 0.40 gives +10.21 points, which the pre-registered rule
 scores as A. The remaining condition, the one-to-one head at ρ = 0.70, falls below 5 points and scores as
@@ -182,10 +174,7 @@ for 100 epochs at 640×640 with batch size 8 on a single 8 GB consumer GPU. For 
 42, peak validation mAP50 is 0.3436 at epoch 83 and peak mAP50-95 is 0.1890 at epoch 82; the final-epoch
 values are 0.3385 and 0.1854. For seed 43 the two peaks coincide at epoch 80, at 0.3407 and 0.1858, with
 final-epoch values of 0.3365 and 0.1839. Seed 44 peaks at epoch 82, at 0.3421 and 0.1874, with final-epoch
-values of 0.3364 and 0.1838. The three seeds therefore land within 0.3 points of each other on mAP50 and
-within 0.4 on mAP50-95, which is small relative to the between-seed spread we report for the allocation
-gain in R5b and is consistent with the allocation effect being a property of how quotas interact with the
-label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline, because the published figures were produced under a different batch size and without a stated seed, so the
+values of 0.3364 and 0.1838. The three seeds land within 0.3 points on mAP50 and 0.4 on mAP50-95, small relative to the between-seed spread of the allocation gain in R5b, and consistent with the effect being a property of how quotas interact with the label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline, because the published figures were produced under a different batch size and without a stated seed, so the
 comparison would not be controlled. The per-epoch curve, the environment lock, and the weight
 hashes are released with the code, and the curves for all three seeds are plotted in **Supplementary Fig. S1**.
 
@@ -329,6 +318,18 @@ quota of 0.4% of images at `B = 2`, 8.9% at `B = 25` and 1.1% at `B = 70`; it is
 to every allocation, so it cannot favour one over another. Without it the two spends would differ and
 the comparison would confound where boxes go with how many are spent.
 
+## Top-up ablation
+
+The main text reports the oracle top-up, which reads true-positive matches from the annotations. To
+test whether the reported gain depends on that choice, we repeated every ρ condition with three
+label-free variants: no top-up at all; a largest-remainder rule that gives the deficit to the images
+with the largest fractional part of their unrounded quota; and a capacity rule that gives it to the
+images with the most remaining prediction slots. The last two need only the annotation-free
+quantities already used to build the quota. With the budget matched to within 0.01%, both label-free
+rules reproduce the worst-image gain to within 0.32 points of the oracle arm, and the
+largest-remainder rule exceeds it at one condition by 3.33 points. The no-top-up arm under-spends by up to 2.75% at the smallest budget fraction and is therefore not a valid control there; where its spend does match, it agrees with the oracle arm exactly. The reported gain therefore does not depend on label
+access in the top-up step. Per-condition values are in Supplementary Table S6.
+
 ## Pre-registration and decision rule
 
 The decision rule, the threshold values, the budget fraction ρ = 0.5, and the statistic were fixed before
@@ -445,7 +446,7 @@ remain separable in grayscale. `N` = 548 (VisDrone val), 15,000 (CrowdHuman trai
 These are exact label counts, so no error bars are shown.
 
 **Figure 2. Gain in worst-image recall from reallocating a fixed output budget, in percentage points.**
-**a**, Gain against budget `B` for both prediction heads; faint crosses mark budgets above which the budget cannot be spent in full, so the two allocations coincide and the comparison is an identity rather than a measurement. Its horizontal axis is the average per-image budget. **b**, The same
+**a**, Gain against budget `B` for both prediction heads; faint crosses mark budgets above which the budget cannot be spent in full, so the two allocations coincide and the comparison is an identity rather than a measurement. The horizontal axis is the average per-image budget. **b**, The same
 comparison at the pre-registered budget fraction ρ = 0.5, shown separately for the two prediction heads, so
 that its horizontal axis is the head and not the budget; only the extreme budgets of panel **a** are budget
 separations, and this panel is not one of them. `N` = 548 throughout; these are exact counts, so no error

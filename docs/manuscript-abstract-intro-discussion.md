@@ -52,8 +52,7 @@ the same kind: at the default limit, the fraction of annotated objects recoverab
 23.6% on the benchmark discussed there.
 
 Those reports are consistent with a fixed output budget being able to bind. All of them act by raising the
-limit, which gives every image more boxes. None asks what follows when the limit is genuinely fixed, which
-is the situation in any deployed system with a hard quota. If the budget is fixed and the constraint binds,
+limit, which gives every image more boxes. None asks what follows when the limit is genuinely fixed, which is the situation in any deployed system with a hard quota. A concrete case is a downlink that can carry a fixed number of boxes per frame for a whole camera array, so that boxes spent on one camera are boxes denied to another. If the budget is fixed and the constraint binds,
 the distribution across images becomes a free parameter: the same total number of boxes can be spread
 evenly, concentrated on dense images, or allocated in any other way. Whether that freedom is worth
 exercising is an open question. The evaluation literature treats the output budget as a protocol constant
