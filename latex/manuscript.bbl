@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -162,6 +162,35 @@ arXiv preprint
 \endbibitem
 
 %%% 9
+\bibitem[\protect\citeauthoryear{Feng et~al.}{2020}]{cadet2020}
+\begin{botherref}
+\oauthor{\bsnm{Feng}, \binits{J.}},
+\oauthor{\bsnm{Hua}, \binits{J.}},
+\oauthor{\bsnm{Lai}, \binits{B.}},
+\oauthor{\bsnm{Huang}, \binits{J.}},
+\oauthor{\bsnm{Li}, \binits{X.}},
+\oauthor{\bsnm{Hua}, \binits{X.-s.}}:
+Learning to Generate Content-Aware Dynamic Detectors
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Liang et~al.}{2020}]{crnas2020}
+\begin{bchapter}
+\bauthor{\bsnm{Liang}, \binits{F.}},
+\bauthor{\bsnm{Lin}, \binits{C.}},
+\bauthor{\bsnm{Guo}, \binits{R.}},
+\bauthor{\bsnm{Sun}, \binits{M.}},
+\bauthor{\bsnm{Wu}, \binits{W.}},
+\bauthor{\bsnm{Yan}, \binits{J.}},
+\bauthor{\bsnm{Ouyang}, \binits{W.}}:
+\bctitle{Computation reallocation for object detection}.
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 11
 \bibitem[\protect\citeauthoryear{Wang}{2026}]{wang2026recceiling}
 \begin{botherref}
 \oauthor{\bsnm{Wang}, \binits{Z.}}:
@@ -171,7 +200,7 @@ arXiv preprint
 \end{botherref}
 \endbibitem
 
-%%% 10
+%%% 12
 \bibitem[\protect\citeauthoryear{Buckley and
   Voorhees}{2004}]{buckley2004reliability}
 \begin{bchapter}
@@ -186,7 +215,7 @@ In: \bbtitle{Proceedings of the 27th Annual International ACM SIGIR Conference
 \end{bchapter}
 \endbibitem
 
-%%% 11
+%%% 13
 \bibitem[\protect\citeauthoryear{Bertsekas and
   Gallager}{1992}]{bertsekas1992data}
 \begin{bbook}
@@ -199,7 +228,7 @@ In: \bbtitle{Proceedings of the 27th Annual International ACM SIGIR Conference
 \end{bbook}
 \endbibitem
 
-%%% 12
+%%% 14
 \bibitem[\protect\citeauthoryear{Hardy et~al.}{1934}]{hardy1934inequalities}
 \begin{bbook}
 \bauthor{\bsnm{Hardy}},
@@ -212,7 +241,7 @@ In: \bbtitle{Proceedings of the 27th Annual International ACM SIGIR Conference
 \end{bbook}
 \endbibitem
 
-%%% 13
+%%% 15
 \bibitem[\protect\citeauthoryear{Zhu et~al.}{2022}]{zhu2021visdrone}
 \begin{barticle}
 \bauthor{\bsnm{Zhu}, \binits{P.}},
@@ -229,7 +258,7 @@ In: \bbtitle{Proceedings of the 27th Annual International ACM SIGIR Conference
 \end{barticle}
 \endbibitem
 
-%%% 14
+%%% 16
 \bibitem[\protect\citeauthoryear{Jocher et~al.}{2026}]{jocher2026yolo26}
 \begin{botherref}
 \oauthor{\bsnm{Jocher}, \binits{G.}},
@@ -244,7 +273,7 @@ arXiv preprint
 \end{botherref}
 \endbibitem
 
-%%% 15
+%%% 17
 \bibitem[\protect\citeauthoryear{Shao et~al.}{2018}]{shao2019crowdhuman}
 \begin{botherref}
 \oauthor{\bsnm{Shao}, \binits{S.}},
@@ -260,7 +289,7 @@ arXiv preprint
 \end{botherref}
 \endbibitem
 
-%%% 16
+%%% 18
 \bibitem[\protect\citeauthoryear{Efron and
   Tibshirani}{1993}]{efron1993bootstrap}
 \begin{bbook}
@@ -273,7 +302,7 @@ arXiv preprint
 \end{bbook}
 \endbibitem
 
-%%% 17
+%%% 19
 \bibitem[\protect\citeauthoryear{Holm}{1979}]{holm1979}
 \begin{botherref}
 \oauthor{\bsnm{Holm}}:

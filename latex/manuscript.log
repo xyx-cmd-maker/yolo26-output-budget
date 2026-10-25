@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  25 OCT 2026 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  25 OCT 2026 20:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,15 +775,14 @@ release tag
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
 Underfull \hbox (badness 1077) in paragraph at lines 335--336
 \OT1/cmr/m/n/10 dency set is pinned in \OT1/cmtt/m/n/10 requirements.lock.txt\O
 T1/cmr/m/n/10 , gen-er-ated by \OT1/cmtt/m/n/10 pip freeze \OT1/cmr/m/n/10 in
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 341.
@@ -820,13 +819,13 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 16C157B2E6CFAA1ACCFB729F4EA61AB7;7333.
  ) 
 Here is how much of TeX's memory you used:
- 13042 strings out of 467871
- 200745 string characters out of 5417891
- 641640 words of memory out of 5000000
- 41611 multiletter control sequences out of 15000+600000
+ 13050 strings out of 467871
+ 200875 string characters out of 5417891
+ 641703 words of memory out of 5000000
+ 41617 multiletter control sequences out of 15000+600000
  644117 words of font info for 109 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,2373b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,93p,2373b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type
@@ -850,9 +849,9 @@ C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmtt9.pfb>
-Output written on manuscript.pdf (21 pages, 366829 bytes).
+Output written on manuscript.pdf (21 pages, 367799 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 500000)
  265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

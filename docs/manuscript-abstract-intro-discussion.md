@@ -59,7 +59,7 @@ exercising is an open question. The evaluation literature treats the output budg
 rather than an allocatable resource, and the allocation literature that would supply the machinery addresses
 other budgets: compute or patch selection rather than emitted boxes [densescout2026], or a
 decision-theoretic value of perception compute under a budget-constrained oracle with uniform inference as
-the baseline [decisionvalue2026]. In retrieval and recommendation, a fixed output window has been formalised
+the baseline [decisionvalue2026]. Two lines do reallocate a per-sample capacity, but of computation rather than emitted boxes: content-aware detectors give each image a data-dependent compute budget [cadet2020], and computation reallocation moves backbone FLOPs across resolutions [crnas2020]. In retrieval and recommendation, a fixed output window has been formalised
 as a deterministic ceiling on achievable ranking quality [wang2026recceiling; buckley2004reliability], but
 there the window is per query or per user, leaving no room for redistribution.
 

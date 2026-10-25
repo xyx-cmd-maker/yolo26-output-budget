@@ -99,7 +99,7 @@ reproduces its row), so it estimates the mean cost of the band and not the membe
 | densest 25% | 137 | 93–317 | 30.03% | 40.10% | **+10.07** | [+9.11,+11.07] |
 
 The gain is concentrated in the densest quartile (+10.07 points) and the loss in the sparsest images
-(−24.20 points). The sparsest band holds 27 images, so its interval is widest at 12.14 points, yet it is still bounded away from zero: the cost is present in every one of the 10,000
+(−24.20 points). The sparsest band holds 27 images, so its interval is widest at 12.14 points, yet still excludes zero: the cost is present in every one of the 10,000
 resamples. Every band's interval excludes zero, and the interval ordering matches the band ordering, so under this scheme the gradient is not an artefact of band membership. In
 VisDrone, sparse images are those containing few and comparatively large objects: mean box area is
 2.31×10⁻² of the frame in the sparsest 5% against 1.18×10⁻³ in the densest quartile, and the Spearman
@@ -174,8 +174,7 @@ for 100 epochs at 640×640 with batch size 8 on a single 8 GB consumer GPU. For 
 42, peak validation mAP50 is 0.3436 at epoch 83 and peak mAP50-95 is 0.1890 at epoch 82; the final-epoch
 values are 0.3385 and 0.1854. For seed 43 the two peaks coincide at epoch 80, at 0.3407 and 0.1858, with
 final-epoch values of 0.3365 and 0.1839. Seed 44 peaks at epoch 82, at 0.3421 and 0.1874, with final-epoch
-values of 0.3364 and 0.1838. The three seeds land within 0.3 points on mAP50 and 0.4 on mAP50-95, small relative to the between-seed spread of the allocation gain in R5b, and consistent with the effect being a property of how quotas interact with the label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline, because the published figures were produced under a different batch size and without a stated seed, so the
-comparison would not be controlled. The per-epoch curve, the environment lock, and the weight
+values of 0.3364 and 0.1838. The three seeds land within 0.3 points on mAP50 and 0.4 on mAP50-95, small relative to the between-seed spread of the allocation gain in R5b, and consistent with the effect being a property of how quotas interact with the label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline: those figures used a different batch size and no stated seed, so the comparison would not be controlled. The per-epoch curve, the environment lock, and the weight
 hashes are released with the code, and the curves for all three seeds are plotted in **Supplementary Fig. S1**.
 
 ---
@@ -226,11 +225,7 @@ worst case.
 Two things replicate exactly and one does not. The allocation-side quantities are fixed by the quota
 vector, which depends on `n_i` and the budget and not on the network weights: at `B` = 25 the uniform
 worst-image recall is 11.67% for the one-to-many head on seed 42 and 11.99% on seed 43, and 11.36% and
-11.67% respectively for the one-to-one head. The two heads are not interchangeable here, and an earlier
-draft of this section reported them as though they were. The same holds at `B ≤ 15`, where quotas of one or
-two boxes quantise per-image recall to multiples of `1/n_i` and the measured gains are identical across
-seeds to three decimals, because the detector's ordering no longer decides the minimum. Degeneracy in this
-sense is mechanical rather than statistical.
+11.67% respectively for the one-to-one head. The two heads are not interchangeable here. The same holds at `B ≤ 15`, where quotas of one or two boxes quantise per-image recall to multiples of `1/n_i` and the gains are identical across seeds, because the detector's ordering no longer decides the minimum.
 
 The zero-gain regime also replicates exactly, for the structural reasons given above: at `B` = 100 and 300
 the two quota vectors are equal on all three seeds and both heads, and at `B` = 70 the worst image is the same

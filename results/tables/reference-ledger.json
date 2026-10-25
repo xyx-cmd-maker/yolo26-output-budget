@@ -483,5 +483,46 @@
       "UAVDT"
     ],
     "title": "A Benchmark and Simulator for UAV Object Tracking"
+  },
+  {
+    "key": "cadet2020",
+    "cite": "Feng et al. (2020). Learning to Generate Content-Aware Dynamic Detectors. arXiv preprint. arXiv:2012.04265.",
+    "used": "Intro; 逐图容量自适应但在计算侧",
+    "verified": true,
+    "verification": "arXiv API 逐字核验：标题/作者/日期",
+    "year": 2020,
+    "authors": [
+      "Feng, Junyi",
+      "Hua, Jiashen",
+      "Lai, Baisheng",
+      "Huang, Jianqiang",
+      "Li, Xi",
+      "Hua, Xian-sheng"
+    ],
+    "title": "Learning to Generate Content-Aware Dynamic Detectors",
+    "venue": "arXiv preprint",
+    "id": "arXiv:2012.04265",
+    "bibtex_type": "misc"
+  },
+  {
+    "key": "crnas2020",
+    "cite": "Liang et al. (2020). Computation Reallocation for Object Detection. ICLR 2020. arXiv:1912.11234.",
+    "used": "Intro; 重分配概念但在 backbone 计算侧",
+    "verified": true,
+    "verification": "arXiv API 逐字核验：标题/作者/日期/comment 写明 ICLR2020",
+    "year": 2020,
+    "authors": [
+      "Liang, Feng",
+      "Lin, Chen",
+      "Guo, Ronghao",
+      "Sun, Ming",
+      "Wu, Wei",
+      "Yan, Junjie",
+      "Ouyang, Wanli"
+    ],
+    "title": "Computation Reallocation for Object Detection",
+    "venue": "ICLR 2020",
+    "id": "arXiv:1912.11234",
+    "bibtex_type": "inproceedings"
   }
 ]
