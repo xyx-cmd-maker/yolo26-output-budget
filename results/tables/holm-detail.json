@@ -1,0 +1,100 @@
+{
+  "family": "the ten rho-sweep conditions (5 rho x 2 heads), one-to-many and one-to-one",
+  "n_conditions": 10,
+  "alpha": 0.05,
+  "n_boot": 10000,
+  "rng_seed": 20261014,
+  "n_reject_holm": 10,
+  "rows": [
+    {
+      "condition": "o2m/rho=0.30",
+      "delta_pt": 9.727,
+      "p_raw": 0.0001,
+      "rank": 1,
+      "holm_threshold": 0.005,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2m/rho=0.40",
+      "delta_pt": 10.207,
+      "p_raw": 0.0001,
+      "rank": 2,
+      "holm_threshold": 0.005556,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2m/rho=0.50",
+      "delta_pt": 8.328,
+      "p_raw": 0.0001,
+      "rank": 3,
+      "holm_threshold": 0.00625,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2o/rho=0.30",
+      "delta_pt": 9.189,
+      "p_raw": 0.0001,
+      "rank": 4,
+      "holm_threshold": 0.007143,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2o/rho=0.40",
+      "delta_pt": 7.834,
+      "p_raw": 0.0001,
+      "rank": 5,
+      "holm_threshold": 0.008333,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2o/rho=0.60",
+      "delta_pt": 8.027,
+      "p_raw": 0.0001,
+      "rank": 6,
+      "holm_threshold": 0.01,
+      "reject": true,
+      "p_adjusted": 0.001
+    },
+    {
+      "condition": "o2o/rho=0.50",
+      "delta_pt": 5.31,
+      "p_raw": 0.0034,
+      "rank": 7,
+      "holm_threshold": 0.0125,
+      "reject": true,
+      "p_adjusted": 0.0136
+    },
+    {
+      "condition": "o2m/rho=0.60",
+      "delta_pt": 5.174,
+      "p_raw": 0.0038,
+      "rank": 8,
+      "holm_threshold": 0.016667,
+      "reject": true,
+      "p_adjusted": 0.0136
+    },
+    {
+      "condition": "o2m/rho=0.70",
+      "delta_pt": 5.352,
+      "p_raw": 0.005,
+      "rank": 9,
+      "holm_threshold": 0.025,
+      "reject": true,
+      "p_adjusted": 0.0136
+    },
+    {
+      "condition": "o2o/rho=0.70",
+      "delta_pt": 4.248,
+      "p_raw": 0.0054,
+      "rank": 10,
+      "holm_threshold": 0.05,
+      "reject": true,
+      "p_adjusted": 0.0136
+    }
+  ]
+}

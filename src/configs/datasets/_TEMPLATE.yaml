@@ -1,0 +1,29 @@
+# 数据集 YAML 模板（YOLO 格式）
+#
+# 用法：复制为 src/configs/datasets/<name>.yaml 后填写。
+# 纪律（见 AGENTS.md §3）：
+#   1. 路径一律用**相对本文件**的相对路径，禁止写 C:\Users\... 这类别机绝对路径。
+#   2. license / source_url 必填 —— 缺了 data_card.py 会报 W1 警告。
+#   3. 类别顺序一经用于训练就冻结；改顺序等于作废此前所有结果。
+
+path: ../../../data/processed/<dataset_name>   # 相对本 yaml 的数据根目录
+train: images/train
+val: images/val
+test: images/test
+
+nc: 3          # 类别数，必须与 names 长度一致
+
+names:
+  0: <class_0>
+  1: <class_1>
+  2: <class_2>
+
+# ---- 许可与溯源（data_card.py 检查）----
+license: <SPDX 或官方许可名，例如 CC-BY-4.0 / 自定义，必须可核验>
+source_url: <官方下载页或论文 DOI>
+redistributable: false   # 能否随论文附件再分发；false 时只发布下载脚本，不发布图像
+notes: >
+  原始数据来源、下载日期、预处理步骤、已知缺陷。
+
+# ---- 可选：供 data_card.py 记录 ----
+challenge: <例如 small-object / adverse-weather / occlusion>

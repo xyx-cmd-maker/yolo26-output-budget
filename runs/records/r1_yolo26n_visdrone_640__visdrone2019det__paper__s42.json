@@ -1,0 +1,82 @@
+{
+  "exp_id": "r1_yolo26n_visdrone_640",
+  "dataset": "visdrone2019det",
+  "tier": "paper",
+  "seed": 42,
+  "metrics": {
+    "precision": 0.47444097274791874,
+    "recall": 0.349418416714125,
+    "mAP50": 0.3344109674729731,
+    "mAP50-95": 0.18670084427212988,
+    "fitness": 0.18670084427212988
+  },
+  "n_images": 548,
+  "n_instances": 38759,
+  "imgsz": 640,
+  "conf": 0.001,
+  "iou": 0.7,
+  "max_det": 300,
+  "epochs": 100,
+  "batch": 8,
+  "optimizer": "auto",
+  "split": "val",
+  "weights": "runs\\train\\r1_yolo26n_visdrone_640__s42\\weights\\best.pt",
+  "weights_sha256": "0876928dd3b971504a12c212f0e1802027217519e81db9e8586a792d82afa499",
+  "eval_seconds": 72.705,
+  "notes": "",
+  "fingerprint": {
+    "timestamp_utc": "2026-10-14T21:42:44+00:00",
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "code_hash": "83d65eb46ea2655f",
+    "git": {
+      "commit": "831a906734d162eca5cec3f0e307b71eae6e4418",
+      "branch": "master",
+      "dirty": "clean"
+    },
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "ultralytics": "8.4.177",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "gpu_capability": "sm_120",
+    "gpu_total_mem_gb": 7.96,
+    "cudnn": 92400,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "extra": {
+    "train_seconds": 23966.5,
+    "speed_ms_per_image": {
+      "preprocess": 0.6252012773493201,
+      "inference": 3.2011315693756326,
+      "loss": 0.0008753648708212481,
+      "postprocess": 1.8952950730417
+    },
+    "model_cfg": "weights/yolo26n.pt",
+    "n_params": 2538260,
+    "gflops": 6.0515072,
+    "peak_gpu_mem_gb": 2.488,
+    "deterministic": true,
+    "per_class_ap": {
+      "pedestrian": 0.15433673274598095,
+      "people": 0.0979707212850421,
+      "bicycle": 0.039660993929159276,
+      "car": 0.49600185459669666,
+      "van": 0.24278183299718664,
+      "truck": 0.19901173877694606,
+      "tricycle": 0.11461939625506987,
+      "awning-tricycle": 0.06445695083573123,
+      "bus": 0.29711318106919604,
+      "motor": 0.16105504023028988
+    },
+    "per_class_ap_note": "键为类别名，值为该类 AP（与主指标同口径的聚合值由 ultralytics 给出）"
+  }
+}

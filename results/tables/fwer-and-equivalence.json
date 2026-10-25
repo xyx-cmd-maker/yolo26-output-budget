@@ -1,0 +1,228 @@
+{
+  "n_boot": 10000,
+  "rng_seed": 20261014,
+  "equivalence_margin_pt": 1.0,
+  "equivalence_margin_source": "预注册（docs/decisions.md D1b，2026-10-14）：召回与 mAP 量纲不同，mAP 的等价边界不可用于召回；取同值 0.010 以保持跨指标叙说一致",
+  "family": "the ten rho-sweep conditions (5 rho x 2 heads), one-to-many and one-to-one",
+  "tests": {
+    "o2m/rho=0.30": {
+      "delta_pt": 9.727,
+      "p_one_sided": 0.0001
+    },
+    "o2m/rho=0.40": {
+      "delta_pt": 10.207,
+      "p_one_sided": 0.0001
+    },
+    "o2m/rho=0.50": {
+      "delta_pt": 8.328,
+      "p_one_sided": 0.0001
+    },
+    "o2m/rho=0.60": {
+      "delta_pt": 5.174,
+      "p_one_sided": 0.0038
+    },
+    "o2m/rho=0.70": {
+      "delta_pt": 5.352,
+      "p_one_sided": 0.005
+    },
+    "o2o/rho=0.30": {
+      "delta_pt": 9.189,
+      "p_one_sided": 0.0001
+    },
+    "o2o/rho=0.40": {
+      "delta_pt": 7.834,
+      "p_one_sided": 0.0001
+    },
+    "o2o/rho=0.50": {
+      "delta_pt": 5.31,
+      "p_one_sided": 0.0034
+    },
+    "o2o/rho=0.60": {
+      "delta_pt": 8.027,
+      "p_one_sided": 0.0001
+    },
+    "o2o/rho=0.70": {
+      "delta_pt": 4.248,
+      "p_one_sided": 0.0054
+    }
+  },
+  "holm": {
+    "n_reject_raw": 10,
+    "n_reject_holm": 10,
+    "changes_any_decision": false,
+    "detail": {
+      "o2m/rho=0.30": {
+        "p_raw": 0.0001,
+        "rank": 1,
+        "holm_threshold": 0.005,
+        "reject": true
+      },
+      "o2m/rho=0.40": {
+        "p_raw": 0.0001,
+        "rank": 2,
+        "holm_threshold": 0.005556,
+        "reject": true
+      },
+      "o2m/rho=0.50": {
+        "p_raw": 0.0001,
+        "rank": 3,
+        "holm_threshold": 0.00625,
+        "reject": true
+      },
+      "o2o/rho=0.30": {
+        "p_raw": 0.0001,
+        "rank": 4,
+        "holm_threshold": 0.007143,
+        "reject": true
+      },
+      "o2o/rho=0.40": {
+        "p_raw": 0.0001,
+        "rank": 5,
+        "holm_threshold": 0.008333,
+        "reject": true
+      },
+      "o2o/rho=0.60": {
+        "p_raw": 0.0001,
+        "rank": 6,
+        "holm_threshold": 0.01,
+        "reject": true
+      },
+      "o2o/rho=0.50": {
+        "p_raw": 0.0034,
+        "rank": 7,
+        "holm_threshold": 0.0125,
+        "reject": true
+      },
+      "o2m/rho=0.60": {
+        "p_raw": 0.0038,
+        "rank": 8,
+        "holm_threshold": 0.016667,
+        "reject": true
+      },
+      "o2m/rho=0.70": {
+        "p_raw": 0.005,
+        "rank": 9,
+        "holm_threshold": 0.025,
+        "reject": true
+      },
+      "o2o/rho=0.70": {
+        "p_raw": 0.0054,
+        "rank": 10,
+        "holm_threshold": 0.05,
+        "reject": true
+      }
+    }
+  },
+  "tost": {
+    "o2m/rho=0.30": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 0.771,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.35113,
+      "ci_pt": [
+        -0.4,
+        1.943
+      ],
+      "margin_pt": 1.0
+    },
+    "o2m/rho=0.40": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.166,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.59802,
+      "ci_pt": [
+        -0.145,
+        2.478
+      ],
+      "margin_pt": 1.0
+    },
+    "o2m/rho=0.50": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.38,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.71101,
+      "ci_pt": [
+        0.041,
+        2.719
+      ],
+      "margin_pt": 1.0
+    },
+    "o2m/rho=0.60": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.334,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.69655,
+      "ci_pt": [
+        0.063,
+        2.605
+      ],
+      "margin_pt": 1.0
+    },
+    "o2m/rho=0.70": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.063,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.54298,
+      "ci_pt": [
+        -0.08,
+        2.206
+      ],
+      "margin_pt": 1.0
+    },
+    "o2o/rho=0.30": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 0.738,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.32599,
+      "ci_pt": [
+        -0.401,
+        1.876
+      ],
+      "margin_pt": 1.0
+    },
+    "o2o/rho=0.40": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.241,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.64348,
+      "ci_pt": [
+        -0.043,
+        2.525
+      ],
+      "margin_pt": 1.0
+    },
+    "o2o/rho=0.50": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.401,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.72541,
+      "ci_pt": [
+        0.09,
+        2.712
+      ],
+      "margin_pt": 1.0
+    },
+    "o2o/rho=0.60": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.329,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.69671,
+      "ci_pt": [
+        0.078,
+        2.579
+      ],
+      "margin_pt": 1.0
+    },
+    "o2o/rho=0.70": {
+      "quantity": "micro (aggregate TP rate)",
+      "dmicro_pt": 1.133,
+      "equivalent_at_pre_registered_margin": false,
+      "p_tost": 0.58984,
+      "ci_pt": [
+        -0.011,
+        2.277
+      ],
+      "margin_pt": 1.0
+    }
+  }
+}

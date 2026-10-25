@@ -1,0 +1,45 @@
+# 数据集：roadside125（自建路侧监控抽帧集）
+#
+# ⚠️ 这个数据集**只能用于 tier=pilot 及以下**。原因见 notes。
+# 由 `src/datasets/temporal_split.py` 生成时间切分（杜绝帧间近重复泄漏）。
+
+name: roadside125
+path: D:/Deepseek Harness/yolo/ultralytics-main/images/dataset125/temporal_split
+train: images/train
+val: images/val
+test: images/test
+
+nc: 3
+names:
+  0: Deceleration_sign
+  1: Pedestrian
+  2: TrafficLight
+
+# ---- 许可与溯源（data_card.py 检查）----
+license: UNKNOWN_SELF_COLLECTED
+source_url: self-collected; origin camera/system unrecorded
+redistributable: false
+notes: >
+  【来源】125 张 1280x720 路侧监控抽帧，原文件名 image_<毫秒时间戳>_<序号>.jpeg。
+  时间跨度仅 73.7 秒，相邻帧间隔中位 80 ms（约 12.5 fps）→ **本质上是一段 10 秒级视频**，
+  不是 125 个独立场景。
+
+  【★ 已知严重缺陷：原切分有帧间近重复泄漏】
+  数据集自带的 new_data/ 切分是随机打散的。实测（2026-10-14）：
+    124 个相邻帧对中 63 对跨越不同切分；其中 54 对 Δt <= 200 ms；
+    跨切分近重复（dHash 汉明距离 <= 6）64 对，最小距离 0（两图哈希完全相同）。
+  → 在原切分上报的任何指标测的是"记忆"而非"泛化"，**不可发表**。
+  本 yaml 指向 temporal_split/，为按时间整体切分 + 段间 2 秒 gap 的结果，
+  泄漏复查 PASS（0 跨切分近重复、0 过近时间对）。
+
+  【规模与不平衡】时间切分后 train 81 / val 7 / test 18 图。
+  test 集中 Deceleration_sign 仅 3 个框，而 Pedestrian 24、TrafficLight 13 →
+  **逐类指标不可靠**，尤其 Deceleration_sign 的 AP 无统计意义。
+
+  【结论】本数据集仅可用于：管线验证（tier=smoke）、零点基线（tier=pilot）、
+  以及作为"小样本 / 帧间泄漏"的案例研究。**不得**用于支撑论文的主结果。
+  主结果需要另一份有独立场景的数据集。
+
+  【未解决】原始相机、采集时间、被摄者同意与个人信息（车牌/人脸）状态均未知；
+  图像为真实街道场景，可能涉及可识别个体与车牌 → 再分发风险高，故
+  redistributable: false。

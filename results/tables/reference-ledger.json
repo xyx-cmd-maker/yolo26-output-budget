@@ -1,0 +1,487 @@
+[
+  {
+    "key": "lin2014coco",
+    "cite": "Lin et al. (2014). Microsoft COCO: Common Objects in Context. ECCV. 10.1007/978-3-319-10602-1_48.",
+    "used": "Intro; 协议 maxDets",
+    "verified": true,
+    "year": 2014,
+    "authors": [
+      "Lin, Tsung-Yi",
+      "Maire, Michael",
+      "Belongie, Serge",
+      "Hays, James",
+      "Perona, Pietro",
+      "Ramanan, Deva",
+      "Dollár, Piotr",
+      "Zitnick, C. Lawrence"
+    ],
+    "title": "Microsoft COCO: Common Objects in Context",
+    "venue": "ECCV",
+    "doi": "10.1007/978-3-319-10602-1_48",
+    "authors_short": [
+      "Lin et al"
+    ],
+    "_authors_source": "Crossref 10.1007/978-3-319-10602-1_48",
+    "_verified_2026_10_16": "作者列表取自 Crossref 10.1007/978-3-319-10602-1_48（8 位）",
+    "bibtex_type": "inproceedings",
+    "bibtex_venue_field": "booktitle",
+    "bibtex_venue_value": "Computer Vision -- ECCV 2014"
+  },
+  {
+    "key": "gupta2019lvis",
+    "cite": "Gupta, Dollár & Girshick (2019). LVIS: A Dataset for Large Vocabulary Instance Segmentation. CVPR.",
+    "id": "10.1109/CVPR.2019.00550",
+    "used": "Intro; max_dets=300",
+    "verified": true,
+    "year": 2019,
+    "authors": [
+      "Gupta, Agrim",
+      "Dollar, Piotr",
+      "Girshick, Ross"
+    ],
+    "title": "LVIS: A Dataset for Large Vocabulary Instance Segmentation",
+    "venue": "CVPR",
+    "doi": "10.1109/CVPR.2019.00550",
+    "_verified_2026_10_16": "Crossref 检索确认；标题与作者（Gupta, Dollár, Girshick）一致 | 作者列表取自 Crossref 10.1109/CVPR.2019.00550（3 位）",
+    "authors_short": [
+      "Gupta et al"
+    ],
+    "_authors_source": "Crossref 10.1109/CVPR.2019.00550",
+    "bibtex_type": "inproceedings",
+    "bibtex_venue_field": "booktitle",
+    "bibtex_venue_value": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+  },
+  {
+    "key": "zhu2021visdrone",
+    "cite": "Zhu et al. (2022). Detection and Tracking Meet Drones Challenge. IEEE TPAMI. 10.1109/TPAMI.2021.3119563.",
+    "used": "数据集",
+    "verified": true,
+    "year": 2022,
+    "authors": [
+      "Zhu, Pengfei",
+      "Wen, Longyin",
+      "Du, Dawei",
+      "Bian, Xiao",
+      "Fan, Heng",
+      "Hu, Qinghua",
+      "Ling, Haibin"
+    ],
+    "title": "Detection and Tracking Meet Drones Challenge",
+    "venue": "IEEE TPAMI",
+    "doi": "10.1109/TPAMI.2021.3119563",
+    "_verified_2026_10_16": "Crossref: issued/published-print = 2022-11-01。此前记 2021（数据集首发年份），但与 TPAMI 正式出版年不符，已改为 2022 | 作者列表取自 Crossref 10.1109/TPAMI.2021.3119563（7 位）",
+    "authors_short": [
+      "Zhu et al"
+    ],
+    "_authors_source": "Crossref 10.1109/TPAMI.2021.3119563",
+    "bibtex_type": "article",
+    "bibtex_venue_field": "journal",
+    "bibtex_venue_value": "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+  },
+  {
+    "key": "shao2019crowdhuman",
+    "cite": "Shao et al. (2018). CrowdHuman: A Benchmark for Detecting Human in a Crowd.",
+    "id": "arXiv:1805.00123",
+    "used": "数据集",
+    "verified": true,
+    "authors": [
+      "Shao, Shuai",
+      "Zhao, Zijian",
+      "Li, Boxun",
+      "Xiao, Tete",
+      "Yu, Gang",
+      "Zhang, Xiangyu",
+      "Sun, Jian"
+    ],
+    "year": 2018,
+    "title": "CrowdHuman: A Benchmark for Detecting Human in a Crowd",
+    "venue": "arXiv preprint",
+    "_note": "venue/id 于 2026-10-16 补齐：CrowdHuman 长期以 arXiv 预印本流通",
+    "authors_short": [
+      "Shao et al"
+    ],
+    "_authors_source": "arXiv arXiv:1805.00123",
+    "_verified_2026_10_16": "作者列表取自 arXiv arXiv:1805.00123（7 位）",
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "jocher2026yolo26",
+    "cite": "Jocher et al. (2026). Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models. arXiv preprint. arXiv:2606.03748.",
+    "used": "检测器（标注为预印本）",
+    "verified": true,
+    "year": 2026,
+    "authors": [
+      "Jocher, Glenn",
+      "Qiu, Jing",
+      "Liu, Mengyu",
+      "Lyu, Shuai",
+      "Akyon, Fatih Cagatay",
+      "Kalfaoglu, Muhammet Esat"
+    ],
+    "title": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+    "venue": "arXiv preprint",
+    "id": "arXiv:2606.03748",
+    "_verified_2026_10_16": "标题由 arXiv API 取回，纠正此前不完整的 'YOLO26' | 作者列表取自 arXiv arXiv:2606.03748（6 位） | 作者列表取自 arXiv arXiv:2606.03748（6 位）",
+    "authors_short": [
+      "Jocher et al"
+    ],
+    "_authors_source": "arXiv arXiv:2606.03748",
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "dave2021devil",
+    "cite": "Dave, Dollár, Ramanan, Kirillov & Girshick (2021). Evaluating Large-Vocabulary Object Detectors: The Devil is in the Details. arXiv preprint.",
+    "id": "arXiv:2102.01066",
+    "used": "★★ **最直接的先例**：LVIS Table 2 —— `dets/im` 300→10,000 使 AP 22.6→26.1、稀有类 AP_r **12.6→19.8（+7.2）**；而 **COCO 无影响**。这是「预算咬合 ⇒ 加预算有用」的实证。★ 但他们是**全局增加**预算，本文是**在固定总预算下跨图重新分配**（不同干预）",
+    "verified": true,
+    "year": 2021,
+    "authors": [
+      "Dave, Achal",
+      "Dollár, Piotr",
+      "Ramanan, Deva",
+      "Kirillov, Alexander",
+      "Girshick, Ross"
+    ],
+    "title": "Evaluating Large-Vocabulary Object Detectors: The Devil is in the Details",
+    "venue": "arXiv preprint",
+    "authors_short": [
+      "Dave et al"
+    ],
+    "_authors_source": "arXiv arXiv:2102.01066",
+    "_verified_2026_10_16": "作者列表取自 arXiv arXiv:2102.01066（5 位）",
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "oksuz2022lrp",
+    "cite": "Oksuz, Cam, Kalkan & Akbas (2022). One Metric to Measure them All: Localisation Recall Precision (LRP) for Evaluating Visual Detection Tasks. IEEE TPAMI.",
+    "id": "10.1109/TPAMI.2021.3130188",
+    "used": "oLRP 对 dets/im 的敏感性（§VII-D1、Table VIII：oLRP 79.8→79.1→78.4）",
+    "verified": true,
+    "year": 2022,
+    "authors": [
+      "Oksuz, Kemal",
+      "Cam, Baris Can",
+      "Kalkan, Sinan",
+      "Akbas, Emre"
+    ],
+    "title": "One Metric to Measure them All: Localisation Recall Precision (LRP) for Evaluating Visual Detection Tasks",
+    "venue": "IEEE TPAMI",
+    "doi": "10.1109/TPAMI.2021.3130188",
+    "_verified_2026_10_16": "Crossref 检索确认；标题与作者（Oksuz, Cam, Kalkan）一致 | 作者列表取自 Crossref 10.1109/TPAMI.2021.3130188（4 位）",
+    "authors_short": [
+      "Oksuz et al"
+    ],
+    "_authors_source": "Crossref 10.1109/TPAMI.2021.3130188",
+    "bibtex_type": "article",
+    "bibtex_venue_field": "journal",
+    "bibtex_venue_value": "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+  },
+  {
+    "key": "fu2021lvis",
+    "cite": "Fu, Nie, Sun, Liu, Zhang & Liu (2021). LVIS Challenge Track Technical Report 1st Place Solution: Distribution Balanced and Boundary Refinement for Large Vocabulary Instance Segmentation. arXiv preprint.",
+    "id": "arXiv:2111.02668",
+    "used": "★ 第三条独立证据：Table 5 —— `max_per_img` 300→1000 使 Boundary AP **44.1→45.3**、AP_r **40.4→43.5**；原文「there is no limit on the number of detections per image」。★ 注意其标题里的 **「Distribution Balanced」是长尾类别平衡**（dataset+loss balanced），**不是跨图分配** —— 不要误引",
+    "verified": true,
+    "year": 2021,
+    "authors": [
+      "Fu, WeiFu",
+      "Nie, CongChong",
+      "Sun, Ting",
+      "Liu, Jun",
+      "Zhang, TianLiang",
+      "Liu, Yong"
+    ],
+    "title": "LVIS Challenge Track Technical Report 1st Place Solution: Distribution Balanced and Boundary Refinement for Large Vocabulary Instance Segmentation",
+    "venue": "arXiv preprint",
+    "authors_short": [
+      "Fu et al"
+    ],
+    "_authors_source": "arXiv arXiv:2111.02668",
+    "_verified_2026_10_16": "作者列表取自 arXiv arXiv:2111.02668（6 位）",
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "krichene2020sampled",
+    "cite": "Krichene & Rendle (2020). On Sampled Metrics for Item Recommendation. KDD.",
+    "id": null,
+    "used": "采样指标偏差；top-k 截断的邻域",
+    "verified": true,
+    "year": 2020,
+    "authors": [
+      "Krichene, Walid",
+      "Rendle, Steffen"
+    ],
+    "title": "On Sampled Metrics for Item Recommendation",
+    "venue": "KDD",
+    "doi": "10.1145/3394486.3403226",
+    "authors_short": [
+      "Krichene",
+      "Rendle"
+    ],
+    "_authors_source": "Crossref 10.1145/3394486.3403226",
+    "_verified_2026_10_16": "作者列表取自 Crossref 10.1145/3394486.3403226（2 位）",
+    "bibtex_type": "inproceedings",
+    "bibtex_venue_field": "booktitle",
+    "bibtex_venue_value": "Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD)"
+  },
+  {
+    "key": "buckley2004reliability",
+    "cite": "Buckley & Voorhees (2004). Retrieval Evaluation with Incomplete Information. SIGIR.",
+    "id": null,
+    "used": "IR 池化的**认识论**上界",
+    "verified": true,
+    "year": 2004,
+    "authors": [
+      "Buckley, Chris",
+      "Voorhees, Ellen M."
+    ],
+    "title": "Retrieval Evaluation with Incomplete Information",
+    "venue": "SIGIR",
+    "doi": "10.1145/1008992.1009000",
+    "authors_short": [
+      "Buckley",
+      "Voorhees"
+    ],
+    "_authors_source": "Crossref 10.1145/1008992.1009000",
+    "_verified_2026_10_16": "作者列表取自 Crossref 10.1145/1008992.1009000（2 位）",
+    "bibtex_type": "inproceedings",
+    "bibtex_venue_field": "booktitle",
+    "bibtex_venue_value": "Proceedings of the 27th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval"
+  },
+  {
+    "key": "wang2026recceiling",
+    "cite": "Wang (2026). The Recall Ceiling of LLM Recommendation Reranking. arXiv preprint; stated CIKM '26.",
+    "id": "arXiv:2609.27953",
+    "used": "★ 最接近：Theorem 1 `E[NDCG@k] <= Recall@|W_pi|`；**DOI 在 Crossref 404**，须标预印本",
+    "verified": true,
+    "year": 2026,
+    "authors": [
+      "Wang, Zhaohui"
+    ],
+    "title": "The Recall Ceiling of LLM Recommendation Reranking",
+    "venue": "arXiv preprint; stated CIKM '26",
+    "authors_short": [
+      "Wang"
+    ],
+    "_authors_source": "arXiv arXiv:2609.27953",
+    "_verified_2026_10_16": "作者列表取自 arXiv arXiv:2609.27953（1 位）",
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "decisionvalue2026",
+    "cite": "Pham Cong, H., & Luong, H. V. D. (2026). The Decision Value of Perception Compute. arXiv:2609.35910.",
+    "id": "arXiv:2609.35910",
+    "used": "★ 已提出「分配应对照预算约束下的 oracle 判定，uniform 作基线」",
+    "verified": true,
+    "authors": [
+      "Pham Cong, H.",
+      "Luong, H. V. D."
+    ],
+    "venue_status": "arXiv preprint (no DOI / journal_ref as of 2026-10-16)",
+    "year": 2026,
+    "title": "The Decision Value of Perception Compute",
+    "venue": "arXiv preprint",
+    "authors_full_from_arxiv": [
+      "Hoang Pham Cong",
+      "Ho Viet Duc Luong"
+    ],
+    "authors_short": [
+      "Pham Cong",
+      "Luong"
+    ],
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "arXiv preprint"
+  },
+  {
+    "key": "densescout2026",
+    "cite": "Xiong, Z., Zeng, Z., Chen, Y., Xu, S., Yan, Y., & Qi, D. (2026). DenseScout: Algorithm-System Co-design for Budgeted Tiny Object Selection on Edge Platforms. ACM Multimedia 2026 (accepted). arXiv:2604.25300.",
+    "id": "arXiv:2604.25300",
+    "used": "预算化 patch 选择（非输出单元分配）",
+    "verified": true,
+    "authors": [
+      "Xiong, Z.",
+      "Zeng, Z.",
+      "Chen, Y.",
+      "Xu, S.",
+      "Yan, Y.",
+      "Qi, D."
+    ],
+    "venue_status": "PEER-REVIEWED: accepted at ACM Multimedia 2026 (DOI 10.1145/3767308.3836001); arXiv comment states camera-ready",
+    "year": 2026,
+    "title": "DenseScout: Algorithm-System Co-design for Budgeted Tiny Object Selection on Edge Platforms",
+    "venue": "ACM Multimedia 2026 (accepted)",
+    "doi": null,
+    "authors_full_from_arxiv": [
+      "Zhouzhi Xiong",
+      "Zimo Zeng",
+      "Yi Chen",
+      "Shuqi Xu",
+      "Yunfeng Yan",
+      "Donglian Qi"
+    ],
+    "_verified_2026_10_16": "arXiv 元数据的 arxiv:doi 声称 10.1145/3767308.3836001，但该 DOI 在 Crossref、DataCite、doi.org 三处**全部 404**（ACM 尚未注册该 proceedings）。**不可解析的 DOI 不能进投稿件** → 改用 arXiv id + 会议接受状态",
+    "authors_short": [
+      "Xiong et al"
+    ],
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "ACM Multimedia 2026 (accepted); arXiv preprint"
+  },
+  {
+    "key": "ultralytics_issue25992",
+    "cite": "Ultralytics (2026). Issue #25992: Platform xView dataset makes most targets tiny and caps validation recall at 23.6%. GitHub issue, Ultralytics repository. https://github.com/ultralytics/ultralytics/issues/25992.",
+    "id": "https://github.com/ultralytics/ultralytics/issues/25992",
+    "used": "工程侧已记录同一上界（非同行评议）",
+    "verified": true,
+    "authors": [
+      "Ultralytics"
+    ],
+    "year": 2026,
+    "title": "Platform xView dataset makes most targets tiny and caps validation recall at 23.6%",
+    "venue": "GitHub issue, Ultralytics repository",
+    "_note": "非同行评审来源，手稿已如实标注",
+    "_verified_2026_10_16": "标题由 GitHub REST API 取回（state=closed，created 2026-08-29）。此前登记为简写；实际是 xView 数据集的聚合标签计数上界，手稿已如实写成 an aggregate ceiling（非 deployment 测量）",
+    "authors_short": [
+      "Ultralytics"
+    ],
+    "bibtex_type": "misc",
+    "bibtex_venue_field": "note",
+    "bibtex_venue_value": "GitHub issue, Ultralytics repository"
+  },
+  {
+    "key": "hardy1934inequalities",
+    "cite": "Hardy, Littlewood & Polya (1934). Inequalities. Cambridge University Press.",
+    "id": "ISBN 978-0521358806",
+    "used": "重排不等式（Progressive filling 的理论工具）",
+    "verified": true,
+    "year": 1934,
+    "authors": [
+      "Hardy",
+      "Littlewood",
+      "Polya"
+    ],
+    "title": "Inequalities",
+    "venue": "Cambridge University Press",
+    "authors_short": [
+      "Hardy",
+      "Littlewood",
+      "Polya"
+    ],
+    "bibtex_type": "book",
+    "bibtex_venue_field": "publisher",
+    "bibtex_venue_value": "Cambridge University Press"
+  },
+  {
+    "key": "bertsekas1992data",
+    "cite": "Bertsekas & Gallager (1992). Data Networks (2nd ed.). Prentice Hall.",
+    "id": "ISBN 978-0132009241",
+    "used": "max-min fair allocation / progressive filling 的教科书来源",
+    "verified": true,
+    "year": 1992,
+    "authors": [
+      "Bertsekas",
+      "Gallager"
+    ],
+    "title": "Data Networks (2nd ed.)",
+    "venue": "Prentice Hall",
+    "authors_short": [
+      "Bertsekas",
+      "Gallager"
+    ],
+    "bibtex_type": "book",
+    "bibtex_venue_field": "publisher",
+    "bibtex_venue_value": "Prentice Hall"
+  },
+  {
+    "key": "efron1993bootstrap",
+    "cite": "Efron & Tibshirani (1993). An Introduction to the Bootstrap. Chapman & Hall.",
+    "id": "ISBN 978-0412042317",
+    "used": "配对 bootstrap",
+    "verified": true,
+    "year": 1993,
+    "authors": [
+      "Efron",
+      "Tibshirani"
+    ],
+    "title": "An Introduction to the Bootstrap",
+    "venue": "Chapman & Hall",
+    "authors_short": [
+      "Efron",
+      "Tibshirani"
+    ],
+    "bibtex_type": "book",
+    "bibtex_venue_field": "publisher",
+    "bibtex_venue_value": "Chapman & Hall"
+  },
+  {
+    "key": "holm1979",
+    "cite": "Holm (1979). A Simple Sequentially Rejective Multiple Test Procedure. Scand. J. Stat. 6(2), 65-70.",
+    "id": "JSTOR:4615733",
+    "used": "多重比较",
+    "verified": true,
+    "year": 1979,
+    "authors": [
+      "Holm"
+    ],
+    "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "venue": "Scand. J. Stat. 6(2), 65-70",
+    "authors_short": [
+      "Holm"
+    ],
+    "bibtex_type": "article",
+    "bibtex_venue_field": "journal",
+    "bibtex_venue_value": "Scandinavian Journal of Statistics"
+  },
+  {
+    "key": "mitchell2019modelcards",
+    "cite": "Mitchell et al. (2019). Model Cards for Model Reporting. FAT*. 10.1145/3287560.3287596.",
+    "used": "模型卡",
+    "verified": true,
+    "year": 2019,
+    "authors": [
+      "Mitchell, Margaret",
+      "Wu, Simone",
+      "Zaldivar, Andrew",
+      "Barnes, Parker",
+      "Vasserman, Lucy",
+      "Hutchinson, Ben",
+      "Spitzer, Elena",
+      "Raji, Inioluwa Deborah",
+      "Gebru, Timnit"
+    ],
+    "title": "Model Cards for Model Reporting",
+    "venue": "FAT*",
+    "doi": "10.1145/3287560.3287596",
+    "authors_short": [
+      "Mitchell et al"
+    ],
+    "_authors_source": "Crossref 10.1145/3287560.3287596",
+    "_verified_2026_10_16": "作者列表取自 Crossref 10.1145/3287560.3287596（9 位）",
+    "bibtex_type": "inproceedings",
+    "bibtex_venue_field": "booktitle",
+    "bibtex_venue_value": "Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT*)"
+  },
+  {
+    "key": "[待补]UAVDT",
+    "cite": "UAVDT (2018). A Benchmark and Simulator for UAV Object Tracking.",
+    "id": "10.1109/CVPR.2018.00510",
+    "used": "第四数据集候选（本轮通道不通）",
+    "verified": false,
+    "year": 2018,
+    "authors": [
+      "UAVDT"
+    ],
+    "title": "A Benchmark and Simulator for UAV Object Tracking"
+  }
+]

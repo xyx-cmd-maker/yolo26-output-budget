@@ -1,0 +1,45 @@
+# 实验配置：p02_yolo26n_roadside125
+#
+# 档位 pilot：真实数据，但规模（125 帧 / 10 秒视频）不足以支撑论文主张。
+# 按 AGENTS.md §2，pilot 档**不得**进入任何对外文本的结论。
+#
+# 目的：在真实交通场景数据上验证整个管线（转换→体检→训练→评测→记录→聚合→检验），
+#       并取得 YOLO26n 在本数据上的**首个可信基线**（时间切分，无帧间泄漏）。
+exp_id: p02_yolo26n_roadside125
+data: src/configs/datasets/roadside125.yaml
+model: weights/yolo26n.pt          # 官方预训练权重（镜像下载，见 scripts/fetch_weights.py）
+tier: pilot
+seeds: [0, 1, 2]
+
+imgsz: 640
+epochs: 100
+batch: 8
+device: "0"
+optimizer: auto                    # ultralytics 会按迭代数选 MuSGD/AdamW
+deterministic: true                # ★ 顶层键（不是 train_args 的），由 run.py 显式传给 train()
+
+train_args:
+  # 小数据集必须有强增强，否则 100 epoch 内就过拟合
+  mosaic: 1.0
+  close_mosaic: 10
+  mixup: 0.1
+  copy_paste: 0.0
+  degrees: 5.0
+  translate: 0.1
+  scale: 0.5
+  fliplr: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  patience: 30                     # 小数据集早停，省算力
+  workers: 2                       # ★ Windows + 8GB 卡：实测 workers=4 并发时会因
+                                   #   系统 RAM 耗尽而崩（OpenCV Insufficient memory）。
+                                   #   2 是本机验证可行的值；不要与其他训练/评测并发跑。
+
+val_args:
+  # ★ 必须显式冻结评测协议，否则记录里 conf/iou/max_det 为 null，别人无法复现
+  conf: 0.001
+  iou: 0.7
+  max_det: 300
+  # 同时评 one-to-one（NMS-free）头，用于双头对比
+  # 注意：ultralytics 的 val 每次只用一个头，另一头由 p03 单独跑

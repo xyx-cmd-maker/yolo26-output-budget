@@ -1,0 +1,12 @@
+{
+  "o2m": {
+    "nondeg": 5,
+    "regime": 5,
+    "sign": 5
+  },
+  "o2o": {
+    "nondeg": 5,
+    "regime": 5,
+    "sign": 5
+  }
+}

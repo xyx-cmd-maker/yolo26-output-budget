@@ -1,0 +1,61 @@
+{
+  "source": "data/processed/visdrone/labels/val (VisDrone2019-DET validation)",
+  "n_images": 548,
+  "area_unit": "normalised (YOLO w*h as fraction of image area; image size not used)",
+  "spearman_n_vs_mean_box_area": -0.4596,
+  "sparsest5_mean_box_area_norm": 0.023139,
+  "densest25_mean_box_area_norm": 0.001179,
+  "quintiles": [
+    {
+      "quintile": 1,
+      "n_images": 27,
+      "n_range": [
+        1.0,
+        9.0
+      ],
+      "mean_n": 5.851852,
+      "mean_box_area_norm": 0.023139
+    },
+    {
+      "quintile": 2,
+      "n_images": 110,
+      "n_range": [
+        10.0,
+        39.0
+      ],
+      "mean_n": 24.790909,
+      "mean_box_area_norm": 0.004109
+    },
+    {
+      "quintile": 3,
+      "n_images": 137,
+      "n_range": [
+        40.0,
+        65.0
+      ],
+      "mean_n": 52.781022,
+      "mean_box_area_norm": 0.001771
+    },
+    {
+      "quintile": 4,
+      "n_images": 137,
+      "n_range": [
+        65.0,
+        93.0
+      ],
+      "mean_n": 78.883212,
+      "mean_box_area_norm": 0.001439
+    },
+    {
+      "quintile": 5,
+      "n_images": 137,
+      "n_range": [
+        93.0,
+        317.0
+      ],
+      "mean_n": 130.189781,
+      "mean_box_area_norm": 0.001179
+    }
+  ],
+  "sparsest5_over_densest25_area_ratio": 19.6197
+}

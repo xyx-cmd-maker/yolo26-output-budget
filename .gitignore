@@ -1,0 +1,72 @@
+# ---- 数据：一律不入库 ----
+data/raw/
+data/interim/
+data/processed/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# ---- 权重：不入库（用 scripts/download_weights.* 重建）----
+*.pt
+*.pth
+*.onnx
+*.engine
+*.mlpackage
+*.tflite
+results/checkpoints/*
+!results/checkpoints/.gitkeep
+
+# ---- 运行产物 ----
+# ★ 注意：runs/records/ 与 runs/aggregated/ 是 AGENTS.md §0.2 指定的
+#   "数字唯一来源"，**必须纳入版本控制**（下方用 ! 开白名单）。
+#   被忽略的只是权重、日志、可视化这些可由记录重生成的中间产物。
+runs/*
+!runs/.gitkeep
+!runs/records/
+!runs/aggregated/
+runs/**/weights/
+logs/*
+!logs/.gitkeep
+wandb/
+
+# ---- 探针与临时 ----
+.probe/
+*.tmp
+*.blob
+# 冒烟/推理残留：ultralytics 会把裸文件名权重与源图下到 CWD
+/bus.jpg
+/yolo*.pt
+/zad*
+
+# ---- 权重 ----
+weights/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+~$*
+
+# ---- ݼز ----
+data/raw/**
+*.part
+
+# internal working notes (not part of the released artefact)
+AGENTS*.md
+docs/
+literature/

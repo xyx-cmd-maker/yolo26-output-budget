@@ -1,0 +1,154 @@
+{
+  "data": "data/processed/visdrone/visdrone.yaml",
+  "note": "全部为确定性算术，无估计量、无随机性",
+  "splits": {
+    "val": {
+      "density": {
+        "n_images": 548,
+        "n_boxes": 38759,
+        "median": 65,
+        "p90": 125,
+        "p99": 212,
+        "max": 317,
+        "mean": 70.73
+      },
+      "rows": [
+        {
+          "B": 1,
+          "ceiling_uniform": 0.01414,
+          "ceiling_alloc": 0.01414,
+          "delta_nontrivial": 0.0,
+          "B_star": 1,
+          "frac_images_capped": 0.9964,
+          "frac_images_saturated": 0.0036
+        },
+        {
+          "B": 2,
+          "ceiling_uniform": 0.02823,
+          "ceiling_alloc": 0.02828,
+          "delta_nontrivial": 5e-05,
+          "B_star": 2,
+          "frac_images_capped": 0.9927,
+          "frac_images_saturated": 0.0073
+        },
+        {
+          "B": 3,
+          "ceiling_uniform": 0.04226,
+          "ceiling_alloc": 0.04242,
+          "delta_nontrivial": 0.00015,
+          "B_star": 3,
+          "frac_images_capped": 0.9891,
+          "frac_images_saturated": 0.0109
+        },
+        {
+          "B": 5,
+          "ceiling_uniform": 0.07013,
+          "ceiling_alloc": 0.07069,
+          "delta_nontrivial": 0.00057,
+          "B_star": 5,
+          "frac_images_capped": 0.9799,
+          "frac_images_saturated": 0.0201
+        },
+        {
+          "B": 8,
+          "ceiling_uniform": 0.11148,
+          "ceiling_alloc": 0.11311,
+          "delta_nontrivial": 0.00163,
+          "B_star": 8,
+          "frac_images_capped": 0.9599,
+          "frac_images_saturated": 0.0401
+        },
+        {
+          "B": 12,
+          "ceiling_uniform": 0.16502,
+          "ceiling_alloc": 0.16966,
+          "delta_nontrivial": 0.00464,
+          "B_star": 12,
+          "frac_images_capped": 0.9288,
+          "frac_images_saturated": 0.0712
+        },
+        {
+          "B": 20,
+          "ceiling_uniform": 0.26711,
+          "ceiling_alloc": 0.28277,
+          "delta_nontrivial": 0.01566,
+          "B_star": 21,
+          "frac_images_capped": 0.8759,
+          "frac_images_saturated": 0.1241
+        },
+        {
+          "B": 30,
+          "ceiling_uniform": 0.3875,
+          "ceiling_alloc": 0.42416,
+          "delta_nontrivial": 0.03666,
+          "B_star": 33,
+          "frac_images_capped": 0.8193,
+          "frac_images_saturated": 0.1807
+        },
+        {
+          "B": 50,
+          "ceiling_uniform": 0.59733,
+          "ceiling_alloc": 0.70693,
+          "delta_nontrivial": 0.1096,
+          "B_star": 63,
+          "frac_images_capped": 0.6478,
+          "frac_images_saturated": 0.3522
+        },
+        {
+          "B": 75,
+          "ceiling_uniform": 0.78526,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.21474,
+          "B_star": 317,
+          "frac_images_capped": 0.4124,
+          "frac_images_saturated": 0.5876
+        },
+        {
+          "B": 100,
+          "ceiling_uniform": 0.8903,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.1097,
+          "B_star": 317,
+          "frac_images_capped": 0.1953,
+          "frac_images_saturated": 0.8047
+        },
+        {
+          "B": 150,
+          "ceiling_uniform": 0.96468,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.03532,
+          "B_star": 317,
+          "frac_images_capped": 0.0547,
+          "frac_images_saturated": 0.9453
+        },
+        {
+          "B": 200,
+          "ceiling_uniform": 0.98852,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.01148,
+          "B_star": 317,
+          "frac_images_capped": 0.0146,
+          "frac_images_saturated": 0.9854
+        },
+        {
+          "B": 300,
+          "ceiling_uniform": 0.99912,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.00088,
+          "B_star": 317,
+          "frac_images_capped": 0.0055,
+          "frac_images_saturated": 0.9945
+        },
+        {
+          "B": 500,
+          "ceiling_uniform": 1.0,
+          "ceiling_alloc": 1.0,
+          "delta_nontrivial": 0.0,
+          "B_star": 317,
+          "frac_images_capped": 0.0,
+          "frac_images_saturated": 1.0
+        }
+      ]
+    }
+  }
+}

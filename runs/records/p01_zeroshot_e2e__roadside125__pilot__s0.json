@@ -1,0 +1,68 @@
+{
+  "exp_id": "p01_zeroshot_e2e",
+  "dataset": "roadside125",
+  "tier": "pilot",
+  "seed": 0,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "mAP50": 0.0,
+    "mAP50-95": 0.0,
+    "fitness": 0.0
+  },
+  "n_images": 18,
+  "n_instances": null,
+  "imgsz": 640,
+  "conf": 0.001,
+  "iou": 0.7,
+  "max_det": 300,
+  "epochs": null,
+  "batch": 1,
+  "optimizer": "NONE_zero_shot",
+  "split": "test",
+  "weights": "D:\\Deepseek Harness\\yolo\\yolo26-detection\\weights\\yolo26n.pt",
+  "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "eval_seconds": 29.979,
+  "notes": "zero-shot; nms_free=True",
+  "fingerprint": {
+    "timestamp_utc": "2026-10-14T11:59:37+00:00",
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "code_hash": "99b195a026dd332e",
+    "git": {
+      "commit": "9321740aa4abc2b82549b60b5df220796b737136",
+      "branch": "master",
+      "dirty": "dirty"
+    },
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "ultralytics": "8.4.177",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "gpu_capability": "sm_120",
+    "gpu_total_mem_gb": 7.96,
+    "cudnn": 92400,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "extra": {
+    "speed_ms_per_image": {
+      "preprocess": 1.5263888890331145,
+      "inference": 37.37541666669131,
+      "loss": 0.014822221904372176,
+      "postprocess": 0.7101500000822448
+    },
+    "n_params": 2572280,
+    "gflops": 6.2396672,
+    "peak_gpu_mem_gb": 0.065,
+    "nms_free": true,
+    "no_training": true
+  }
+}

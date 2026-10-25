@@ -1,0 +1,65 @@
+{
+  "budget": "rho = 0.5",
+  "heads": {
+    "o2m": {
+      "N": 1610,
+      "uniform": {
+        "index": 69,
+        "name": "0000078_01314_d_0000004.jpg",
+        "n_i": 8,
+        "p_i": 113,
+        "quota": 8,
+        "tp": 0,
+        "recall_pct": 0.0
+      },
+      "proportional": {
+        "index": 69,
+        "name": "0000078_01314_d_0000004.jpg",
+        "n_i": 8,
+        "p_i": 113,
+        "quota": 4,
+        "tp": 0,
+        "recall_pct": 0.0
+      },
+      "same_worst_image": true,
+      "vectors_identical": false,
+      "n_quota_differs": 1568,
+      "spend_uniform": 37551.0,
+      "spend_proportional": 37551.0,
+      "micro_uniform_pct": 37.61,
+      "micro_proportional_pct": 37.68,
+      "worst_uniform_pct": 0.0,
+      "worst_proportional_pct": 0.0
+    },
+    "o2o": {
+      "N": 1610,
+      "uniform": {
+        "index": 69,
+        "name": "0000078_01314_d_0000004.jpg",
+        "n_i": 8,
+        "p_i": 191,
+        "quota": 8,
+        "tp": 0,
+        "recall_pct": 0.0
+      },
+      "proportional": {
+        "index": 69,
+        "name": "0000078_01314_d_0000004.jpg",
+        "n_i": 8,
+        "p_i": 191,
+        "quota": 4,
+        "tp": 0,
+        "recall_pct": 0.0
+      },
+      "same_worst_image": true,
+      "vectors_identical": false,
+      "n_quota_differs": 1569,
+      "spend_uniform": 37551.0,
+      "spend_proportional": 37551.0,
+      "micro_uniform_pct": 36.96,
+      "micro_proportional_pct": 37.21,
+      "worst_uniform_pct": 0.0,
+      "worst_proportional_pct": 0.0
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "note": "正文里每一个 prose 类 `N%` 断言都必须在此登记来源；未登记即检查失败（P127）。",
+  "exclusions": [
+    {
+      "pattern": "band label",
+      "values": [
+        5.0,
+        25.0
+      ],
+      "why": "分位带名（sparsest 5% / densest 25%）是带标签，不是百分比断言"
+    }
+  ],
+  "entries": [
+    {
+      "value": 2.1,
+      "scope": "prose",
+      "source": "n-gt-distributions.json: crowdhuman_train frac(>100)=0.021",
+      "note": "CrowdHuman 超 B=100 的图占比"
+    },
+    {
+      "value": 19.5,
+      "scope": "prose",
+      "source": "n-gt-distributions.json: visdrone_val frac(>100)=0.195",
+      "note": "VisDrone val 超 B=100 的图占比"
+    },
+    {
+      "value": 3.8,
+      "scope": "prose",
+      "source": "main-table-utilisation.json: (23.532-22.638)/23.532=3.80%",
+      "note": "CrowdHuman 剔除 ignore 区后 mean 下降"
+    },
+    {
+      "value": 0.02,
+      "scope": "prose",
+      "source": "重算：topup 后最大相对误差 0.006% < 0.02%",
+      "note": "三种分配最终支出与 S 的相对误差上限"
+    },
+    {
+      "value": 99.75,
+      "scope": "prose",
+      "source": "manuscript-numbers.json: s42/o2o p_gt0=0.9975",
+      "note": "第六个 seed-by-head 条件上增益为正的重采样比例"
+    },
+    {
+      "value": 1.0,
+      "scope": "prose",
+      "source": "重算：FP 占比在 B=2 时 <1%",
+      "note": "假阳性占比下界（趋势描述）"
+    },
+    {
+      "value": 40.0,
+      "scope": "prose",
+      "source": "重算：FP 占比在 B=70 时 42.1%",
+      "note": "假阳性占比上界（趋势描述，'over 40%' 取保守值）"
+    },
+    {
+      "value": 95.0,
+      "scope": "prose",
+      "source": "约定：95% percentile interval",
+      "note": "置信水平，非数据断言"
+    },
+    {
+      "value": 8.2,
+      "scope": "prose",
+      "source": "quintile/Figure 3 数据：最密图 held to 8.20% recall",
+      "note": "Figure 3 panel 的 recall 值"
+    },
+    {
+      "value": 19.36,
+      "scope": "prose",
+      "source": "decision-rule-r1-val.json: 重分配后最差图 recall 19.36%",
+      "note": "Figure 3 panel 的 recall 值"
+    },
+    {
+      "value": 11.67,
+      "scope": "prose",
+      "source": "manuscript-numbers.json: s42/o2m worst_uniform=11.672",
+      "note": "Table 2 的 uniform 最差图 recall"
+    },
+    {
+      "value": 11.99,
+      "scope": "prose",
+      "source": "manuscript-numbers.json: s43/o2m worst_uniform=11.987",
+      "note": "Table 2 的 uniform 最差图 recall"
+    },
+    {
+      "value": 11.36,
+      "scope": "prose",
+      "source": "manuscript-numbers.json: s42/o2o worst_uniform=11.356",
+      "note": "Table 2 的 uniform 最差图 recall"
+    },
+    {
+      "value": 0.7,
+      "scope": "prose",
+      "source": "重算：直接 ceil(0.5·n_i) 超支 S 的 0.70%",
+      "note": "Methods 里对照公式的超支幅度"
+    },
+    {
+      "value": 1.0,
+      "scope": "prose",
+      "source": "约定：spend 一致性容差 1%",
+      "note": "比较三分配时的支出一致阈值"
+    },
+    {
+      "value": 53.0,
+      "scope": "prose",
+      "source": "prediction-baseline.json: s44/o2m 4.24/8.01=52.9%",
+      "note": "prediction-proportional 捕获率下界"
+    },
+    {
+      "value": 78.0,
+      "scope": "prose",
+      "source": "prediction-baseline.json: s43/o2m 6.55/8.38=78.2%",
+      "note": "prediction-proportional 捕获率上界"
+    },
+    {
+      "value": 0.4,
+      "scope": "prose",
+      "source": "重算：B=2 时 topup 改动的图占比",
+      "note": "top-up 影响面"
+    },
+    {
+      "value": 8.9,
+      "scope": "prose",
+      "source": "重算：B=25 时 topup 改动的图占比",
+      "note": "top-up 影响面"
+    },
+    {
+      "value": 1.1,
+      "scope": "prose",
+      "source": "重算：B=70 时 topup 改动的图占比",
+      "note": "top-up 影响面"
+    },
+    {
+      "value": 45.0,
+      "scope": "prose",
+      "source": "约定：Figure 3 的 weak-image 阈值 recall < 45%",
+      "note": "绘图阈值，非数据断言"
+    },
+    {
+      "value": 23.6,
+      "scope": "prose",
+      "source": "manuscript-numbers.json: 外部 benchmark 的 mAP50=0.236",
+      "note": "外部 benchmark 报告值"
+    }
+  ]
+}

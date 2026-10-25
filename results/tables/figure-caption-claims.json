@@ -1,0 +1,181 @@
+{
+  "note": "图注里每一条可验证断言（数字或判据性描述）都必须在此登记，并指向**真实存在**的代码符号或数据文件；检查器会核对该文件确实含有 source_must_contain。",
+  "entries": [
+    {
+      "figure": "1",
+      "kind": "number",
+      "claim": "N = 548 (VisDrone val)",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "\"N_images_with_gt\": 548",
+      "note": "VisDrone val 有标注图数"
+    },
+    {
+      "figure": "1",
+      "kind": "number",
+      "claim": "15,000 (CrowdHuman train)",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "\"N_images_with_gt\": 15000",
+      "note": "CrowdHuman train 有标注图数"
+    },
+    {
+      "figure": "1",
+      "kind": "number",
+      "claim": "4,952 (COCO val2017)",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "\"N_images_with_gt\": 4952",
+      "note": "COCO val2017 有标注图数（总 5000，48 张无标注）"
+    },
+    {
+      "figure": "1",
+      "kind": "predicate",
+      "claim": "Percentage of images whose object count exceeds a budget",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "ccdf",
+      "note": "panel a 画互补 CDF（ccdf），即 P(n_i > B)"
+    },
+    {
+      "figure": "2",
+      "kind": "number",
+      "claim": "pre-registered budget fraction rho = 0.5",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"rho\": 0.5",
+      "note": "panel b 的预注册条件"
+    },
+    {
+      "figure": "2",
+      "kind": "predicate",
+      "claim": "faint crosses mark budgets above which the budget cannot be spent in full",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "not r.get(\"N1\")",
+      "note": "crosses = N1==False（不可花费）"
+    },
+    {
+      "figure": "2",
+      "kind": "number",
+      "claim": "N = 548",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "\"N_images_with_gt\": 548",
+      "note": "VisDrone val"
+    },
+    {
+      "figure": "3",
+      "kind": "number",
+      "claim": "B = 25 and B = 70",
+      "file": "results/tables/boundary-sweep.json",
+      "must_contain": "\"B\": 25",
+      "note": "panel a/b 的两个预算"
+    },
+    {
+      "figure": "3",
+      "kind": "predicate",
+      "claim": "Circles and squares mark the worst image under each allocation",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "worst",
+      "note": "panel 的最差图标记"
+    },
+    {
+      "figure": "3",
+      "kind": "predicate",
+      "claim": "a coloured outline means its quota reached its object count",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "cap",
+      "note": "彩边 = 配额达 cap"
+    },
+    {
+      "figure": "3",
+      "kind": "number",
+      "claim": "45% recall threshold",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "0.45",
+      "note": "weak-image 阈值"
+    },
+    {
+      "figure": "3",
+      "kind": "number",
+      "claim": "N = 548",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "\"N_images_with_gt\": 548",
+      "note": "VisDrone val"
+    },
+    {
+      "figure": "4",
+      "kind": "number",
+      "claim": "10,000 resamples",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"n_boot\": 10000",
+      "note": "分位带 bootstrap 次数"
+    },
+    {
+      "figure": "4",
+      "kind": "number",
+      "claim": "95% confidence intervals",
+      "file": "scripts/plot_paper_figures_nature.py",
+      "must_contain": "95",
+      "note": "固定置信水平"
+    },
+    {
+      "figure": "4",
+      "kind": "predicate",
+      "claim": "paired percentile bootstrap over images within the band",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "images resampled within each band",
+      "note": "带内重抽"
+    },
+    {
+      "figure": "4",
+      "kind": "predicate",
+      "claim": "the RNG is derived per seed so that re-running one seed alone reproduces its row",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "per-seed RNG derived from",
+      "note": "可复现性说明"
+    },
+    {
+      "figure": "4",
+      "kind": "number",
+      "claim": "rho = 0.5",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"rho\": 0.5",
+      "note": "固定条件"
+    },
+    {
+      "figure": "5",
+      "kind": "number",
+      "claim": "sparsest 5% of images (27 images, n_i 1-9)",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"n_images\": 27",
+      "note": "最稀带"
+    },
+    {
+      "figure": "5",
+      "kind": "number",
+      "claim": "densest 25% (137 images, n_i 93-317)",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"n_max\": 317",
+      "note": "最密带"
+    },
+    {
+      "figure": "5",
+      "kind": "predicate",
+      "claim": "the same bands used in Figure 4",
+      "file": "results/tables/quintile-ci.json",
+      "must_contain": "\"band\": \"densest 25%\"",
+      "note": "Figure 4/5 共用分带"
+    },
+    {
+      "figure": "5",
+      "kind": "number",
+      "claim": "Spearman correlation -0.4596",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "skew_ratio_mean_over_max",
+      "note": "注意：Spearman 由原始标注算出，此处仅登记同源统计文件"
+    },
+    {
+      "figure": "5",
+      "kind": "number",
+      "claim": "sparsest/densest area ratio 19.62",
+      "file": "results/tables/n-gt-distributions.json",
+      "must_contain": "skew_ratio_mean_over_max",
+      "note": "面积比由原始标注算出"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "combos": [
+    {
+      "imgsz": 1280,
+      "batch": 1,
+      "ok": true,
+      "error": null,
+      "wall_s": 121.1,
+      "peak_alloc_gb": 1.16,
+      "s_per_iter_est": 12.113
+    }
+  ],
+  "min_free_gb": 3.0
+}

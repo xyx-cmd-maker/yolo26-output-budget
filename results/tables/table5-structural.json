@@ -1,0 +1,268 @@
+{
+  "budgets": [
+    2,
+    6,
+    10,
+    15,
+    20,
+    25,
+    30,
+    40,
+    50,
+    70,
+    100,
+    300
+  ],
+  "heads": {
+    "o2m": {
+      "N": 548,
+      "rows": [
+        {
+          "B": 2,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 176
+        },
+        {
+          "B": 6,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 37
+        },
+        {
+          "B": 10,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 15
+        },
+        {
+          "B": 15,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 8
+        },
+        {
+          "B": 20,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 4
+        },
+        {
+          "B": 25,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 2
+        },
+        {
+          "B": 30,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 2
+        },
+        {
+          "B": 40,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 50,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 70,
+          "identical_vectors": false,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 100,
+          "identical_vectors": true,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 300,
+          "identical_vectors": true,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        }
+      ]
+    },
+    "o2o": {
+      "N": 548,
+      "rows": [
+        {
+          "B": 2,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 176
+        },
+        {
+          "B": 6,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 37
+        },
+        {
+          "B": 10,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 15
+        },
+        {
+          "B": 15,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 8
+        },
+        {
+          "B": 20,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 4
+        },
+        {
+          "B": 25,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 2
+        },
+        {
+          "B": 30,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": true,
+          "n_degenerate_images": 2
+        },
+        {
+          "B": 40,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 50,
+          "identical_vectors": false,
+          "worst_same_image": false,
+          "worst_at_cap_uniform": false,
+          "worst_at_cap_prop": false,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 70,
+          "identical_vectors": false,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 100,
+          "identical_vectors": true,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        },
+        {
+          "B": 300,
+          "identical_vectors": true,
+          "worst_same_image": true,
+          "worst_at_cap_uniform": true,
+          "worst_at_cap_prop": true,
+          "definitions_agree": true,
+          "degenerate": false,
+          "n_degenerate_images": 0
+        }
+      ]
+    }
+  }
+}

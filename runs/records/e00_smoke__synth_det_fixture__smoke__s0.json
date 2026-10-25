@@ -1,0 +1,74 @@
+{
+  "exp_id": "e00_smoke",
+  "dataset": "synth_det_fixture",
+  "tier": "smoke",
+  "seed": 0,
+  "metrics": {
+    "precision": 0.01079136690647482,
+    "recall": 0.375,
+    "mAP50": 0.016983766233766233,
+    "mAP50-95": 0.003981308476469767,
+    "fitness": 0.003981308476469767
+  },
+  "n_images": 8,
+  "n_instances": 8,
+  "imgsz": 64,
+  "conf": null,
+  "iou": null,
+  "max_det": null,
+  "epochs": 1,
+  "batch": 4,
+  "optimizer": "auto",
+  "split": "val",
+  "weights": "runs\\train\\e00_smoke__s0\\weights\\best.pt",
+  "weights_sha256": "36ad858ec74e4d8884f4f743faecc2a8d7a2225c3338e656772961b799452913",
+  "eval_seconds": 8.941,
+  "notes": "",
+  "fingerprint": {
+    "timestamp_utc": "2026-10-14T11:06:06+00:00",
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "code_hash": "fd51919975a666e4",
+    "git": {
+      "commit": "NO_GIT",
+      "branch": "NO_GIT",
+      "dirty": "NO_GIT"
+    },
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "ultralytics": "8.4.177",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "gpu_capability": "sm_120",
+    "gpu_total_mem_gb": 7.96,
+    "cudnn": 92400,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "extra": {
+    "train_seconds": 24.9,
+    "speed_ms_per_image": {
+      "preprocess": 0.5703624999569001,
+      "inference": 8.703862500169635,
+      "loss": 0.001537499656478758,
+      "postprocess": 1.0578999999779626
+    },
+    "model_cfg": "runs/train/e00_smoke__s0/weights/best.pt",
+    "n_params": 2534372,
+    "gflops": 0.05908352,
+    "peak_gpu_mem_gb": 0.135,
+    "deterministic": true,
+    "per_class_ap": {
+      "red_square": 0.0,
+      "green_circle": 0.007962616952939533
+    },
+    "per_class_ap_note": "键为类别名，值为该类 AP（与主指标同口径的聚合值由 ultralytics 给出）"
+  }
+}

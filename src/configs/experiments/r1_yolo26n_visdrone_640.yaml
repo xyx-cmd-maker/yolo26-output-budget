@@ -1,0 +1,69 @@
+# 实验配置：R1 — VisDrone 基线（硬性前置门）
+#
+# 为什么 R1 是前置门（见 literature/refs/dataset-and-venue-audit.md §F④）：
+#   ① 唯一同时解锁"验证硬件链路 + 复现已发表基线 + 产出对照锚点"的最小实验；
+#   ② 不跑 R1 就无法判断 imgsz=1280 在本机 8GB 上是否 OOM，后续矩阵无法定档；
+#   ③ 成本约 0.6–1.3 GPU 小时；④ 零许可风险。
+#
+# 对照锚点（已发表，须在论文中显式引用并标明协议差异）：
+#   arXiv:2605.24831 在 VisDrone2019-DET 官方切分上评测 YOLO26 全 5 尺度
+#   （imgsz=640, batch=16, 100 epoch, RTX 6000 Ada）：
+#     YOLO26n mAP50=0.262 / mAP50-95=0.142；YOLO26s 0.325/0.182；
+#     m 0.367/0.212；l 0.372/0.215；x 0.383/0.224；YOLOv8x 0.368/0.214
+#   ⚠️ 该文为**单次运行**，无种子方差 → 我们的多种子结果本身就是差异化点之一。
+#   ⚠️ 其 batch=16 在 RTX 6000 Ada 上；本机 8GB 只能用 batch=8 → **算力不对等，必须声明**。
+#
+# 官方评测协议提醒（见 data/processed/visdrone/visdrone.yaml 的 notes）：
+#   VisDrone 官方 primary metric 是 **AP@[.50:.05:.95]**（不是 mAP@50）。
+#   本记录同时报 mAP50 与 mAP50-95，并在论文中双报。
+exp_id: r1_yolo26n_visdrone_640
+data: data/processed/visdrone/visdrone.yaml
+model: weights/yolo26n.pt      # 官方 COCO 预训练（镜像下载）
+tier: paper                    # VisDrone 是公开标准集 + 官方固定切分 → 可进对外文本
+seeds: [42]                    # 单种子先跑通门；确认可行后扩到 42/43/44（见 AGENTS-PROJECT.md §6）
+
+imgsz: 640
+epochs: 100
+batch: 8                       # 8GB 上限实测值；用于对照的他人论文多为 16 → 须声明不对等
+device: "0"
+optimizer: auto
+deterministic: true
+
+train_args:
+  # 沿用官方/社区在 VisDrone 上的常规增强（与 2605.24831 的可比性优先）
+  mosaic: 1.0
+  close_mosaic: 10
+  mixup: 0.0                   # 小目标密集场景，mixup 收益存疑，先关
+  copy_paste: 0.0
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  fliplr: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  patience: 0                  # 前置门必须跑满 100 epoch，不做早停（要拿到完整曲线）
+  workers: 0                   # ★★ 必须 0：本机实测 workers=2 会在 Windows 上于
+                               #    epoch 1 后的**验证阶段 spawn 死锁**（py-spy 栈指向
+                               #    multiprocessing\popen_spawn_win32.py → validator.py:250；
+                               #    GPU 掉到 0%、20:48:04 后再无任何文件产出）。
+                               #    与 AGENTS.md §3.2 的"workers ≤ 2"相比，这条更严：
+                               #    VisDrone 规模下必须 0。见 AGENTS-LESSONS.md P12。
+  save_period: 10              # ★★ 每 10 个 epoch 存一次 checkpoint（P21 的防护）。
+                               #    ⚠️ **P31 修正（2026-10-15 实测）**：本行写于 23:04:10，而
+                               #    **当时的 R1 进程在 ~23:02 已启动** → 它读的是旧配置
+                               #    → 从 last.pt 的 train_args 读回，本参数**实际是 -1**（默认禁用）
+                               #    → epoch10.pt / epoch20.pt **从未产生**。
+                               #    → 我此前"最坏损失降到 10 个 epoch"的说法**不成立**。
+                               #    **代码层兜底已加**：src/train/run.py 中的
+                               #    `extra_train.setdefault("save_period", 10)` 对所有实验强制生效。
+                               #    **核验方式**：python scripts/verify_effective_args.py <run_dir>
+
+val_args:
+  # ★ 显式冻结评测协议，否则记录里 conf/iou/max_det 为 null
+  # ★★ conf=0.001 是 COCO/VisDrone 的标准 mAP 扫点；**不要为了好看抬高**
+  conf: 0.001
+  iou: 0.7
+  max_det: 300
+  # 注意：max_det=300 与 one-to-one 头的架构上限同值。VisDrone val 平均约 70 目标/图，
+  #       但密集图可超 300 → 这正是我们要在 R5/后续实验中量化的"配额饱和"点。

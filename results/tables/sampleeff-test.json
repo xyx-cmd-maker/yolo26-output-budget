@@ -1,0 +1,211 @@
+{
+  "weights": "runs/train/p02_yolo26n_roadside125__s0/weights/best.pt",
+  "data": "src/configs/datasets/roadside125.yaml",
+  "split": "test",
+  "imgsz": 640,
+  "conf": 0.001,
+  "iou_threshold": 0.5,
+  "repeats": 300,
+  "classes": {
+    "Deceleration_sign": {
+      "n_classes_images": 3,
+      "total_boxes": 3,
+      "n_repeats": 300,
+      "curve": [
+        {
+          "n_images": 1,
+          "n_boxes_expected": 1.0,
+          "ap_mean": 0.76,
+          "ap_std": 0.3504,
+          "ap_p05": 0.25,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.75
+        },
+        {
+          "n_images": 2,
+          "n_boxes_expected": 2.0,
+          "ap_mean": 0.7839,
+          "ap_std": 0.1639,
+          "ap_p05": 0.6287,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.3713
+        },
+        {
+          "n_images": 3,
+          "n_boxes_expected": 3.0,
+          "ap_mean": 0.7756,
+          "ap_std": 0.0,
+          "ap_p05": 0.7756,
+          "ap_p95": 0.7756,
+          "ap_ci_width": 0.0
+        }
+      ],
+      "full_set_ap": 0.7756,
+      "class_id": 0,
+      "class_name": "Deceleration_sign",
+      "n_gt_images": 3,
+      "n_gt_boxes": 3
+    },
+    "Pedestrian": {
+      "n_classes_images": 17,
+      "total_boxes": 24,
+      "n_repeats": 300,
+      "curve": [
+        {
+          "n_images": 1,
+          "n_boxes_expected": 1.4,
+          "ap_mean": 0.965,
+          "ap_std": 0.1278,
+          "ap_p05": 0.5,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.5
+        },
+        {
+          "n_images": 2,
+          "n_boxes_expected": 2.8,
+          "ap_mean": 0.9677,
+          "ap_std": 0.0971,
+          "ap_p05": 0.7353,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.2647
+        },
+        {
+          "n_images": 3,
+          "n_boxes_expected": 4.2,
+          "ap_mean": 0.9535,
+          "ap_std": 0.0938,
+          "ap_p05": 0.7307,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.2693
+        },
+        {
+          "n_images": 5,
+          "n_boxes_expected": 7.1,
+          "ap_mean": 0.9709,
+          "ap_std": 0.0526,
+          "ap_p05": 0.8653,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.1347
+        },
+        {
+          "n_images": 8,
+          "n_boxes_expected": 11.3,
+          "ap_mean": 0.9588,
+          "ap_std": 0.04,
+          "ap_p05": 0.9168,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0832
+        },
+        {
+          "n_images": 13,
+          "n_boxes_expected": 18.4,
+          "ap_mean": 0.9608,
+          "ap_std": 0.0193,
+          "ap_p05": 0.9505,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0495
+        },
+        {
+          "n_images": 17,
+          "n_boxes_expected": 24.0,
+          "ap_mean": 0.9596,
+          "ap_std": 0.0,
+          "ap_p05": 0.9596,
+          "ap_p95": 0.9596,
+          "ap_ci_width": 0.0
+        }
+      ],
+      "full_set_ap": 0.9596,
+      "class_id": 1,
+      "class_name": "Pedestrian",
+      "n_gt_images": 17,
+      "n_gt_boxes": 24
+    },
+    "TrafficLight": {
+      "n_classes_images": 13,
+      "total_boxes": 13,
+      "n_repeats": 300,
+      "curve": [
+        {
+          "n_images": 1,
+          "n_boxes_expected": 1.0,
+          "ap_mean": 1.0,
+          "ap_std": 0.0,
+          "ap_p05": 1.0,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0
+        },
+        {
+          "n_images": 2,
+          "n_boxes_expected": 2.0,
+          "ap_mean": 0.9923,
+          "ap_std": 0.0349,
+          "ap_p05": 1.0,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0
+        },
+        {
+          "n_images": 3,
+          "n_boxes_expected": 3.0,
+          "ap_mean": 0.9863,
+          "ap_std": 0.0346,
+          "ap_p05": 0.9158,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0842
+        },
+        {
+          "n_images": 5,
+          "n_boxes_expected": 5.0,
+          "ap_mean": 0.9845,
+          "ap_std": 0.0251,
+          "ap_p05": 0.934,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.066
+        },
+        {
+          "n_images": 8,
+          "n_boxes_expected": 8.0,
+          "ap_mean": 0.9812,
+          "ap_std": 0.0175,
+          "ap_p05": 0.9582,
+          "ap_p95": 1.0,
+          "ap_ci_width": 0.0418
+        },
+        {
+          "n_images": 13,
+          "n_boxes_expected": 13.0,
+          "ap_mean": 0.9781,
+          "ap_std": 0.0,
+          "ap_p05": 0.9781,
+          "ap_p95": 0.9781,
+          "ap_ci_width": 0.0
+        }
+      ],
+      "full_set_ap": 0.9781,
+      "class_id": 2,
+      "class_name": "TrafficLight",
+      "n_gt_images": 13,
+      "n_gt_boxes": 13
+    }
+  },
+  "_summary": {
+    "Deceleration_sign": {
+      "n_gt_boxes": 3,
+      "n_gt_images": 3,
+      "full_set_ap": 0.7756,
+      "ci_width_at_1_image": 0.75
+    },
+    "Pedestrian": {
+      "n_gt_boxes": 24,
+      "n_gt_images": 17,
+      "full_set_ap": 0.9596,
+      "ci_width_at_1_image": 0.5
+    },
+    "TrafficLight": {
+      "n_gt_boxes": 13,
+      "n_gt_images": 13,
+      "full_set_ap": 0.9781,
+      "ci_width_at_1_image": 0.0
+    }
+  }
+}

@@ -1,0 +1,320 @@
+[
+  {
+    "label": "VisDrone2019-DET val (aerial, dense)",
+    "N_images_with_gt": 548,
+    "sum": 38759,
+    "mean": 70.728,
+    "median": 65.0,
+    "p90": 122.9,
+    "p99": 212.0,
+    "max": 317,
+    "CV": 0.65,
+    "by_B": {
+      "10": {
+        "ceiling": 0.1385,
+        "utilisation": 0.97956,
+        "frac_capped": 0.9398
+      },
+      "20": {
+        "ceiling": 0.26711,
+        "utilisation": 0.94462,
+        "frac_capped": 0.8759
+      },
+      "30": {
+        "ceiling": 0.3875,
+        "utilisation": 0.91356,
+        "frac_capped": 0.8193
+      },
+      "50": {
+        "ceiling": 0.59733,
+        "utilisation": 0.84496,
+        "frac_capped": 0.6478
+      },
+      "100": {
+        "ceiling": 0.8903,
+        "utilisation": 0.62969,
+        "frac_capped": 0.1953
+      },
+      "200": {
+        "ceiling": 0.98852,
+        "utilisation": 0.34958,
+        "frac_capped": 0.0146
+      },
+      "300": {
+        "ceiling": 0.99912,
+        "utilisation": 0.23555,
+        "frac_capped": 0.0055
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.14146,
+        "frac_capped": 0.0
+      }
+    }
+  },
+  {
+    "label": "VisDrone2019-DET test-dev (aerial, dense)",
+    "N_images_with_gt": 1610,
+    "sum": 75102,
+    "mean": 46.647,
+    "median": 36.0,
+    "p90": 88.0,
+    "p99": 224.7,
+    "max": 461,
+    "CV": 0.944,
+    "by_B": {
+      "10": {
+        "ceiling": 0.20896,
+        "utilisation": 0.97472,
+        "frac_capped": 0.9217
+      },
+      "20": {
+        "ceiling": 0.38996,
+        "utilisation": 0.90953,
+        "frac_capped": 0.7478
+      },
+      "30": {
+        "ceiling": 0.53446,
+        "utilisation": 0.83104,
+        "frac_capped": 0.5789
+      },
+      "50": {
+        "ceiling": 0.72465,
+        "utilisation": 0.67606,
+        "frac_capped": 0.313
+      },
+      "100": {
+        "ceiling": 0.89548,
+        "utilisation": 0.41771,
+        "frac_capped": 0.0789
+      },
+      "200": {
+        "ceiling": 0.97478,
+        "utilisation": 0.22735,
+        "frac_capped": 0.018
+      },
+      "300": {
+        "ceiling": 0.99449,
+        "utilisation": 0.15463,
+        "frac_capped": 0.0043
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.09329,
+        "frac_capped": 0.0
+      }
+    }
+  },
+  {
+    "label": "CrowdHuman train — tag=person (ground, crowded)",
+    "N_images_with_gt": 15000,
+    "sum": 352983,
+    "mean": 23.532,
+    "median": 16.0,
+    "p90": 47.0,
+    "p99": 132.0,
+    "max": 391,
+    "CV": 1.112,
+    "by_B": {
+      "10": {
+        "ceiling": 0.38289,
+        "utilisation": 0.90103,
+        "frac_capped": 0.6883
+      },
+      "20": {
+        "ceiling": 0.61109,
+        "utilisation": 0.71901,
+        "frac_capped": 0.3841
+      },
+      "30": {
+        "ceiling": 0.73969,
+        "utilisation": 0.58022,
+        "frac_capped": 0.2203
+      },
+      "50": {
+        "ceiling": 0.86135,
+        "utilisation": 0.40539,
+        "frac_capped": 0.0875
+      },
+      "100": {
+        "ceiling": 0.95664,
+        "utilisation": 0.22512,
+        "frac_capped": 0.021
+      },
+      "200": {
+        "ceiling": 0.99251,
+        "utilisation": 0.11678,
+        "frac_capped": 0.0026
+      },
+      "300": {
+        "ceiling": 0.99826,
+        "utilisation": 0.0783,
+        "frac_capped": 0.0008
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.04706,
+        "frac_capped": 0.0
+      }
+    }
+  },
+  {
+    "label": "CrowdHuman train — tag=person, drop ignore",
+    "N_images_with_gt": 15000,
+    "sum": 339565,
+    "mean": 22.638,
+    "median": 16.0,
+    "p90": 45.0,
+    "p99": 125.0,
+    "max": 377,
+    "CV": 1.082,
+    "by_B": {
+      "10": {
+        "ceiling": 0.3969,
+        "utilisation": 0.89849,
+        "frac_capped": 0.6809
+      },
+      "20": {
+        "ceiling": 0.62938,
+        "utilisation": 0.71238,
+        "frac_capped": 0.3707
+      },
+      "30": {
+        "ceiling": 0.7572,
+        "utilisation": 0.57138,
+        "frac_capped": 0.2081
+      },
+      "50": {
+        "ceiling": 0.87445,
+        "utilisation": 0.39591,
+        "frac_capped": 0.0793
+      },
+      "100": {
+        "ceiling": 0.96312,
+        "utilisation": 0.21803,
+        "frac_capped": 0.0181
+      },
+      "200": {
+        "ceiling": 0.99431,
+        "utilisation": 0.11254,
+        "frac_capped": 0.0019
+      },
+      "300": {
+        "ceiling": 0.99913,
+        "utilisation": 0.07539,
+        "frac_capped": 0.0005
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.04528,
+        "frac_capped": 0.0
+      }
+    }
+  },
+  {
+    "label": "COCO val2017 (ground, sparse)",
+    "N_images_with_gt": 4952,
+    "sum": 36781,
+    "mean": 7.428,
+    "median": 4.0,
+    "p90": 18.0,
+    "p99": 34.5,
+    "max": 63,
+    "CV": 1.002,
+    "by_B": {
+      "10": {
+        "ceiling": 0.72733,
+        "utilisation": 0.54023,
+        "frac_capped": 0.2419
+      },
+      "20": {
+        "ceiling": 0.93301,
+        "utilisation": 0.3465,
+        "frac_capped": 0.0672
+      },
+      "30": {
+        "ceiling": 0.98426,
+        "utilisation": 0.24369,
+        "frac_capped": 0.0149
+      },
+      "50": {
+        "ceiling": 0.99908,
+        "utilisation": 0.14841,
+        "frac_capped": 0.0012
+      },
+      "100": {
+        "ceiling": 1.0,
+        "utilisation": 0.07428,
+        "frac_capped": 0.0
+      },
+      "200": {
+        "ceiling": 1.0,
+        "utilisation": 0.03714,
+        "frac_capped": 0.0
+      },
+      "300": {
+        "ceiling": 1.0,
+        "utilisation": 0.02476,
+        "frac_capped": 0.0
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.01486,
+        "frac_capped": 0.0
+      }
+    }
+  },
+  {
+    "label": "COCO train2017 (ground, sparse)",
+    "N_images_with_gt": 117266,
+    "sum": 860001,
+    "mean": 7.334,
+    "median": 4.0,
+    "p90": 17.0,
+    "p99": 33.0,
+    "max": 93,
+    "CV": 1.007,
+    "by_B": {
+      "10": {
+        "ceiling": 0.73054,
+        "utilisation": 0.53576,
+        "frac_capped": 0.2388
+      },
+      "20": {
+        "ceiling": 0.93282,
+        "utilisation": 0.34205,
+        "frac_capped": 0.0649
+      },
+      "30": {
+        "ceiling": 0.98439,
+        "utilisation": 0.24064,
+        "frac_capped": 0.0154
+      },
+      "50": {
+        "ceiling": 0.99912,
+        "utilisation": 0.14655,
+        "frac_capped": 0.001
+      },
+      "100": {
+        "ceiling": 1.0,
+        "utilisation": 0.07334,
+        "frac_capped": 0.0
+      },
+      "200": {
+        "ceiling": 1.0,
+        "utilisation": 0.03667,
+        "frac_capped": 0.0
+      },
+      "300": {
+        "ceiling": 1.0,
+        "utilisation": 0.02445,
+        "frac_capped": 0.0
+      },
+      "500": {
+        "ceiling": 1.0,
+        "utilisation": 0.01467,
+        "frac_capped": 0.0
+      }
+    }
+  }
+]

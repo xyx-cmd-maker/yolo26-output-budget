@@ -1,0 +1,75 @@
+# requirements.lock.txt —— YOLO26 VisDrone 研究项目的**精确依赖锁**
+#
+# 生成方式（**必须用同一环境**，checklist A5）：
+#   G:\conda-envs\yolo26train\python.exe -m pip freeze > requirements.lock.txt
+# 生成时间：2026-10-15
+#
+# 环境事实（checklist A2）：
+#   conda 前缀 : G:\conda-envs\yolo26train
+#   Python     : 3.12.15  (CPython)
+#   平台       : Windows 11  (AMD64)
+#   torch      : 2.14.1+cu130   （构建 CUDA 13.0）
+#   GPU        : NVIDIA GeForce RTX 5060 Laptop, 8151 MiB, compute capability (12, 0) = sm_120
+#   驱动/CUDA  : 592.15 / CUDA 13.1
+#   验证       : torch.cuda.is_available() = True；arch_list 含 sm_120
+#
+# ⚠️ 注意：
+#   · 本机实测 **cu121 对 sm_120 不可用**，必须 cu130（见 AGENTS-LESSONS P 系列环境条目）
+#   · workers 必须为 0（Windows 上 >0 会在验证阶段 spawn 死锁，见 P12）
+#   · 本文件由 pip freeze 原样导出，**不含**任何手工添加或删除
+#
+﻿absl-py==2.5.1
+anyio==4.15.1
+certifi==2026.7.22
+charset-normalizer==3.5.2
+colorama==0.4.6
+contourpy==1.4.0
+cycler==0.12.1
+filelock==3.32.3
+fonttools==4.66.1
+fsspec==2026.7.0
+grpcio==1.84.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.20
+Jinja2==3.1.6
+kiwisolver==1.5.1
+Markdown==3.11.1
+MarkupSafe==3.0.3
+matplotlib==3.11.2
+mpmath==1.3.0
+networkx==3.6.1
+numpy==2.5.2
+nvidia-ml-py==13.615.71
+opencv-python==5.0.0.93
+packaging==26.3
+pandas==3.0.6
+pillow==12.3.0
+polars==2.0.0
+polars-runtime-32==2.0.0
+protobuf==7.36.2
+psutil==7.2.2
+py-spy==0.4.2
+pycocotools==2.0.11
+pyparsing==3.3.3
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+requests==2.34.2
+seaborn==0.13.2
+setuptools==84.0.0
+six==1.17.0
+sympy==1.14.0
+tensorboard==2.21.0
+tensorboard-data-server==0.7.2
+torch==2.14.1+cu130
+torchvision==0.29.1+cu130
+tqdm==4.70.1
+typing_extensions==4.16.0
+tzdata==2026.5
+ultralytics==8.4.177
+ultralytics-platform==0.1.86
+ultralytics-thop==2.2.2
+urllib3==2.8.0
+Werkzeug==3.1.9
+wheel==0.48.0

@@ -1,0 +1,38 @@
+{
+  "n_classes_images": 3,
+  "total_boxes": 3,
+  "n_repeats": 300,
+  "curve": [
+    {
+      "n_images": 1,
+      "n_boxes_expected": 1.0,
+      "ap_mean": 0.76,
+      "ap_std": 0.3504,
+      "ap_p05": 0.25,
+      "ap_p95": 1.0,
+      "ap_ci_width": 0.75
+    },
+    {
+      "n_images": 2,
+      "n_boxes_expected": 2.0,
+      "ap_mean": 0.7839,
+      "ap_std": 0.1639,
+      "ap_p05": 0.6287,
+      "ap_p95": 1.0,
+      "ap_ci_width": 0.3713
+    },
+    {
+      "n_images": 3,
+      "n_boxes_expected": 3.0,
+      "ap_mean": 0.7756,
+      "ap_std": 0.0,
+      "ap_p05": 0.7756,
+      "ap_p95": 0.7756,
+      "ap_ci_width": 0.0
+    }
+  ],
+  "full_set_ap": 0.7756,
+  "class_id": 0,
+  "class_name": "Deceleration_sign",
+  "iou_threshold": 0.5
+}

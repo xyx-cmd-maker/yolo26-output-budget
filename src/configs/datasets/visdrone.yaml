@@ -1,0 +1,58 @@
+# 数据集：VisDrone2019-DET（本项目的正式数据集）
+#
+# 本文件是**登记入口**，实际数据配置在 data/processed/visdrone/visdrone.yaml
+# （由 scripts/convert_visdrone.py 生成，含完整类序映射说明）。
+name: visdrone2019det
+path: D:/Deepseek Harness/yolo/yolo26-detection/data/processed/visdrone
+train: images/train
+val: images/val
+test: images/test
+
+nc: 10
+names:
+  0: pedestrian
+  1: people
+  2: bicycle
+  3: car
+  4: van
+  5: truck
+  6: tricycle
+  7: awning-tricycle
+  8: bus
+  9: motor
+
+license: CC-BY-NC-SA-3.0
+source_url: https://github.com/VisDrone/VisDrone-Dataset
+redistributable: false
+challenge: small-object
+notes: >
+  【选型依据】literature/refs/dataset-and-venue-audit.md §A：14 个候选中唯一同时满足
+  「道路场景 + 多类(10) + 本机可达 + 许可可用于学术发表 + 8GB 可训」。
+  硬排除的候选：BDD100K/UA-DETRAC 本机不可达；Objects365 原文禁再分发；
+  DOTA 禁商用且图源 Google Earth；ExDark 底层照片明文未授权；COCO/Open Images 图像许可链有洞。
+
+  【规模】官方固定切分：train 6,471 / val 548 / test-dev 1,610 图。
+  本机转换实测：train 343,204 框 / val 38,759 框 / test 75,102 框。
+  类不均衡比 42.7:1（awning-tricycle 最少），与官方论文"比 car 少 40 倍"一致。
+
+  【★ 类序冲突（已实测并规避）】官网评测页类序与 Ultralytics VisDrone.yaml 类序**不同**：
+    官网: pedestrian, person, car, van, bus, truck, motor, bicycle, awning-tricycle, tricycle
+    YAML: pedestrian, people, bicycle, car, van, truck, tricycle, awning-tricycle, bus, motor
+  本项目采用 **YAML 类序**（id 0..9），映射关系（原始 category → 本文件 id）：
+    1→0  2→1  3→2  4→3  5→4  6→5  7→6  8→7  9→8  10→9
+  原始 category 0 与 11 为官方忽略类别，已丢弃；score=0（ignored region）已丢弃。
+  ⚠️ 与官网排行榜数字对比时**必须声明类序差异**（mAP 均值对排列不变，但 per-class AP 受影响）。
+
+  【官方评测协议】primary metric 是 **AP@[.50:.05:.95]**，不是 mAP@50；
+  单图最多 500 个 top-scoring 检测；truncation > 50% 的目标跳过评测（本转换保留，评测时可过滤）。
+  test-dev 标注官方公开且允许发表；test-challenge 标注不公开。
+
+  【许可与隐私】CC BY-NC-SA 3.0，**仅学术用途**。官方原文："We have done our best to exclude
+  identifiable information… We are not responsible for any actual or potential harm"。
+  → 论文中**不得**写"不含可识别个人数据"；应引用原免责句 + 声明本方未额外去标识化。
+  【再分发】不发图像、不发标注、不发重新划分的清单；只发训练/评测代码与权重。
+
+  【★ 已知的"已有人做过"】arXiv:2605.24831 已在 VisDrone2019-DET 官方切分上评测 YOLO26
+  全 5 尺度（imgsz=640, batch=16, 100 epoch, RTX 6000 Ada），YOLO26n mAP50=0.262 / mAP50-95=0.142。
+  另有 ≥6 篇已发表 "YOLO26 + 无人机小目标"（含 Sensors 2026 Aero-YOLO26 等）。
+  → **不得声称"首个在 VisDrone 上做 YOLO26"**。差异化点见 AGENTS-PROJECT.md §2.1。

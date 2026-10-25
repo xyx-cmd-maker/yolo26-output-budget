@@ -1,0 +1,75 @@
+{
+  "exp_id": "p02_yolo26n_roadside125",
+  "dataset": "roadside125",
+  "tier": "pilot",
+  "seed": 0,
+  "metrics": {
+    "precision": 0.9839124485335881,
+    "recall": 0.9,
+    "mAP50": 0.9374561403508772,
+    "mAP50-95": 0.7795250924931377,
+    "fitness": 0.7795250924931377
+  },
+  "n_images": 7,
+  "n_instances": 24,
+  "imgsz": 640,
+  "conf": 0.001,
+  "iou": 0.7,
+  "max_det": 300,
+  "epochs": 100,
+  "batch": 8,
+  "optimizer": "auto",
+  "split": "val",
+  "weights": "runs\\train\\p02_yolo26n_roadside125__s0\\weights\\best.pt",
+  "weights_sha256": "56091c32b5a4cd0b7f2efd4e86942881f9deee6cd20ff83feb973b65860ed6cc",
+  "eval_seconds": 4.187,
+  "notes": "",
+  "fingerprint": {
+    "timestamp_utc": "2026-10-14T12:09:30+00:00",
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "code_hash": "53038f12193cf48c",
+    "git": {
+      "commit": "9321740aa4abc2b82549b60b5df220796b737136",
+      "branch": "master",
+      "dirty": "dirty"
+    },
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "ultralytics": "8.4.177",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "gpu_capability": "sm_120",
+    "gpu_total_mem_gb": 7.96,
+    "cudnn": 92400,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "extra": {
+    "train_seconds": 440.3,
+    "speed_ms_per_image": {
+      "preprocess": 0.41861428586084265,
+      "inference": 14.7468857142355,
+      "loss": 0.0021857142980609623,
+      "postprocess": 1.973671428588984
+    },
+    "model_cfg": "weights/yolo26n.pt",
+    "n_params": 2534858,
+    "gflops": 6.0326912,
+    "peak_gpu_mem_gb": 1.248,
+    "deterministic": true,
+    "per_class_ap": {
+      "Deceleration_sign": 0.6162062298603652,
+      "Pedestrian": 0.8583214285714286,
+      "TrafficLight": 0.8640476190476191
+    },
+    "per_class_ap_note": "键为类别名，值为该类 AP（与主指标同口径的聚合值由 ultralytics 给出）"
+  }
+}

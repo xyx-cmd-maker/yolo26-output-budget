@@ -1,0 +1,12 @@
+{
+  "n_train": 24,
+  "n_val": 8,
+  "n_test": 8,
+  "image_size": 64,
+  "seed": 0,
+  "classes": [
+    "red_square",
+    "green_circle"
+  ],
+  "warning": "合成夹具：指标无科学含义，禁止进入任何对外文本"
+}

@@ -1,0 +1,25 @@
+{
+  "N": 548,
+  "note": "topup 对配额分布的影响（r1_val_o2m）",
+  "by_B": {
+    "2": {
+      "changed_images": 2,
+      "changed_frac_pct": 0.36,
+      "max_quota": 3.0,
+      "spend": 1096.0
+    },
+    "25": {
+      "changed_images": 49,
+      "changed_frac_pct": 8.94,
+      "max_quota": 28.0,
+      "spend": 13700.0
+    },
+    "70": {
+      "changed_images": 6,
+      "changed_frac_pct": 1.09,
+      "max_quota": 206.0,
+      "spend": 38360.0
+    }
+  },
+  "B70_proportional_max_quota": 312.0
+}

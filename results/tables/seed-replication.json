@@ -1,0 +1,843 @@
+{
+  "budgets": [
+    2,
+    6,
+    10,
+    15,
+    20,
+    25,
+    30,
+    40,
+    50,
+    70,
+    100,
+    300
+  ],
+  "seeds": {
+    "r1": {
+      "exp": "r1",
+      "heads": {
+        "o2m": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.631,
+              "dmicro": -0.008,
+              "dmacro": -1.769,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": -1.893,
+              "dmicro": 0.095,
+              "dmacro": -5.67,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": -2.839,
+              "dmicro": 0.312,
+              "dmacro": -7.376,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 6.379,
+              "dmicro": 0.501,
+              "dmacro": -8.38,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 4.802,
+              "dmicro": 0.864,
+              "dmacro": -8.523,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 11.153,
+              "dmicro": 1.001,
+              "dmacro": -8.01,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 9.576,
+              "dmicro": 1.107,
+              "dmacro": -7.425,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 6.12,
+              "dmicro": 1.228,
+              "dmacro": -5.259,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 5.037,
+              "dmicro": 1.001,
+              "dmacro": -3.39,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.008,
+              "dmacro": -0.1,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -24.205
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -21.806
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.442
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.796
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 10.072
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.228,
+          "n_positive_dworst": 6,
+          "n_negative_dworst": 3,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        },
+        "o2o": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.631,
+              "dmicro": 0.005,
+              "dmacro": -1.615,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": 3.99,
+              "dmicro": 0.142,
+              "dmacro": -5.248,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": 4.304,
+              "dmicro": 0.343,
+              "dmacro": -6.979,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 6.379,
+              "dmicro": 0.596,
+              "dmacro": -7.904,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 4.802,
+              "dmicro": 0.815,
+              "dmacro": -8.255,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 8.243,
+              "dmicro": 1.107,
+              "dmacro": -7.581,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 7.518,
+              "dmicro": 1.21,
+              "dmacro": -7.03,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 8.417,
+              "dmicro": 1.311,
+              "dmacro": -4.886,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 3.926,
+              "dmicro": 1.174,
+              "dmacro": -3.111,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.018,
+              "dmacro": -0.085,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -23.376
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -21.145
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.036
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.936
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 10.007
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.311,
+          "n_positive_dworst": 8,
+          "n_negative_dworst": 1,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        }
+      }
+    },
+    "r1_s43": {
+      "exp": "r1_s43",
+      "heads": {
+        "o2m": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.631,
+              "dmicro": 0.003,
+              "dmacro": -1.759,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": -1.893,
+              "dmicro": 0.083,
+              "dmacro": -5.861,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": -2.839,
+              "dmicro": 0.323,
+              "dmacro": -7.484,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 6.379,
+              "dmicro": 0.467,
+              "dmacro": -8.673,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 4.802,
+              "dmicro": 0.697,
+              "dmacro": -8.855,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 8.78,
+              "dmicro": 0.965,
+              "dmacro": -8.134,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 6.887,
+              "dmicro": 1.068,
+              "dmacro": -7.559,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 8.027,
+              "dmicro": 1.104,
+              "dmacro": -5.459,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 6.373,
+              "dmicro": 1.166,
+              "dmacro": -3.23,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.018,
+              "dmacro": -0.094,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -24.051
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -22.618
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.55
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.87
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 10.056
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.166,
+          "n_positive_dworst": 6,
+          "n_negative_dworst": 3,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        },
+        "o2o": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.631,
+              "dmicro": 0.005,
+              "dmacro": -1.738,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": 3.663,
+              "dmicro": 0.15,
+              "dmacro": -5.332,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": 6.105,
+              "dmicro": 0.328,
+              "dmacro": -6.96,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 6.209,
+              "dmicro": 0.555,
+              "dmacro": -8.08,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 7.977,
+              "dmicro": 0.787,
+              "dmacro": -8.235,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 6.399,
+              "dmicro": 1.097,
+              "dmacro": -7.616,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 4.822,
+              "dmicro": 1.107,
+              "dmacro": -7.088,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 6.435,
+              "dmicro": 1.22,
+              "dmacro": -4.966,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 7.65,
+              "dmicro": 1.109,
+              "dmacro": -3.153,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": -0.1,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -19.158
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -21.877
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.222
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.733
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 9.628
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.22,
+          "n_positive_dworst": 8,
+          "n_negative_dworst": 1,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        }
+      }
+    },
+    "r1_s44": {
+      "exp": "r1_s44",
+      "heads": {
+        "o2m": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.631,
+              "dmicro": -0.005,
+              "dmacro": -1.776,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": -1.893,
+              "dmicro": 0.088,
+              "dmacro": -5.884,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": -3.155,
+              "dmicro": 0.273,
+              "dmacro": -7.684,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 9.404,
+              "dmicro": 0.444,
+              "dmacro": -8.844,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 8.292,
+              "dmicro": 0.753,
+              "dmacro": -8.926,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 11.485,
+              "dmicro": 1.076,
+              "dmacro": -8.24,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 10.221,
+              "dmicro": 1.091,
+              "dmacro": -7.719,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 6.12,
+              "dmicro": 1.112,
+              "dmacro": -5.68,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 2.019,
+              "dmicro": 1.13,
+              "dmacro": -3.481,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.008,
+              "dmacro": -0.1,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -28.498
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -22.809
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.868
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.823
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 10.132
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.13,
+          "n_positive_dworst": 6,
+          "n_negative_dworst": 3,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        },
+        "o2o": {
+          "rows": [
+            {
+              "B": 2,
+              "dworst": -0.562,
+              "dmicro": 0.008,
+              "dmacro": -1.69,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 6,
+              "dworst": -1.893,
+              "dmicro": 0.124,
+              "dmacro": -5.58,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 10,
+              "dworst": -3.155,
+              "dmicro": 0.307,
+              "dmacro": -7.3,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 15,
+              "dworst": 6.064,
+              "dmicro": 0.544,
+              "dmacro": -8.244,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 20,
+              "dworst": 7.977,
+              "dmicro": 0.849,
+              "dmacro": -8.383,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 25,
+              "dworst": 6.399,
+              "dmicro": 1.068,
+              "dmacro": -7.85,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 30,
+              "dworst": 4.507,
+              "dmicro": 1.192,
+              "dmacro": -7.217,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 40,
+              "dworst": 11.435,
+              "dmicro": 1.182,
+              "dmacro": -5.199,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 50,
+              "dworst": 8.686,
+              "dmicro": 0.998,
+              "dmacro": -3.158,
+              "identical_vectors": false,
+              "worst_same_image": false
+            },
+            {
+              "B": 70,
+              "dworst": 0.0,
+              "dmicro": 0.021,
+              "dmacro": -0.08,
+              "identical_vectors": false,
+              "worst_same_image": true
+            },
+            {
+              "B": 100,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            },
+            {
+              "B": 300,
+              "dworst": 0.0,
+              "dmicro": 0.0,
+              "dmacro": 0.0,
+              "identical_vectors": true,
+              "worst_same_image": true
+            }
+          ],
+          "bands": {
+            "rho": 0.5,
+            "bands": [
+              {
+                "band": "sparsest 5%",
+                "n_images": 27,
+                "delta": -22.773
+              },
+              {
+                "band": "5-25%",
+                "n_images": 110,
+                "delta": -22.228
+              },
+              {
+                "band": "25-50%",
+                "n_images": 137,
+                "delta": -12.18
+              },
+              {
+                "band": "50-75%",
+                "n_images": 137,
+                "delta": -0.971
+              },
+              {
+                "band": "densest 25%",
+                "n_images": 137,
+                "delta": 9.954
+              }
+            ]
+          },
+          "max_abs_dmicro": 1.192,
+          "n_positive_dworst": 6,
+          "n_negative_dworst": 3,
+          "n_structural_zero": 2,
+          "n_worst_image_changed": 9
+        }
+      }
+    }
+  }
+}
