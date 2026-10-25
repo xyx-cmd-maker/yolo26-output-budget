@@ -265,6 +265,47 @@ def page_table_s4(pdf: PdfPages) -> None:
     plt.close(fig)
 
 
+def page_table_s5(pdf: PdfPages) -> None:
+    """Table S5：去掉 label-count cap 后主结果如何变化。"""
+    import json as _json
+    _d = _json.loads((ROOT / "results" / "tables" / "gt-cap-sensitivity.json")
+                     .read_text(encoding="utf-8"))
+
+    fig = plt.figure(figsize=(W_DOUBLE, 5.6))
+    fig.text(0.005, 0.965, "Table S5.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.083, 0.965,
+             "Sensitivity of the main results to the label-count cap.",
+             fontsize=8, va="top")
+    fig.text(0.005, 0.895,
+             "The main text caps every quota at $\\min(n_i, p_i)$. Here the $n_i$ term is removed, so "
+             "quotas are capped at $p_i$ alone and spend is the number of boxes actually emitted; true "
+             "positives are still bounded by $n_i$. Every gain grows when the cap is removed, so the "
+             "reported main results are conservative estimates for the label-count-capped convention.\n"
+             "VisDrone2019-DET validation, seed 42, $N$ = 548.  Values are percentage points.  "
+             "$\\Delta$ is proportional minus uniform.",
+             fontsize=6.5, va="top")
+
+    cols = ["head", "$\\rho$", "$\\Delta$ worst, capped",
+            "$\\Delta$ worst, no cap", "change",
+            "$\\Delta$ micro, capped", "$\\Delta$ micro, no cap"]
+    xs = [0.05, 0.15, 0.30, 0.48, 0.64, 0.76, 0.90]
+    y0, dy = 0.60, 0.038
+    for x, c in zip(xs, cols):
+        fig.text(x, y0 + 0.030, c, fontsize=5.8, fontweight="bold", va="bottom")
+    fig.lines.append(plt.Line2D([0.03, 0.97], [y0 + 0.022, y0 + 0.022],
+                                color="black", lw=0.5, transform=fig.transFigure))
+    for i, r in enumerate(_d["rows"]):
+        y = y0 - i * dy
+        cells = [r["head"], f"{r['rho']:.2f}",
+                 f"{r['capped_dworst']:+.2f}", f"{r['no_cap_dworst']:+.2f}",
+                 f"{r['d_dworst']:+.2f}",
+                 f"{r['capped_dmicro']:+.2f}", f"{r['no_cap_dmicro']:+.2f}"]
+        for x, v in zip(xs, cells):
+            fig.text(x, y, v, fontsize=6.2)
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -367,6 +408,7 @@ def main() -> int:
         page_table_s2(pdf)
         page_table_s3(pdf)
         page_table_s4(pdf)
+        page_table_s5(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)

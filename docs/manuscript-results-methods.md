@@ -130,7 +130,7 @@ head and +5.31 on the one-to-one head**, both inside the middle band, and the 95
 at their upper limits, and neither is bounded away from it, so the point estimate alone would understate
 the uncertainty. The measured effect is therefore too uncertain to decide whether the allocation is worth reporting as a standalone result, and we report it as a component while stating the uncertainty explicitly.
 
-The gain is not an artefact of the particular budget fraction, but neither is it uniformly below the threshold. Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
+The gain is not an artefact of the particular budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
 **+4.25 to +10.21 points**. Nine of the ten fall in the middle band; **one condition reaches the
 standalone band**: the one-to-many head at ρ = 0.40 gives +10.21 points, which the pre-registered rule
 scores as A. The remaining condition, the one-to-one head at ρ = 0.70, falls below 5 points and scores as
@@ -349,6 +349,18 @@ on both splits, is therefore an oracle-style diagnostic rather than a deployable
 test-dev result establishes is narrower and still informative: when the worst image is detection-limited
 rather than quota-limited, reallocating a fixed budget leaves it at zero recall even though the quota
 vectors differ on 1568 of 1,610 images.
+
+## Sensitivity to the label-count cap
+
+Because the `n_i` term is a modelling choice rather than a detector property, we repeated the whole
+ρ sweep with that term removed: quotas were re-derived with only the prediction cap `p_i`, spend was
+counted as the boxes actually emitted, `Σ_i min(q_i, p_i)`, and true positives were still capped at
+`n_i` because no image can yield more. Removing the label-count cap raises the worst-image gain at
+every one of the ten conditions, by 0.63 to 3.78 points, and raises the micro-recall change by 1.80 to
+4.49 points; the per-condition values are in Supplementary Table S5 and in
+`results/tables/gt-cap-sensitivity.json`. The main text reports the capped numbers, so every gain
+quoted there is a conservative estimate specific to the label-count-capped convention, and the
+positional conclusion does not depend on that cap.
 
 ## Statistical analysis
 
