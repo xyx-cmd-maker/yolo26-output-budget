@@ -152,11 +152,11 @@ improves that image, it helps only when a quota can help it. On validation the w
 quota-limited, so the proportional allocation moves the minimum elsewhere. On test-dev both allocations share the same worst image: the uniform quota already covers its whole capacity of 8 boxes and recovers none (Supplementary Table S3), while the vectors differ on 1568 of 1610 images and both spend 37,551 boxes. The comparison is well posed and the gain is +0.000 on both heads. The mechanism replicates while the aggregate statistic does not.
 
 Several limitations bound these claims. The results come from three training seeds of one detector on one
-benchmark; the between-seed spread is material, reaching 3.0 points on one head, so the magnitudes we
+benchmark; the between-seed spread is material, reaching 4.8 points on one head, so the magnitudes we
 report are ranges rather than points, including the 24.2-point loss on the sparsest images, whose interval
 spans 12.14 points and still excludes zero, and the 11.2-point peak gain. Above a per-image budget of about
 100 the budget can no longer be spent in full,
-because the total number of boxes the detector can emit is smaller than the budget; for those conditions
+because the label-count cap saturates every quota; for those conditions
 the two allocations coincide exactly, and we report them as a structural identity rather than as evidence
 about allocation. CrowdHuman [shao2019crowdhuman] object counts depend on an annotation convention, with
 ignored regions optionally excluded; we report both versions, and the cross-benchmark ordering is

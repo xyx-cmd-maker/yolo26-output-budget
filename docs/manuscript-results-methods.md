@@ -227,7 +227,7 @@ vector, which depends on `n_i` and the budget and not on the network weights: at
 worst-image recall is 11.67% for the one-to-many head on seed 42 and 11.99% on seed 43, and 11.36% and
 11.67% respectively for the one-to-one head. The two heads are not interchangeable here. The same holds at `B ≤ 15`, where quotas of one or two boxes quantise per-image recall to multiples of `1/n_i` and the gains are identical across seeds, because the detector's ordering no longer decides the minimum.
 
-The zero-gain regime also replicates exactly, for the structural reasons given above: at `B` = 100 and 300
+The zero-gain regime also replicates exactly, for the reasons given above: at `B` = 100 and 300
 the two quota vectors are equal on all three seeds and both heads, and at `B` = 70 the worst image is the same
 one at its cap in all four combinations.
 
