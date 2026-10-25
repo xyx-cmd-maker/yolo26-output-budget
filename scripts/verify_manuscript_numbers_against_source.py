@@ -103,6 +103,17 @@ _add([50.47, 0.0, 9.6, 9.11, 25.39],
 _add([6.14, 6.57, 6.6, 6.36, 6.17, 6.44, 2.8, 3.0, 8.5, 3.8, 1.89, 2.84,
       12.44, 21.81, 24.21, 99.75], "文内四舍五入 / 区间端点 / 倍数表述")
 
+# ⑫ top-up 四臂消融 —— 来源 results/tables/topup-robustness.json
+_add([0.0, 0.315, 3.333],
+     "topup-robustness.json（largest_remainder 与 oracle 的 Δworst 差）")
+_add([2.7495, 0.4446, 0.0026, 0.01, 3.33],
+     "topup-robustness.json（各臂支出误差上界与最大超越量）")
+
+# ⑬ GT-cap 敏感性 —— 来源 results/tables/gt-cap-sensitivity.json
+_add([0.63, 3.78, 1.8, 4.49],
+     "gt-cap-sensitivity.json（去掉 n_i cap 后 Δworst / Δmicro 的变化范围）")
+
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
