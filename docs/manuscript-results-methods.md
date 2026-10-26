@@ -90,7 +90,7 @@ The gain is concentrated in the densest quartile (+10.07 points) and the loss in
 resamples. Every band's interval excludes zero, and the interval ordering matches the band ordering, so under this scheme the gradient is not an artefact of band membership. In
 VisDrone, sparse images are those containing few and comparatively large objects: mean box area is
 2.31×10⁻² of the frame in the sparsest 5% against 1.18×10⁻³ in the densest quartile, and the Spearman
-correlation between object count and mean box area is −0.46 (**Figure 5**). The shift is distributional: the 5th percentile rises 5.84 to 9.68 points while the median falls (Figure 6, Table S7). We deliberately do not infer
+correlation between object count and mean box area is −0.46 (**Figure 5**). The shift is distributional: the 5th percentile rises 5.84 to 9.68 points while the median falls (Figure 6, Supplementary Table S7). We deliberately do not infer
 object distance
 from this, because the benchmark provides no depth annotation and the size–distance relation in aerial
 imagery also depends on camera tilt. Optimising worst-image recall therefore raises the recall of the dense images, which start from the lower baseline, and lowers that of the sparse images, which start from the higher baseline. Maximising the
@@ -109,7 +109,7 @@ head and +5.31 on the one-to-one head**, both inside the middle band, and the 95
 at their upper limits, and neither is bounded away from it, so the point estimate alone would understate
 the uncertainty. The measured effect is therefore too uncertain to decide whether the allocation is worth reporting as a standalone result, and we report it as a component while stating the uncertainty explicitly.
 
-A label-free top-up reproduces the gain (Table S6); it is not an artefact of the budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
+A label-free top-up reproduces the gain (Supplementary Table S6); it is not an artefact of the budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
 **+4.25 to +10.21 points**. Nine of the ten fall in the middle band; **one condition reaches the
 standalone band**: the one-to-many head at ρ = 0.40 gives +10.21 points, which the pre-registered rule
 scores as A. The remaining condition, the one-to-one head at ρ = 0.70, falls below 5 points and scores as
