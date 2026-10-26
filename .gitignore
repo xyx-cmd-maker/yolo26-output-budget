@@ -71,3 +71,7 @@ AGENTS*.md
 docs/
 literature/
 logs/
+
+# 逐图预测记录（76 MB）随仓库分发，使 check_all 可在克隆后直接跑满
+!runs/budget/
+!runs/budget/*.json

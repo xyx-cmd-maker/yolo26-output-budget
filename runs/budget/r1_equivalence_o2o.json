@@ -1,0 +1,55 @@
+{
+  "n_check": 40,
+  "nms_free": true,
+  "big": 1000,
+  "per_budget": {
+    "1": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "5": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "10": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "25": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "50": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "100": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "300": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    },
+    "1000": {
+      "images_matching": 40,
+      "images_total": 40,
+      "max_coord_deviation": 0.0,
+      "equivalent": true
+    }
+  }
+}
