@@ -398,6 +398,102 @@ def page_table_s7(pdf: PdfPages) -> None:
     plt.close(fig)
 
 
+def _parse_md_table(rows: list[str]) -> tuple[list[str], list[list[str]]]:
+    """把 markdown 表行解析成 (表头, 数据行)。跳过 |---| 分隔行。"""
+    def cells(line: str) -> list[str]:
+        s = line.strip()
+        if s.startswith("|"):
+            s = s[1:]
+        if s.endswith("|"):
+            s = s[:-1]
+        return [c.strip().replace("`", "").replace("**", "") for c in s.split("|")]
+
+    body = [r for r in rows if not set(r.replace("|", "").strip()) <= set("-: ")]
+    if not body:
+        return [], []
+    return cells(body[0]), [cells(r) for r in body[1:]]
+
+
+def page_moved_tables(pdf: PdfPages) -> None:
+    """S8/S9/S10：从主文迁出的三张表（原 Table 1 / 4 / 5）。"""
+    import json as _json
+    import re as _re
+    import textwrap as _tw
+    _d = _json.loads((ROOT / "results" / "tables" / "moved-tables.json")
+                     .read_text(encoding="utf-8"))
+
+    for key in ("1", "4", "5"):
+        if key not in _d:
+            continue
+        item = _d[key]
+        si = item["si_id"]
+        head, body = _parse_md_table(item["rows"])
+        if not head:
+            continue
+
+        ncol, nrow = len(head), len(body)
+        fig = plt.figure(figsize=(W_DOUBLE, 6.6))
+
+        # ---- 标题区（三层，互不重叠）----
+        fig.text(0.005, 0.972, f"Table {si}.", fontsize=8, fontweight="bold", va="top")
+
+        # markdown 形如 `**Table N. <Headline>.** <Rest>`，必须在 `.**` 处切分，
+        # 否则 headline 与 rest 会是同一段（实测标题因此重复一次）。
+        raw = item["title"]
+        mm = _re.match(r"\*\*Table \S+\.\s*(.*?)\.\*\*\s*(.*)", raw, _re.S)
+        if mm:
+            headline = _re.sub(r"\s+", " ", mm.group(1)).strip()[:110]
+            rest = _re.sub(r"\s+", " ", mm.group(2).replace("`", "")).strip()
+            for _old, _new in (("Table 1", "Table S8"), ("Table 4", "Table S9"),
+                               ("Table 5", "Table S10")):
+                rest = rest.replace(_old, _new)
+        else:
+            clean = raw.replace("**", "").replace("`", "")
+            part = clean.split(".", 1)
+            headline = (part[1].strip() if len(part) > 1 else clean)[:110]
+            rest = ""
+        fig.text(0.098, 0.972, headline, fontsize=7.2, va="top")
+        y_txt = 0.938
+        if rest:
+            for ln in _tw.wrap(rest, 148)[:5]:
+                fig.text(0.005, y_txt, ln, fontsize=5.8, va="top")
+                y_txt -= 0.018
+        fig.text(0.005, y_txt - 0.004,
+                 "Values are exactly as computed; see Methods for definitions.",
+                 fontsize=5.8, style="italic", va="top")
+
+        # ---- 表格区 ----
+        left, right = 0.030, 0.975
+        span = right - left
+        xs = [left + span * i / ncol for i in range(ncol)]
+
+        y_head = y_txt - 0.055
+        for x, c in zip(xs, head):
+            fig.text(x, y_head, "\n".join(_tw.wrap(c, max(8, int(120 / ncol))))[:48],
+                     fontsize=4.9, fontweight="bold", va="bottom")
+        fig.lines.append(plt.Line2D([left - 0.012, right + 0.012],
+                                    [y_head + 0.010, y_head + 0.010],
+                                    color="black", lw=0.6, transform=fig.transFigure))
+
+        y_body = y_head - 0.014
+        dy = 0.031
+        drawn = 0
+        for row in body:
+            y = y_body - drawn * dy
+            if y < 0.025:
+                break
+            for x, v in zip(xs, row):
+                fig.text(x, y, "\n".join(_tw.wrap(v, max(9, int(130 / ncol))))[:60],
+                         fontsize=4.9, va="top")
+            drawn += 1
+
+        y_end = y_body - max(drawn - 1, 0) * dy - 0.016
+        fig.lines.append(plt.Line2D([left - 0.012, right + 0.012], [y_end, y_end],
+                                    color="black", lw=0.6, transform=fig.transFigure))
+        pdf.savefig(fig)
+        plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -503,6 +599,7 @@ def main() -> int:
         page_table_s5(pdf)
         page_table_s6(pdf)
         page_table_s7(pdf)
+        page_moved_tables(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)

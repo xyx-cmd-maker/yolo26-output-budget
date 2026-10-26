@@ -172,15 +172,15 @@ interpretability of a worst case for estimates a finite benchmark can actually r
    · R5 / R5b 两节标题含 "criterion"（14 处 criterion / 19 处 predict 待清理）；
    · R5b 的两个头数字**标反了**（实际 o2m s42 = 11.672、s43 = 11.987）；
    · R3 已修（旧值 → 重算值，并如实写"+10.21 达到 A 档"）；
-   · Table 2 需补 `Δmacro`（−6.14…−6.57 pt）与修正 o2o 的 `P(Δ>0) = 0.9975`；
-   · Table 5 需区分"结构性恒等（B≥100 两分配重合）"与"实测零增益"。
+   · Table 1 需补 `Δmacro`（−6.14…−6.57 pt）与修正 o2o 的 `P(Δ>0) = 0.9975`；
+   · Supplementary Table S10 需区分"结构性恒等（B≥100 两分配重合）"与"实测零增益"。
 
 3. **R1/R4 的三种子替换**：等 s44 跑完（当前 epoch 33/100）。
    注意：**"ten non-degenerate conditions"这个计数本身也是错的**（它来自
    `verify_seed_replication.py` 里硬编码的 9 档预算表）；
    同代码同数据下的真实计数是 **12**（去掉两个空档）或 **22**（全部非退化）。
 
-4. **`Δmacro`** 已补入 Abstract、Discussion、Table 2（−6.14 … −6.57 pt，比最坏图的**增益**还大）。
+4. **`Δmacro`** 已补入 Abstract、Discussion、Table 1（−6.14 … −6.57 pt，比最坏图的**增益**还大）。
 
 5. **引文预算**：台账 20 条（17 条在正文），远低于 60 条上限 —— **引文不是瓶颈**。
    ✅ **2026-10-16 已补齐作者名**：`decisionvalue2026`（Pham Cong & Luong）、

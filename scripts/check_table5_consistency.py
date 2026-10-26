@@ -31,15 +31,25 @@ def main() -> int:
     data = json.loads(SRC.read_text(encoding="utf-8"))
     rows = {r["B"]: r for r in data["heads"]["o2m"]["rows"]}
 
-    md = io.open(DOC, encoding="utf-8").read()
-    i = md.find("| `B` | identical vectors")
-    if i < 0:
-        print("  ❌ 未在手稿里找到 Table 5")
-        return 1
-    blk = md[i:md.find("\n\n", i)]
+    # ★ 第 10 版：Table 5 已迁入补充材料作为 Supplementary Table S10
+    #   （Sci Rep "Display items are limited to 8"，主文原 6 图 + 5 表 = 11 项超限）。
+    #   表体原文在搬迁时已存入 moved-tables.json，故改从那里读取。
+    moved_f = ROOT / "results" / "tables" / "moved-tables.json"
+    blk = None
+    if moved_f.exists():
+        mv = json.loads(moved_f.read_text(encoding="utf-8"))
+        if "5" in mv and mv["5"].get("rows"):
+            blk = "\n".join(mv["5"]["rows"])
+    if blk is None:
+        md = io.open(DOC, encoding="utf-8").read()
+        i = md.find("| `B` | identical vectors")
+        if i < 0:
+            print("  ❌ 既不在 moved-tables.json，也不在主稿里找到该表")
+            return 1
+        blk = md[i:md.find("\n\n", i)]
 
     print("=" * 78)
-    print("Table 5 一致性：手稿 vs 生成脚本")
+    print("Supplementary Table S10（原 Table 5）一致性：表体 vs 生成脚本")
     print("=" * 78)
     print(f"  {'B':>4}{'identical':>16}{'cap(u/p)':>18}{'degenerate':>14}")
     print("  " + "-" * 56)

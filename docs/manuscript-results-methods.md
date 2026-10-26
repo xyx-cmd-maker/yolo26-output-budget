@@ -19,26 +19,14 @@ implementation defaults to `max_det = 300` [jocher2026yolo26].  Whether that is 
 We therefore computed, for five benchmark splits, three quantities that depend only on the label
 distribution and not on any model: the mean per-image object count, the budget utilisation
 `util(B) = Σ_i min(B, n_i) / (B·N)`, and the fraction of images whose count exceeds the budget,
-`frac(n_i > B)`. Table 1 reports them and Figure 1 shows them as curves.
-
-**Table 1. Output-budget utilisation across benchmark splits.** The last three columns fix `B = 100`. `ceiling` is
-`Σ_i min(B,n_i)/Σ_i n_i`, the largest fraction of all annotated objects that an average per-image budget of `B`
-can in principle recover.
-
-| Split | Domain | Images (with gt) | mean `n_i` | max `n_i` | `ceiling` | `util` | `frac(>100)` |
-|---|---|---|---|---|---|---|---|
-| COCO val2017 | ground | 4,952 | 7.43 | 63 | 1.000 | 0.074 | 0.000 |
-| COCO train2017 | ground | 117,266 | 7.33 | 93 | 1.000 | 0.073 | 0.000 |
-| CrowdHuman train | ground | 15,000 | 23.53 | 391 | 0.957 | 0.225 | 0.021 |
-| VisDrone test-dev | aerial | 1,610 | 46.65 | 461 | 0.896 | 0.418 | 0.079 |
-| VisDrone val | aerial | 548 | 70.73 | 317 | 0.890 | 0.630 | 0.195 |
+`frac(n_i > B)`. Supplementary Table S8 reports them and Figure 1 shows them as curves.
 
 At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on which the budget binds spans
 0.000 to 0.195. The ordering follows the mean object count, not the domain. The largest object count does not predict utilisation either. CrowdHuman
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 
-Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. Table 1 bounds the room a reallocation has; whether recall changes depends on the detector, not the labels.
+Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. Supplementary Table S8 bounds the room a reallocation has; whether recall changes depends on the detector, not the labels.
 
 ## R1. Reallocation is positional: worst-image recall rises while mean per-image recall falls
 
@@ -49,7 +37,7 @@ the same total: a uniform quota `q_i = min(c, n_i, p_i)` with `c` chosen so that
 detector can emit for image `i`, which caps the quota. Quotas are integers, and all three allocations spend
 within 0.02% of `S`.
 
-**Table 2. Allocation of a fixed output budget at ρ = 0.5, VisDrone2019-DET validation (N = 548).**
+**Table 1. Allocation of a fixed output budget at ρ = 0.5, VisDrone2019-DET validation (N = 548).**
 Worst-image recall is `min_i TP_i/n_i`; mean per-image recall is the unweighted mean of `TP_i/n_i` over
 images. Cells are ordered **one-to-many head (first entry) / one-to-one head (second entry)**; within each
 entry, seeds 42, 43 and 44 follow in that order. CI is a paired bootstrap over images, 10,000 resamples for every seed, with RNG seed 20261014.
@@ -80,11 +68,11 @@ estimates throughout, and why the confidence intervals extend past the threshold
 
 ## R2. The cost of the reallocation falls on the sparsest images
 
-Because the total box count is conserved, only the distributional consequences matter. Table 3
+Because the total box count is conserved, only the distributional consequences matter. Table 2
 breaks the per-image recall change down by object-count band, for the one-to-many head at ρ = 0.5
 (Figure 4).
 
-**Table 3. Per-image recall by object-count band, VisDrone2019-DET validation, one-to-many head, seed 42.**
+**Table 2. Per-image recall by object-count band, VisDrone2019-DET validation, one-to-many head, seed 42.**
 ρ = 0.5. Δ is proportional minus uniform, in points. The band boundaries are fixed by the label
 distribution, which does not depend on the model. The interval is a paired percentile bootstrap over
 images within the band (10,000 resamples; the RNG is derived per seed so that re-running one seed alone
@@ -118,7 +106,7 @@ a ratio, because a ratio would have required a denominator that a real detector 
 
 For seed 42, at the pre-registered budget fraction ρ = 0.5 the point estimates are **+8.33 points on the one-to-many
 head and +5.31 on the one-to-one head**, both inside the middle band, and the 95% percentile intervals are
-**[+5.86, +13.01]** and **[+1.93, +11.18]** (Table 2). Both intervals extend past the 10-point threshold
+**[+5.86, +13.01]** and **[+1.93, +11.18]** (Table 1). Both intervals extend past the 10-point threshold
 at their upper limits, and neither is bounded away from it, so the point estimate alone would understate
 the uncertainty. The measured effect is therefore too uncertain to decide whether the allocation is worth reporting as a standalone result, and we report it as a component while stating the uncertainty explicitly.
 
@@ -134,28 +122,10 @@ claim that the threshold is never reached.
 
 *(Independent of seed; computed from stored per-image curves.)*
 
-Table 1 reports how much room a fixed budget leaves. That is a property of the labels; whether reallocating changes the worst-image recall is a property of the detector, and the two come apart. To separate them we swept the average per-image budget `B` from 2 to 500, holding the total spend
+Supplementary Table S8 reports how much room a fixed budget leaves. That is a property of the labels; whether reallocating changes the worst-image recall is a property of the detector, and the two come apart. To separate them we swept the average per-image budget `B` from 2 to 500, holding the total spend
 identical across the two allocations at every budget (relative difference between spends below 10^-4).
 Panel a of Figure 2 plots the same gain against the budget.
 Of the 17 budgets, 12 are spendable: at `B ≥ 100` neither allocation can spend the budget, because the label-count cap saturates every quota, and those budgets are excluded from the spendable sweep.
-
-**Table 4. Worst-image gain from proportional allocation as a function of the budget.** VisDrone2019-DET
-validation, `N = 548`. `S = B·N` is the total budget. Of the 17 swept budgets, the twelve with `B ≤ 70` are spendable (`spend/S = 1.00000`); this table lists ten of them plus `B = 100` and `B = 300`, where the budget can no longer be spent in full. `util` is the label-side utilisation from Table 1. Gains are in points; each Δ column lists seeds 42, 43, 44, and `Δ micro` is on the same allocation as the gain.
-
- `P(gain > 0)` is the bootstrap fraction of replicates with a positive gain, not a p value.| `B` | `util` | spend / `S` | Δ worst o2m | Δ worst o2o | Δ micro o2m | Δ micro o2o |
-|---|---|---|---|---|---|---|
-| 2 | 0.998 | 1.00000 | −0.63 / −0.63 / −0.63 | −0.63 / −0.63 / −0.56 | −0.01 / +0.00 / −0.01 | +0.01 / +0.01 / +0.01 |
-| 6 | 0.990 | 1.00000 | −1.89 / −1.89 / −1.89 | +3.99 / +3.66 / −1.89 | +0.10 / +0.08 / +0.09 | +0.14 / +0.15 / +0.12 |
-| 10 | 0.980 | 1.00000 | −2.84 / −2.84 / −3.15 | +4.30 / +6.11 / −3.15 | +0.31 / +0.32 / +0.27 | +0.34 / +0.33 / +0.31 |
-| **15** | 0.963 | 1.00000 | **+6.38 / +6.38 / +9.40** | **+6.38 / +6.21 / +6.06** | +0.50 / +0.47 / +0.44 | +0.60 / +0.56 / +0.54 |
-| 20 | 0.945 | 1.00000 | +4.80 / +4.80 / +8.29 | +4.80 / +7.98 / +7.98 | +0.86 / +0.70 / +0.75 | +0.81 / +0.79 / +0.85 |
-| **25** | 0.929 | 1.00000 | **+11.15 / +8.78 / +11.48** | **+8.24 / +6.40 / +6.40** | +1.00 / +0.96 / +1.08 | +1.11 / +1.10 / +1.07 |
-| 30 | 0.914 | 1.00000 | +9.58 / +6.89 / +10.22 | +7.52 / +4.82 / +4.51 | +1.11 / +1.07 / +1.09 | +1.21 / +1.11 / +1.19 |
-| 40 | 0.882 | 1.00000 | +6.12 / +8.03 / +6.12 | +8.42 / +6.43 / +11.44 | +1.23 / +1.10 / +1.11 | +1.31 / +1.22 / +1.18 |
-| 50 | 0.845 | 1.00000 | +5.04 / +6.37 / +2.02 | +3.93 / +7.65 / +8.69 | +1.00 / +1.17 / +1.13 | +1.17 / +1.11 / +1.00 |
-| **70** | 0.762 | 1.00000 | **+0.00 / +0.00 / +0.00** | **+0.00 / +0.00 / +0.00** | +0.01 / +0.02 / +0.01 | +0.02 / +0.00 / +0.02 |
-| 100 | 0.630 | 0.70728 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 |
-| 300 | 0.236 | 0.23576 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 |
 
 Three regimes appear, and we separate them by cause rather than by sign. At the smallest budgets the gain
 is negative on the one-to-many head, because proportional rounding gives an image with two to twenty objects one box where uniform gives two, so sparse images lose recall before dense ones gain.
@@ -183,29 +153,12 @@ hashes are released with the code, and the curves for all three seeds are plotte
 
 ## R5. The gain is positional, and part of the zero-gain regime is structural
 
-Table 1 bounds the room a reallocation has. Whether it is worth using that room depends on the detector,
-and on which image the minimum lands on. Table 4 reports the measured gain; Table 5 reports the two
+Supplementary Table S8 bounds the room a reallocation has. Whether it is worth using that room depends on the detector,
+and on which image the minimum lands on. Supplementary Table S9 reports the measured gain; Supplementary Table S10 reports the two
 quantities that decide it: whether the two quota vectors coincide, and the identity of the
 worst image under each allocation.
 
-**Table 5. Structural audit of the budget sweep, on all three seeds and both heads.** The measured gain itself is in Table 4; this table reports when the comparison is well-posed. `identical vectors` marks budgets at which the uniform and proportional quota vectors are equal entry by entry, so the comparison is an identity rather than a measurement. `worst image at cap` marks budgets at which the same image is the worst under both allocations. `degenerate` marks budgets at which some image's quota falls to one box, so its recall is decided by whether the single top prediction is correct.
-
-| `B` | identical vectors | worst image at cap (uniform / prop.) | degenerate |
-|---|---|---|---|
-| 2 | no | no / no | yes |
-| 6 | no | no / no | yes |
-| 10 | no | no / no | yes |
-| 15 | no | no / no | yes |
-| 20 | no | no / no | yes |
-| **25** | no | no / no | yes |
-| 30 | no | no / no | yes |
-| 40 | no | no / no | no |
-| 50 | no | no / no | no |
-| 70 | no | **yes / yes** | no |
-| **100** | **yes** | **yes / yes** | no |
-| **300** | **yes** | **yes / yes** | no |
-
-Three features of Table 5 matter. At `B` = 100 and 300 the comparison is
+Three features of Supplementary Table S10 matter. At `B` = 100 and 300 the comparison is
 vacuous: the two quota vectors are equal entry by entry, which we verify by exact array comparison rather
 than by inspecting the gain, so both allocations collapse to the same quota vector under the label-count cap and the measured zero is an identity. At `B` = 70 the vectors differ on 314 of 548 images, yet the worst image
 is the same image under both allocations (index 22, with 12 annotated objects) and has reached its cap
@@ -374,11 +327,11 @@ measurements and is not chosen to fit them. Across the ten conditions the point 
 Two cautions apply to the interpretation. The bootstrap quantifies sampling variability over images; it
 does not capture variability over training runs, and the results here come from three seeds. And the worst-image recall is an extreme order statistic, so it is governed by the few images
 with the largest or smallest object counts. Both cautions are the reason the confidence intervals in
-Table 2 extend past the pre-registered threshold.
+Table 1 extend past the pre-registered threshold.
 
 ## Image and annotation counts
 
-The `Images` column of Table 1 counts images that carry at least one annotated object, which is the
+The `Images` column of Supplementary Table S8 counts images that carry at least one annotated object, which is the
 population any recall statistic is defined over. COCO val2017 and train2017 contain a further 48 and
 1,021 images with no annotations; these enter no recall and change no reported fraction, so they are
 excluded from `N` and from every per-image table in this paper.
@@ -388,7 +341,7 @@ excluded from `N` and from every per-image table in this paper.
 VisDrone2019-DET is a publicly available aerial detection benchmark with 6,471 training, 548 validation,
 and 1,610 test-dev images across ten classes, distributed under CC BY-NC-SA 3.0 for academic use. Its
 per-image object counts range from 1 to 461. COCO 2017 and CrowdHuman are used only through their
-annotation files, since Table 1 depends on label distributions alone; no images from either benchmark were
+annotation files, since Supplementary Table S8 depends on label distributions alone; no images from either benchmark were
 downloaded, and no model was trained on them. CrowdHuman object counts use boxes tagged `person`, matching
 the default of the reference conversion script; ignored regions are excluded in a reported variant.
 

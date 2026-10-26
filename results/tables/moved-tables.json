@@ -1,6 +1,22 @@
 {
-  "Table 1": {
-    "title": "validation, `N = 548`. `S = B·N` is the total budget. Of the 17 swept budgets, the twelve with `B ≤ 70` are spendable (`spend/S = 1.00000`); this table lists ten of them plus `B = 100` and `B = 300`, where the budget can no longer be spent in full. `util` is the label-side utilisation from Table 1. Gains are in points; each Δ column lists seeds 42, 43, 44, and `Δ micro` is on the same allocation as the gain.",
+  "1": {
+    "si_id": "S8",
+    "title": "**Table 1. Output-budget utilisation across benchmark splits.** The last three columns fix `B = 100`. `ceiling` is\n`Σ_i min(B,n_i)/Σ_i n_i`, the largest fraction of all annotated objects that an average per-image budget of `B`\ncan in principle recover.",
+    "rows": [
+      "| Split | Domain | Images (with gt) | mean `n_i` | max `n_i` | `ceiling` | `util` | `frac(>100)` |",
+      "|---|---|---|---|---|---|---|---|",
+      "| COCO val2017 | ground | 4,952 | 7.43 | 63 | 1.000 | 0.074 | 0.000 |",
+      "| COCO train2017 | ground | 117,266 | 7.33 | 93 | 1.000 | 0.073 | 0.000 |",
+      "| CrowdHuman train | ground | 15,000 | 23.53 | 391 | 0.957 | 0.225 | 0.021 |",
+      "| VisDrone test-dev | aerial | 1,610 | 46.65 | 461 | 0.896 | 0.418 | 0.079 |",
+      "| VisDrone val | aerial | 548 | 70.73 | 317 | 0.890 | 0.630 | 0.195 |"
+    ],
+    "del_from": 23,
+    "del_to": 34
+  },
+  "4": {
+    "si_id": "S9",
+    "title": "**Table 4. Worst-image gain from proportional allocation as a function of the budget.** VisDrone2019-DET\nvalidation, `N = 548`. `S = B·N` is the total budget. Of the 17 swept budgets, the twelve with `B ≤ 70` are spendable (`spend/S = 1.00000`); this table lists ten of them plus `B = 100` and `B = 300`, where the budget can no longer be spent in full. `util` is the label-side utilisation from Table 1. Gains are in points; each Δ column lists seeds 42, 43, 44, and `Δ micro` is on the same allocation as the gain.",
     "rows": [
       "| `B` | `util` | spend / `S` | Δ worst o2m | Δ worst o2o | Δ micro o2m | Δ micro o2o |",
       "|---|---|---|---|---|---|---|",
@@ -17,48 +33,11 @@
       "| 100 | 0.630 | 0.70728 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 |",
       "| 300 | 0.236 | 0.23576 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 | +0.00 / +0.00 / +0.00 |"
     ],
-    "n_rows": 14,
-    "title_line": 143,
-    "body_start": 145,
-    "body_end": 158
+    "del_from": 141,
+    "del_to": 160
   },
-  "Table 2": {
-    "title": "**Table 2. Allocation of a fixed output budget at ρ = 0.5, VisDrone2019-DET validation (N = 548).**",
-    "rows": [
-      "| Quantity | Uniform | Proportional | Difference (pt) |",
-      "|---|---|---|---|",
-      "| Worst recall, o2m | 11.67 / 11.99 / 11.99% | 20.00 / 20.37 / 20.00% | **+8.33 / +8.38 / +8.01** |",
-      "| Worst recall, o2o | 11.36 / 11.67 / 11.36% | 16.67 / 20.00 / 22.22% | **+5.31 / +8.33 / +10.87** |",
-      "| Total recall (micro), o2m | 40.68 / 40.75 / 41.07% | 42.06 / 42.00 / 42.30% | +1.38 / +1.25 / +1.23 |",
-      "| **Mean recall (macro), o2m** | 50.21 / 50.45 / 50.90% | 43.85 / 43.88 / 44.03% | **−6.36 / −6.57 / −6.87** |",
-      "| **Mean recall (macro), o2o** | 49.03 / 49.32 / 49.80% | 42.89 / 43.15 / 43.42% | **−6.14 / −6.17 / −6.38** |",
-      "| 95% CI for gain, o2m | n/a | n/a | [+5.86,+13.01] / [+5.63,+13.01] / [+5.86,+13.33] |",
-      "| 95% CI for gain, o2o | n/a | n/a | [+1.93,+11.18] / [+5.26,+11.18] / [+7.48,+14.13] |",
-      "| `P(gain > 0)`, o2m | n/a | n/a | 1.0000 / 1.0000 / 1.0000 |",
-      "| `P(gain > 0)`, o2o | n/a | n/a | 0.9975 / 1.0000 / 1.0000 |"
-    ],
-    "n_rows": 11,
-    "title_line": 52,
-    "body_start": 57,
-    "body_end": 67
-  },
-  "Table 3": {
-    "title": "**Table 3. Per-image recall by object-count band, VisDrone2019-DET validation, one-to-many head, seed 42.**",
-    "rows": [
-      "| `n_i` band | Images | `n_i` range | Uniform | Proportional | Δ | 95% interval for Δ |",
-      "|---|---|---|---|---|---|---|",
-      "| sparsest 5% | 27 | 1–9 | 76.85% | 52.64% | **−24.20** | [−30.28,−18.14] |",
-      "| 5–25% | 110 | 10–39 | 67.92% | 46.11% | **−21.81** | [−23.92,−19.69] |",
-      "| 25–50% | 137 | 40–65 | 56.70% | 44.26% | −12.44 | [−13.65,−11.28] |",
-      "| 50–75% | 137 | 65–93 | 44.44% | 43.64% | −0.80 | [−1.35,−0.26] |",
-      "| densest 25% | 137 | 93–317 | 30.03% | 40.10% | **+10.07** | [+9.11,+11.07] |"
-    ],
-    "n_rows": 7,
-    "title_line": 87,
-    "body_start": 93,
-    "body_end": 99
-  },
-  "Table 5": {
+  "5": {
+    "si_id": "S10",
     "title": "**Table 5. Structural audit of the budget sweep, on all three seeds and both heads.** The measured gain itself is in Table 4; this table reports when the comparison is well-posed. `identical vectors` marks budgets at which the uniform and proportional quota vectors are equal entry by entry, so the comparison is an identity rather than a measurement. `worst image at cap` marks budgets at which the same image is the worst under both allocations. `degenerate` marks budgets at which some image's quota falls to one box, so its recall is decided by whether the single top prediction is correct.",
     "rows": [
       "| `B` | identical vectors | worst image at cap (uniform / prop.) | degenerate |",
@@ -76,9 +55,7 @@
       "| **100** | **yes** | **yes / yes** | no |",
       "| **300** | **yes** | **yes / yes** | no |"
     ],
-    "n_rows": 14,
-    "title_line": 191,
-    "body_start": 193,
-    "body_end": 206
+    "del_from": 192,
+    "del_to": 208
   }
 }
