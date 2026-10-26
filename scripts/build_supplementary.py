@@ -607,7 +607,15 @@ def page_fig_s1(pdf: PdfPages) -> None:
     cs = [c for c in (read_curve(r) for r in runs) if c]
     if not cs:
         return
-    fig, axes = plt.subplots(1, 2, figsize=(W_DOUBLE, 2.7))
+    fig, axes = plt.subplots(1, 2, figsize=(W_DOUBLE, 3.15))
+    fig.text(0.005, 0.975, "Figure S1.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.098, 0.975, "Validation metrics against epoch for the three seeds.",
+             fontsize=7.2, va="top")
+    fig.text(0.005, 0.943,
+             "a, mAP50 (solid) and mAP50-95 (faint) with the G0 gate thresholds as dotted "
+             "lines. b, box and classification losses. Curves are exact per-epoch values, "
+             "so no error bars are shown; each seed trained for 100 epochs.",
+             fontsize=5.6, va="top")
     cols = [OI["vermillion"], OI["blue"], OI["green"]]
     stys = ["-", "--", ":"]
     mks = ["o", "s", "^"]
@@ -632,13 +640,23 @@ def page_fig_s1(pdf: PdfPages) -> None:
     ax.set_ylabel("Training loss (a.u.)")
     ax.legend(fontsize=5.5, ncol=2)
     panel_label(ax, "b")
+    fig.tight_layout(rect=(0, 0, 1, 0.88))
     pdf.savefig(fig)
     plt.close(fig)
 
 
 def page_fig_s2(pdf: PdfPages) -> None:
     """Figure S2：ρ 扫描。"""
-    fig, ax = plt.subplots(figsize=(W_DOUBLE * 0.62, 2.7))
+    fig, ax = plt.subplots(figsize=(W_DOUBLE * 0.62, 3.15))
+    fig.text(0.008, 0.972, "Figure S2.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.150, 0.972, "Worst-image gain against the budget fraction.",
+             fontsize=7.2, va="top")
+    fig.text(0.008, 0.930,
+             "Each point is the proportional minus the uniform worst-image recall at that "
+             "budget\nfraction, in percentage points. The two horizontal lines are the "
+             "10-point and\n5-point decision thresholds. Values are exact for the reported "
+             "records, so no\nerror bars are shown.",
+             fontsize=5.6, va="top")
     for head, col, ls, mk in (("one-to-many", OI["vermillion"], "-", "o"),
                               ("one-to-one", OI["blue"], "--", "s")):
         rows = [r for r in RHO_SWEEP if r[0] == head]
@@ -652,6 +670,7 @@ def page_fig_s2(pdf: PdfPages) -> None:
     ax.set_ylabel(r"$\Delta$ worst-image recall (pp)")
     ax.set_ylim(0, 12.2)
     ax.legend(loc="lower left")
+    fig.tight_layout(rect=(0, 0, 1, 0.76))
     pdf.savefig(fig)
     plt.close(fig)
 
