@@ -207,8 +207,7 @@ worst image under each allocation.
 
 Three features of Table 5 matter. At `B` = 100 and 300 the comparison is
 vacuous: the two quota vectors are equal entry by entry, which we verify by exact array comparison rather
-than by inspecting the gain, so both allocations collapse to spending every box the detector can emit and
-the measured zero is an identity. At `B` = 70 the vectors differ on 314 of 548 images, yet the worst image
+than by inspecting the gain, so both allocations collapse to the same quota vector under the label-count cap and the measured zero is an identity. At `B` = 70 the vectors differ on 314 of 548 images, yet the worst image
 is the same image under both allocations (index 22, with 12 annotated objects) and has reached its cap
 under both, so its recall is literally the same number and the minimum is taken over one unchanged value.
 Below `B` = 70 the gain is real and sign-varying: the largest is +11.15 points at `B` = 25, the smallest is
@@ -320,9 +319,7 @@ test whether the reported gain depends on that choice, we repeated every ρ cond
 label-free variants: no top-up at all; a largest-remainder rule that gives the deficit to the images
 with the largest fractional part of their unrounded quota; and a capacity rule that gives it to the
 images with the most remaining prediction slots. The last two need only the annotation-free
-quantities already used to build the quota. With the budget matched to within 0.01%, both label-free
-rules reproduce the worst-image gain to within 0.32 points of the oracle arm, and the
-largest-remainder rule exceeds it at one condition by 3.33 points. The no-top-up arm under-spends by up to 2.75% at the smallest budget fraction and is therefore not a valid control there; where its spend does match, it agrees with the oracle arm exactly. The reported gain therefore does not depend on label
+quantities already used to build the quota. With the budget matched to within 0.01%, both label-free rules stay within 0.32 points of the oracle arm at every condition but one, where the largest-remainder rule exceeds it by 3.33 points. The no-top-up arm under-spends by up to 2.75% at the smallest budget fraction and is therefore not a valid control there; where its spend does match, it agrees with the oracle arm exactly. The reported gain therefore does not depend on label
 access in the top-up step. Per-condition values are in Supplementary Table S6.
 
 ## Pre-registration and decision rule
@@ -483,11 +480,10 @@ objects. We deliberately do not infer object distance, because VisDrone carries 
 ---
 
 **Figure 6. Reallocation shifts the whole lower tail of the recall distribution.** Quantile curves of
-per-image recall under uniform (blue) and proportional (orange) allocation at `ρ` = 0.50. **a**, one-to-many
+per-image recall under uniform (blue) and proportional (orange) allocation at `ρ` = 0.50, seed 42. **a**, one-to-many
 head. **b**, one-to-one head. The orange curve lies above the blue one below roughly the 35th percentile and
 below it between the 40th and 95th, so the gain is a property of the lower tail rather than of one image;
-the two curves meet at both ends because every image receives at least one box and the largest quotas are
-unchanged. Dotted verticals mark the minimum, 5th and 10th percentiles. `N` = 548 images per panel. Each
+the two allocations share the upper endpoint but their minimum recalls differ, because reallocation moves the minimum to a different image. Dotted verticals mark the minimum, 5th and 10th percentiles. `N` = 548 images per panel. Each
 curve is a quantile function of an exact per-image count, so no error bars are shown.
 
 # Data and code availability

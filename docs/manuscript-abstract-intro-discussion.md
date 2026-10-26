@@ -16,17 +16,10 @@
 
 # Abstract
 
-*(Unstructured; no references; no figures. Word count verified in the build script, not stated here.)*
-
-Object detectors emit a bounded number of boxes per image, and that bound is a fixed constant:
-COCO sweeps maxDets = [1, 10, 100], LVIS fixes max_dets = 300. Images differ greatly in count, so
-a fixed bound is slack on sparse images and binding on dense ones. Given a fixed total of boxes, does
-redistributing them between images help? We show that it is a positional intervention rather
-than a performance one. On validation, reallocating raises worst-image recall by 5.3 to 10.9 points across three training
+Object detectors emit a bounded number of boxes per image, usually one constant: COCO sweeps maxDets = [1, 10, 100], LVIS fixes max_dets = 300. Images differ greatly in count, so a fixed bound is slack on sparse images and binding on dense ones. Given a fixed total of boxes, does
+redistributing them between images help? We show that it is a positional intervention rather than a performance one. On validation, reallocating raises worst-image recall by 5.3 to 10.9 points across three training
 seeds and both heads, but total recall changes by at most 1.41 points and mean per-image recall
-falls by 6.1 to 6.9 points. The gain is positional: it changes which image is worst rather than lifting every image, and it improves some images while degrading others. When that
-image is quota-limited the reallocation replaces it; when it is detection-limited it keeps zero recall at any
-quota and the gain vanishes on test-dev for both heads. The cost is sharply graded: the sparsest 5% of images lose 24 points, and in the condition tabulated here every band's change is bounded away from zero. Once the budget exceeds the label-count cap on every image, the two allocations become the same vector and the comparison is vacuous.
+falls by 6.1 to 6.9 points. The gain is positional: it changes which image is worst rather than lifting every image. When that image is quota-limited the reallocation replaces it; when it is detection-limited it keeps zero recall at any quota and the gain vanishes on test-dev for both heads. The cost is sharply graded: the sparsest 5% of images lose 24 points, and in the condition tabulated here every band's change is bounded away from zero. Once the budget exceeds the label-count cap on every image, the two allocations become the same vector and the comparison is vacuous.
 
 ---
 
@@ -84,9 +77,7 @@ cost falls unevenly: the sparsest 5% of images lose 24.2 points while the denses
 mean per-image recall falls by 6.1 to 6.9 points. A practitioner who adopts per-image allocation to
 protect the worst case will redistribute recall towards images that already contained the most objects.
 
-Third, the boundary of the effect is structural, not empirical. Once the budget exceeds the total number of
-boxes the detector can emit, the two allocations coincide exactly, and we verify this with an exact
-comparison of the two quota vectors. Any "zero gain" measured there is an identity, and we report it as
+Third, the boundary of the effect is structural, not empirical. Once the budget exceeds the annotated count on every image, the label-count cap binds everywhere and the two allocations coincide exactly; we verify this by exact comparison of the two quota vectors. Any "zero gain" measured there is an identity, and we report it as
 such rather than as evidence about the allocation.
 
 This work sits between three literatures that do not meet. Detection evaluation treats the per-image output
