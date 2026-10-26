@@ -114,8 +114,8 @@ def main() -> int:
         print(f"  ✅ {len(results) - len(skips)} / {len(results)} 项通过，"
               f"{len(skips)} 项跳过 —— 可以重建交付物")
         print(f"     跳过项：{', '.join(skips)}")
-        print("     原因：这些检查读取 runs/ 下的逐图预测记录，记录体积 76 MB 未随仓库分发。")
-        print("     按 README 的 Reproducing 一节生成后重跑即可完整核验。")
+        print("     原因：这些检查依赖未随仓库分发的输入（逐图预测记录或内部工作笔记）。")
+        print("     预测记录已随仓库分发；仍跳过者通常是 AGENTS-*.md 属内部笔记，属预期行为。")
     else:
         print(f"  ✅ 全部 {len(results)} 项通过 —— 可以重建交付物")
     print("=" * 100)
