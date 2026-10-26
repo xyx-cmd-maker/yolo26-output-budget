@@ -253,8 +253,7 @@ is the price of not knowing the object count.
 
 Because two different sums are both called spend in this literature, we report both for every condition:
 the target total budget `S`, the nominal quota total `Σ_i q_i`, the number of boxes actually emitted
-`E(q) = Σ_i min(q_i, p_i)`, and the annotation-capped sum `Σ_i min(q_i, n_i, p_i)`. Across the thirty
-reported combinations the two sums agree exactly, so no reported number depends on which one is used; the
+`E(q) = Σ_i min(q_i, p_i)`, and the annotation-capped sum `Σ_i min(q_i, n_i, p_i)`. Across the forty-two reported combinations, covering all three seeds, the two sums agree exactly, so no reported number depends on which one is used; the
 per-condition values are in Supplementary Table S11 and in `results/tables/spend-audit.json`. In the
 spendable conditions the emitted count matches the target to within 0.006%. At `B` = 100 and `B` = 300 the
 emitted count is pinned at `Σ_i n_i` = 38,759 rather than at `Σ_i p_i` = 299,100, which is the direct

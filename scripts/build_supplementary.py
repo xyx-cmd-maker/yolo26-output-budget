@@ -512,7 +512,7 @@ def page_table_s11(pdf: PdfPages) -> None:
              "`B` = 300 the emitted count is pinned at $\\sum_i n_i$ = 38,759 rather than at $\\sum_i p_i$ "
              "= 299,100, which is the direct evidence that the saturation there comes from the annotated "
              "object count and not from the detector's prediction capacity.\n"
-             "VisDrone2019-DET validation, `N` = 548. `q_i > n_i` never occurs because the cap is imposed "
+             "VisDrone2019-DET validation, `N` = 548, all three seeds. `q_i > n_i` never occurs because the cap is imposed "
              "by construction.",
              fontsize=5.8, va="top")
 
@@ -525,7 +525,7 @@ def page_table_s11(pdf: PdfPages) -> None:
     fig.lines.append(plt.Line2D([0.022, 0.985], [y0 + 0.009, y0 + 0.009],
                                 color="black", lw=0.6, transform=fig.transFigure))
 
-    dy = 0.0215
+    dy = 0.0158
     for i, r in enumerate(_rows):
         y = y0 - 0.020 - i * dy
         if y < 0.030:
@@ -534,7 +534,7 @@ def page_table_s11(pdf: PdfPages) -> None:
                 f"{r['S_target']:,.0f}", f"{r['emitted']:,.0f}", f"{r['capped']:,.0f}",
                 f"{r['emitted_err_pct']:.4f}", str(r["n_q_gt_n"]), str(r["n_q_gt_p"])]
         for x, v in zip(xs, vals):
-            fig.text(x, y, v, fontsize=4.8, va="top")
+            fig.text(x, y, v, fontsize=4.2, va="top")
 
     y_end = y0 - 0.020 - min(len(_rows), int((y0 - 0.05) / dy)) * dy
     fig.lines.append(plt.Line2D([0.022, 0.985], [y_end, y_end],
