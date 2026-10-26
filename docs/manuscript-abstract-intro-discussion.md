@@ -58,9 +58,7 @@ there the window is per query or per user, leaving no room for redistribution.
 
 We therefore ask a narrow question. Given a fixed total number of boxes to distribute across an image set,
 does reallocating it change the worst-image recall, and what does the change cost? We answer with a
-measurement rather than a method. The proportional allocation we compare against is the classical max-min
-fair one, obtained by integer water-filling, and we claim nothing new for it
-[bertsekas1992data; hardy1934inequalities]. What we contribute is the magnitude of the effect on a real
+measurement rather than a method. The proportional allocation we compare against is a GT-proportional rule with per-image caps, obtained by integer water-filling, and we claim nothing new for it [bertsekas1992data; hardy1934inequalities]. What we contribute is the magnitude of the effect on a real
 detector, the distribution of its cost across the images, and the regime in which the comparison is
 vacuous.
 

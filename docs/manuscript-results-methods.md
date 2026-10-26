@@ -38,7 +38,7 @@ At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on whi
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 
-Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. Table 1 bounds the room a reallocation has; whether recall changes depends on the detector, not the labels, and the sweep below separates the two.
+Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. Table 1 bounds the room a reallocation has; whether recall changes depends on the detector, not the labels.
 
 ## R1. Reallocation is positional: worst-image recall rises while mean per-image recall falls
 
@@ -99,11 +99,11 @@ reproduces its row), so it estimates the mean cost of the band and not the membe
 | densest 25% | 137 | 93–317 | 30.03% | 40.10% | **+10.07** | [+9.11,+11.07] |
 
 The gain is concentrated in the densest quartile (+10.07 points) and the loss in the sparsest images
-(−24.20 points). The sparsest band holds 27 images, so its interval is widest at 12.14 points, yet still excludes zero: the cost is present in every one of the 10,000
+(−24.20 points). The sparsest band holds 27 images, so its interval is widest, at 12.14 points, yet excludes zero: the cost is present in every one of the 10,000
 resamples. Every band's interval excludes zero, and the interval ordering matches the band ordering, so under this scheme the gradient is not an artefact of band membership. In
 VisDrone, sparse images are those containing few and comparatively large objects: mean box area is
 2.31×10⁻² of the frame in the sparsest 5% against 1.18×10⁻³ in the densest quartile, and the Spearman
-correlation between object count and mean box area is −0.46 (**Figure 5**). The shift is distributional: the 5th percentile rises 5.84 to 9.68 points while the median falls 2.31 to 3.50 (Figure 6, Table S7). We deliberately do not infer
+correlation between object count and mean box area is −0.46 (**Figure 5**). The shift is distributional: the 5th percentile rises 5.84 to 9.68 points while the median falls (Figure 6, Table S7). We deliberately do not infer
 object distance
 from this, because the benchmark provides no depth annotation and the size–distance relation in aerial
 imagery also depends on camera tilt. Optimising worst-image recall therefore raises the recall of the dense images, which start from the lower baseline, and lowers that of the sparse images, which start from the higher baseline. Maximising the
@@ -122,7 +122,7 @@ head and +5.31 on the one-to-one head**, both inside the middle band, and the 95
 at their upper limits, and neither is bounded away from it, so the point estimate alone would understate
 the uncertainty. The measured effect is therefore too uncertain to decide whether the allocation is worth reporting as a standalone result, and we report it as a component while stating the uncertainty explicitly.
 
-A label-free top-up reproduces the gain (Table S6), and it is not an artefact of the budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
+A label-free top-up reproduces the gain (Table S6); it is not an artefact of the budget fraction, but neither is it uniformly below the threshold; removing the label-count cap raises it further (Supplementary Table S5). Sweeping ρ over {0.30, 0.40, 0.50, 0.60, 0.70} and both heads gives ten conditions spanning
 **+4.25 to +10.21 points**. Nine of the ten fall in the middle band; **one condition reaches the
 standalone band**: the one-to-many head at ρ = 0.40 gives +10.21 points, which the pre-registered rule
 scores as A. The remaining condition, the one-to-one head at ρ = 0.70, falls below 5 points and scores as
@@ -142,7 +142,7 @@ Of the 17 budgets, 12 are spendable: at `B ≥ 100` neither allocation can spend
 **Table 4. Worst-image gain from proportional allocation as a function of the budget.** VisDrone2019-DET
 validation, `N = 548`. `S = B·N` is the total budget. Of the 17 swept budgets, the twelve with `B ≤ 70` are spendable (`spend/S = 1.00000`); this table lists ten of them plus `B = 100` and `B = 300`, where the budget can no longer be spent in full. `util` is the label-side utilisation from Table 1. Gains are in points; each Δ column lists seeds 42, 43, 44, and `Δ micro` is on the same allocation as the gain.
 
-| `B` | `util` | spend / `S` | Δ worst o2m | Δ worst o2o | Δ micro o2m | Δ micro o2o |
+ `P(gain > 0)` is the bootstrap fraction of replicates with a positive gain, not a p value.| `B` | `util` | spend / `S` | Δ worst o2m | Δ worst o2o | Δ micro o2m | Δ micro o2o |
 |---|---|---|---|---|---|---|
 | 2 | 0.998 | 1.00000 | −0.63 / −0.63 / −0.63 | −0.63 / −0.63 / −0.56 | −0.01 / +0.00 / −0.01 | +0.01 / +0.01 / +0.01 |
 | 6 | 0.990 | 1.00000 | −1.89 / −1.89 / −1.89 | +3.99 / +3.66 / −1.89 | +0.10 / +0.08 / +0.09 | +0.14 / +0.15 / +0.12 |
@@ -174,7 +174,7 @@ for 100 epochs at 640×640 with batch size 8 on a single 8 GB consumer GPU. For 
 42, peak validation mAP50 is 0.3436 at epoch 83 and peak mAP50-95 is 0.1890 at epoch 82; the final-epoch
 values are 0.3385 and 0.1854. For seed 43 the two peaks coincide at epoch 80, at 0.3407 and 0.1858, with
 final-epoch values of 0.3365 and 0.1839. Seed 44 peaks at epoch 82, at 0.3421 and 0.1874, with final-epoch
-values of 0.3364 and 0.1838. The three seeds land within 0.3 points on mAP50 and 0.4 on mAP50-95, small relative to the between-seed spread of the allocation gain in R5b, and consistent with the effect being a property of how quotas interact with the label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline: those figures used a different batch size and no stated seed, so the comparison would not be controlled. The per-epoch curve, the environment lock, and the weight
+values of 0.3364 and 0.1838. The three seeds land within 0.3 points on mAP50 and 0.4 on mAP50-95, small relative to the between-seed spread of the allocation gain in R5b, and consistent with the effect being a property of how quotas interact with the label distribution rather than of detector quality. Training takes 238 s per epoch. We report no comparison against a published YOLO26n baseline: those figures used a different batch size and no stated seed. The per-epoch curve, the environment lock, and the weight
 hashes are released with the code, and the curves for all three seeds are plotted in **Supplementary Fig. S1**.
 
 ---
@@ -277,9 +277,7 @@ For a total budget `S = ρ·Σ_i n_i`, the uniform allocation gives every image 
 bisection as the largest value for which `Σ_i min(c, n_i, p_i) ≤ S`. The proportional allocation is defined through the budget rather than directly: we bisect the multiplier `a` and give image `i` the quota `min(⌈a·n_i⌉, n_i, p_i)` for the largest `a` whose total spend `Σ_i min(q_i, n_i, p_i)` does not exceed `S`. Writing the quota directly as `min(⌈ρ·n_i⌉, n_i, p_i)` would overspend, because the ceiling is applied per image; on the validation split at ρ = 0.5 it exceeds `S` by 0.70% and changes 135 of 548 quotas. Quotas are rounded up to integers, and the spend of an allocation is `Σ_i min(q_i, n_i, p_i)`. Every quota is capped at `min(n_i, p_i)` by construction: the `p_i` term because the detector cannot emit more boxes than it predicts, and the `n_i` term because this paper studies the label-count-capped regime, in which each image may be allocated at most as many boxes as it has annotated objects. That second cap is a modelling choice and not a property of the detector: because predictions are ranked by confidence, a box beyond the first `n_i` can still be the first to match a previously unmatched object, so the cap removes output slots that could in principle raise recall. It binds on no reported condition with `B ≤ 70`, where every quota stays at or below the annotated count, and it is what saturates the allocation at `B ≥ 100`; the saturation there is therefore label-count saturation, not exhaustion of the detector's prediction capacity. Hence `q_i ≤ min(n_i, p_i)` holds for every image at every budget we report, so this spend equals the number of boxes the detector actually emits, `Σ_i min(q_i, p_i)`; we checked the two sums agree exactly at every swept budget, on both heads, with a maximum difference of zero boxes., where `p_i` is the number of predictions the detector emitted for image `i`.
 The three allocations are compared only when their spends agree to within 1%. Because `n_i` is the annotated count, the proportional allocation is an **oracle**: it measures what redistribution could buy if each image's object count were known in advance, not a deployable policy.
 
-The proportional rule is the classical max-min fair rule for the total-spend constraint, and we use it as a baseline rather than as an optimum of the recall objective: which image ends up worst depends on where the detector's errors fall, not only on how many boxes each image receives. That
-maximisation is a classical max-min fair allocation problem, and progressive water-filling is its standard
-solution [bertsekas1992data]; we do not claim the optimisation as a new result. What we report is its
+The proportional rule is the classical max-min fair rule for the total-spend constraint, and we use it as a baseline rather than as an optimum of the recall objective: which image ends up worst depends on where the detector's errors fall, not only on how many boxes each image receives. That maximisation is a max-min fair allocation problem, and progressive water-filling is its standard solution [bertsekas1992data]; we do not claim the optimisation as a new result. The per-image caps, the integer rounding and the top-up step mean the result is a capped proportional allocation rather than an exact max-min fair rule, and the quotas are set from object counts rather than from recall, so the allocation is not the solution that directly maximises the worst-image recall we evaluate. What we report is its
 behaviour when the constraint is the number of boxes a detector may emit, and the empirical consequences
 of that setting, which neither the optimisation literature nor the detection-evaluation literature
 addresses.
