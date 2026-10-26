@@ -543,6 +543,61 @@ def page_table_s11(pdf: PdfPages) -> None:
     plt.close(fig)
 
 
+def page_table_s12(pdf: PdfPages) -> None:
+    """Table S12：TOST 逐条件数值（等价检验）。"""
+    import json as _json
+    _d = _json.loads((ROOT / "results" / "tables" / "fwer-and-equivalence.json")
+                     .read_text(encoding="utf-8"))
+    _tost = _d["tost"]
+    _margin = _d["equivalence_margin_pt"]
+
+    fig = plt.figure(figsize=(W_DOUBLE, 4.6))
+    fig.text(0.005, 0.966, "Table S12.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.005, 0.940, "Two one-sided tests of equivalence for the micro-recall change.",
+             fontsize=7.4, va="top")
+    _desc = [
+        f"The prespecified equivalence margin is +-{_margin:g} percentage point. `p` is the TOST p value, "
+        "the larger of the two one-sided p values;",
+        "the null hypothesis is that the true change falls outside the margin, so a small `p` would "
+        "indicate equivalence. No condition",
+        "reaches that, and four point estimates lie outside the margin altogether, so equivalence is not "
+        "established at this margin.",
+        "",
+        "VisDrone2019-DET validation, seed 42, $N$ = 548. Bootstrap resamples = 10,000, RNG seed "
+        "20261014. Values are percentage",
+        "points of the aggregate true-positive rate.",
+    ]
+    _y = 0.905
+    for _ln in _desc:
+        fig.text(0.005, _y, _ln, fontsize=5.8, va="top")
+        _y -= 0.018
+    fig.text(0.005, _y - 0.004, "Values are exactly as computed.", fontsize=5.8,
+             style="italic", va="top")
+
+    hdr = ["condition", "$\\Delta$ micro (pt)", "95% interval", f"$p$ (TOST)", "equivalent?"]
+    xs = [0.030, 0.230, 0.420, 0.700, 0.830]
+    y0 = 0.640
+    for x, c in zip(xs, hdr):
+        fig.text(x, y0, c, fontsize=5.6, fontweight="bold", va="bottom")
+    fig.lines.append(plt.Line2D([0.022, 0.975], [y0 + 0.010, y0 + 0.010],
+                                color="black", lw=0.6, transform=fig.transFigure))
+
+    dy = 0.0345
+    for i, (k, v) in enumerate(_tost.items()):
+        y = y0 - 0.024 - i * dy
+        lo, hi = v["ci_pt"]
+        vals = [k, f"{v['dmicro_pt']:+.3f}", f"[{lo:+.3f}, {hi:+.3f}]",
+                f"{v['p_tost']:.5f}", "yes" if v["equivalent_at_pre_registered_margin"] else "no"]
+        for x, val in zip(xs, vals):
+            fig.text(x, y, val, fontsize=5.4, va="top")
+
+    y_end = y0 - 0.024 - len(_tost) * dy + 0.010
+    fig.lines.append(plt.Line2D([0.022, 0.975], [y_end, y_end],
+                                color="black", lw=0.6, transform=fig.transFigure))
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -650,6 +705,7 @@ def main() -> int:
         page_table_s7(pdf)
         page_moved_tables(pdf)
         page_table_s11(pdf)
+        page_table_s12(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)
