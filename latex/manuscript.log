@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  25 OCT 2026 21:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  26 OCT 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,10 +801,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (manuscript.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20])
+ [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [21])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
 (manuscript.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -819,13 +822,13 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 16C157B2E6CFAA1ACCFB729F4EA61AB7;7333.
  ) 
 Here is how much of TeX's memory you used:
- 13050 strings out of 467871
- 200875 string characters out of 5417891
+ 13051 strings out of 467871
+ 200882 string characters out of 5417891
  641703 words of memory out of 5000000
  41617 multiletter control sequences out of 15000+600000
  644117 words of font info for 109 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,2373b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,93p,2373b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type
@@ -849,9 +852,9 @@ C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmtt9.pfb>
-Output written on manuscript.pdf (21 pages, 367832 bytes).
+Output written on manuscript.pdf (22 pages, 369306 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
  265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

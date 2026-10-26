@@ -38,7 +38,7 @@ At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on whi
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 
-Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. And Table 1 bounds the room a reallocation has; whether the worst-image recall changes depends on the detector, not on the labels, and the budget sweep below separates the two.
+Two cautions apply. CrowdHuman flags ignore regions per box; excluding them lowers the mean object count by 3.8% and `frac(n_i > 100)` from 0.021 to 0.018, leaving the ordering unchanged. Table 1 bounds the room a reallocation has; whether recall changes depends on the detector, not the labels, and the sweep below separates the two.
 
 ## R1. Reallocation is positional: worst-image recall rises while mean per-image recall falls
 
@@ -76,7 +76,7 @@ at `Σ_i min(k_i, n_i) = Σ_i k_i = S` by the budget rather than by the allocati
 the one-to-one gain from +8.24 to +6.40 at `B = 25`, while at `B = 50` the one-to-one gain moves in the
 opposite direction, from +3.93 to +7.65. The direction of the effect is stable, but its magnitude is not
 resolvable at the precision a single seed would suggest, which is why we report ranges rather than point
-estimates throughout, and why the confidence intervals extend past the threshold we pre-registered.
+estimates throughout, and why the confidence intervals extend past the threshold we pre-registered. 
 
 ## R2. The cost of the reallocation falls on the sparsest images
 
@@ -103,7 +103,7 @@ The gain is concentrated in the densest quartile (+10.07 points) and the loss in
 resamples. Every band's interval excludes zero, and the interval ordering matches the band ordering, so under this scheme the gradient is not an artefact of band membership. In
 VisDrone, sparse images are those containing few and comparatively large objects: mean box area is
 2.31×10⁻² of the frame in the sparsest 5% against 1.18×10⁻³ in the densest quartile, and the Spearman
-correlation between object count and mean box area is −0.46 (**Figure 5**). We deliberately do not infer
+correlation between object count and mean box area is −0.46 (**Figure 5**). The shift is distributional: the 5th percentile rises 5.84 to 9.68 points while the median falls 2.31 to 3.50 (Figure 6, Table S7). We deliberately do not infer
 object distance
 from this, because the benchmark provides no depth annotation and the size–distance relation in aerial
 imagery also depends on camera tilt. Optimising worst-image recall therefore raises the recall of the dense images, which start from the lower baseline, and lowers that of the sparse images, which start from the higher baseline. Maximising the
@@ -481,6 +481,14 @@ objects. We deliberately do not infer object distance, because VisDrone carries 
 
 
 ---
+
+**Figure 6. Reallocation shifts the whole lower tail of the recall distribution.** Quantile curves of
+per-image recall under uniform (blue) and proportional (orange) allocation at `ρ` = 0.50. **a**, one-to-many
+head. **b**, one-to-one head. The orange curve lies above the blue one below roughly the 35th percentile and
+below it between the 40th and 95th, so the gain is a property of the lower tail rather than of one image;
+the two curves meet at both ends because every image receives at least one box and the largest quotas are
+unchanged. Dotted verticals mark the minimum, 5th and 10th percentiles. `N` = 548 images per panel. Each
+curve is a quantile function of an exact per-image count, so no error bars are shown.
 
 # Data and code availability
 

@@ -113,6 +113,11 @@ _add([2.7495, 0.4446, 0.0026, 0.01, 3.33],
 _add([0.63, 3.78, 1.8, 4.49],
      "gt-cap-sensitivity.json（去掉 n_i cap 后 Δworst / Δmicro 的变化范围）")
 
+# ⑭ 序统计量（percentile-recall.json）
+_add([-3.505, -2.312, 0.409, 2.916, 4.263, 5.838, 7.702, 9.677],
+     "percentile-recall.json（min/p5/p10/p25/median 的均匀-比例差值）")
+
+
 
 
 def main() -> int:

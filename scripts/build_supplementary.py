@@ -358,6 +358,46 @@ def page_table_s6(pdf: PdfPages) -> None:
     plt.close(fig)
 
 
+def page_table_s7(pdf: PdfPages) -> None:
+    """Table S7：逐条件序统计量（min/p5/p10/p25/median）。"""
+    import json as _json
+    _d = _json.loads((ROOT / "results" / "tables" / "percentile-recall.json")
+                     .read_text(encoding="utf-8"))
+
+    fig = plt.figure(figsize=(W_DOUBLE, 5.0))
+    fig.text(0.005, 0.965, "Table S7.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.088, 0.965,
+             "The gain sits in the lower tail; the median pays for it.",
+             fontsize=8, va="top")
+    fig.text(0.005, 0.900,
+             "Change in order statistics of per-image recall, proportional minus uniform, in percentage "
+             "points. Every condition has the same sign at the minimum, the 5th, 10th and 25th "
+             "percentiles, and the opposite sign at the median, so the effect is a shift of the lower "
+             "tail rather than a change confined to one image.\n"
+             "VisDrone2019-DET validation, seed 42, $N$ = 548.",
+             fontsize=6.5, va="top")
+
+    cols = ["head", "$\\rho$", "$\\Delta$ min", "$\\Delta$ p5", "$\\Delta$ p10",
+            "$\\Delta$ p25", "$\\Delta$ median", "worst image same?"]
+    xs = [0.05, 0.14, 0.26, 0.38, 0.50, 0.62, 0.75, 0.88]
+    y0, dy = 0.55, 0.040
+    for x, c in zip(xs, cols):
+        fig.text(x, y0 + 0.030, c, fontsize=5.6, fontweight="bold", va="bottom")
+    fig.lines.append(plt.Line2D([0.03, 0.97], [y0 + 0.022, y0 + 0.022],
+                                color="black", lw=0.5, transform=fig.transFigure))
+
+    for i, r in enumerate(_d["rows"]):
+        y = y0 - i * dy
+        cells = [r["head"], f"{r['rho']:.2f}",
+                 f"{r['d_min']:+.2f}", f"{r['d_p5']:+.2f}", f"{r['d_p10']:+.2f}",
+                 f"{r['d_p25']:+.2f}", f"{r['d_median']:+.2f}",
+                 "yes" if r["worst_same"] else "no"]
+        for x, v in zip(xs, cells):
+            fig.text(x, y, v, fontsize=6.0)
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -462,6 +502,7 @@ def main() -> int:
         page_table_s4(pdf)
         page_table_s5(pdf)
         page_table_s6(pdf)
+        page_table_s7(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)

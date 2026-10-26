@@ -780,7 +780,7 @@ def main() -> int:
         #   （需 pypdf，本项目不装新包）→ 用 600 dpi PNG 嵌入，缩减后仍远超 300 dpi 要求。
         FIG_STEMS = {1: "fig1-density-distributions", 2: "fig2-delta-vs-budget",
                      3: "fig3-criterion", 4: "fig4-quintile-cost",
-                     5: "fig5-box-area-vs-count"}
+                     5: "fig5-box-area-vs-count", 6: "fig6-recall-quantiles"}
         inserted: set[int] = set()
 
         # ★★ P141：**把完整图注加载进来**。
