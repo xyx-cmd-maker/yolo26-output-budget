@@ -16,10 +16,8 @@
 
 # Abstract
 
-Object detectors emit a bounded number of boxes per image, usually one constant: COCO sweeps maxDets = [1, 10, 100], LVIS fixes max_dets = 300. Images differ greatly in count, so a fixed bound is slack on sparse images and binding on dense ones. Given a fixed total of boxes, does
-redistributing them between images help? We show that it is a positional intervention rather than a performance one. On validation, reallocating raises worst-image recall by 5.3 to 10.9 points across three training
-seeds and both heads, but total recall changes by at most 1.41 points and mean per-image recall
-falls by 6.1 to 6.9 points. The gain is positional: it changes which image is worst rather than lifting every image. When that image is quota-limited the reallocation replaces it; when it is detection-limited it keeps zero recall at any quota and the gain vanishes on test-dev for both heads. The cost is sharply graded: the sparsest 5% of images lose 24 points, and in the condition tabulated here every band's change is bounded away from zero. Once the budget exceeds the label-count cap on every image, the two allocations become the same vector and the comparison is vacuous.
+Object detectors emit a bounded number of boxes per image, usually one constant: COCO sweeps maxDets = [1, 10, 100], LVIS fixes max_dets = 300. Images differ in count, so a fixed bound is slack on sparse images and binding on dense ones. Given a fixed total of boxes, does
+redistributing them between images help? We show that it is a positional rather than a performance intervention. On validation, reallocating raises worst-image recall by 5.3 to 10.9 points over three seeds and both heads, but the total-recall difference is at most 1.41 points, the prespecified +-1.0-point equivalence test is not passed, and mean per-image recall falls by 6.1 to 6.9 points. It changes which image is worst rather than lifting every image. When that image is quota-limited, reallocation replaces it; when it is detection-limited it keeps zero recall at any quota, and under the same label-informed diagnostic it does not change on test-dev for either head. The cost is sharply graded: the sparsest 5% of images lose 24 points, and in the condition tabulated here every band changes with a sign. Once the budget exceeds the label-count cap everywhere, the two allocations coincide and the comparison is vacuous.
 
 ---
 
@@ -58,14 +56,13 @@ there the window is per query or per user, leaving no room for redistribution.
 
 We therefore ask a narrow question. Given a fixed total number of boxes to distribute across an image set,
 does reallocating it change the worst-image recall, and what does the change cost? We answer with a
-measurement rather than a method. The proportional allocation we compare against is a GT-proportional rule with per-image caps, obtained by integer water-filling, and we claim nothing new for it [bertsekas1992data; hardy1934inequalities]. What we contribute is the magnitude of the effect on a real
+measurement rather than a method. The proportional allocation we compare against is a GT-proportional rule with a per-image cap, obtained by integer water-filling, and we claim nothing new for it [bertsekas1992data; hardy1934inequalities]. What we contribute is the magnitude of the effect on a real
 detector, the distribution of its cost across the images, and the regime in which the comparison is
 vacuous.
 
-We evaluate this on VisDrone2019-DET [zhu2021visdrone] with YOLO26n [jocher2026yolo26], whose two prediction heads give two settings within one detector, and we train three seeds. Reallocating a fixed total budget
-raises worst-image recall by 5.3 to 10.9 points on validation, but not on the held-out test split. Three results constrain how that gain should be read.
+We evaluate this on VisDrone2019-DET [zhu2021visdrone] with YOLO26n [jocher2026yolo26], whose two prediction heads give two settings within one detector, and we train three seeds. Reallocating a fixed total budget raises worst-image recall by 5.3 to 10.9 points on validation, but under the same label-informed diagnostic it does not change on the test-dev split. Three results constrain how that gain should be read.
 
-First, the intervention is positional rather than absolute. It changes which image attains the minimum; some images gain, others lose. When we trace the identity of the worst image under both allocations, the
+First, the intervention is positional rather than absolute, and we use the word operationally: the reallocation changes the identity and the distribution of image-level recall rather than producing a uniform improvement, so a higher minimum does not imply that every image, or the average image, improves. It changes which image attains the minimum; some images gain, others lose. When we trace the identity of the worst image under both allocations, the
 uniform allocation consistently pins a dense image as the worst case, and reallocation replaces it with a
 different one. Mean per-image recall therefore falls even as the minimum rises.
 
@@ -116,7 +113,7 @@ confidence-ordered hit sequences across images, which holds the label counts and
 same class of quantity as the utilisation statistics we already argued are uninformative. The only reliable
 test of such a quantity is to change the detector and see whether the verdict follows.
 
- Under a uniform quota the densest image is pinned as the worst case; once the quota is redistributed it no longer is, so the minimum falls on a different image.  The shift reaches the 5th percentile while the median falls: reallocation moves recall down the distribution rather than creating it. Describing this as an improvement of the worst
+ Under a uniform quota the densest image is pinned as the worst case; once the quota is redistributed it no longer is, so the minimum falls on a different image.  The 5th percentile rises while the median falls: reallocation moves recall down the distribution rather than creating it. Describing this as an improvement of the worst
 case would be arithmetically accurate and substantively misleading, because the binding constraint moved
 rather than relaxed.
 
