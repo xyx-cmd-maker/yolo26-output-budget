@@ -136,14 +136,12 @@ the false-positive share of the spent boxes rises with the budget, so the identi
 total recall rather than fixing it. Measured total recall changes by at most 1.41 points across the twelve
 spendable budget conditions, consistent with that bound. Reallocation is therefore not a performance
 intervention. It moves recall between images, and the images it moves recall away from are the sparsest
-ones, which in VisDrone contain the fewest and largest objects. A practitioner who adopts worst-image
-recall as an objective is, in this benchmark, choosing to degrade the images that are easiest to resolve
-and thereby improve the ones that are hardest to count. That is a defensible choice for some applications
+ones, which in VisDrone contain the fewest and largest objects. Adopting worst-image recall as an objective therefore means, in this benchmark, degrading the easiest images to improve the hardest. That is a defensible choice for some applications
 and a poor one for others, but it should be made explicitly rather than inherited from a metric name.
 
 **The gain is bounded by the nature of the worst image.** Because it replaces rather than
 improves that image, it helps only when a quota can help it. On validation the worst image is
-quota-limited, so the proportional allocation moves the minimum elsewhere. On test-dev both allocations share the same worst image: the uniform quota already covers its whole capacity of 8 boxes and recovers none (Supplementary Table S3), while the vectors differ on 1568 of 1610 images and both spend 37,551 boxes. The comparison is well posed and the gain is +0.000 on both heads. The mechanism replicates while the aggregate statistic does not.
+quota-limited, so the proportional allocation moves the minimum elsewhere. On test-dev both allocations share the same worst image: the uniform quota already covers its 8 boxes and recovers none (Supplementary Table S3), while the vectors differ on 1568 of 1610 images and both spend 37,551 boxes. The comparison is well posed and the gain is +0.000 on both heads. The mechanism replicates while the aggregate statistic does not.
 
 Several limitations bound these claims. The results come from three training seeds of one detector on one
 benchmark; the between-seed spread is material, reaching 4.8 points on one head, so the magnitudes we
@@ -157,7 +155,7 @@ ignored regions optionally excluded; we report both versions, and the cross-benc
 unchanged. Finally, the two heads we test are two settings of the same network rather than two independent
 implementations, so the measurement rests on one detector family.
 
-Two directions follow. The measurement should be repeated on detectors whose per-image recall is flat in object count, since the positional gain is a property of the detector's failure profile rather than of the allocation. The objective also deserves scrutiny: worst-image recall is an extreme order statistic whose sampling variability is governed by a handful of images, which is why the intervals we
+Two directions follow. The measurement should be repeated on detectors whose per-image recall is flat in object count, since the positional gain is a property of the failure profile, not the allocation. The objective also deserves scrutiny: worst-image recall is an extreme order statistic whose sampling variability is governed by a handful of images, which is why the intervals we
 report are wide relative to the effect. Lower quantiles of the per-image recall distribution would trade the
 interpretability of a worst case for estimates a finite benchmark can actually resolve.
 
