@@ -123,17 +123,11 @@ The failed attempt is worth stating precisely, because the same construction is 
 decide, per image, whether the budget or the detector limited that image, by comparing the worst image's
 quota against the number of boxes it could physically emit. The quantity is computable from stored
 predictions and needs no retraining. It is not diagnostic, for two reasons. First, shuffling the detector's
-confidence-ordered hit sequences across images, which holds the label counts and the budget fixed and
-substitutes a different detector, leaves the verdict unchanged in 198 of 200 draws while the measured gain
-becomes non-positive in every one of them: the quantity tracks the labels, not the detector. Second, at seed 42 on the one-to-one head, ten non-degenerate conditions at budgets 58 to 67 predict a gain that is measured negative, down to −2.8 points; a counterexample, not a rate. The deeper reason is that the
-number of predictions a detector emits never falls below the number of annotated objects on the same image,
-so the prediction count cancels and the construction reduces to a statement about the labels alone, the
+confidence-ordered hit sequences across images, which holds the label counts and the budget fixed while substituting another detector, leaves the verdict unchanged in 198 of 200 draws and makes the gain non-positive in each: the quantity tracks the labels, not the detector. Second, at seed 42 on the one-to-one head, ten non-degenerate conditions at budgets 58 to 67 predict a gain that is measured negative, down to −2.8 points; a counterexample, not a rate. The deeper reason is that a detector emits at least as many predictions as an image has annotated objects, so the prediction count cancels and the construction reduces to a statement about the labels alone, the
 same class of quantity as the utilisation statistics we already argued are uninformative. The only reliable
 test of such a quantity is to change the detector and see whether the verdict follows.
 
- Under a uniform quota
-the densest image is pinned as the worst case, and once the quota is redistributed that image is no longer
-the worst, so the minimum is taken over a different image. Describing this as an improvement of the worst
+ Under a uniform quota the densest image is pinned as the worst case; once the quota is redistributed it no longer is, so the minimum falls on a different image.  The shift reaches the 5th percentile while the median falls: reallocation moves recall down the distribution rather than creating it. Describing this as an improvement of the worst
 case would be arithmetically accurate and substantively misleading, because the binding constraint moved
 rather than relaxed.
 
@@ -163,10 +157,7 @@ ignored regions optionally excluded; we report both versions, and the cross-benc
 unchanged. Finally, the two heads we test are two settings of the same network rather than two independent
 implementations, so the measurement rests on one detector family.
 
-Two directions follow. The measurement should be repeated on detectors whose per-image recall does not rise
-with object count, since the positional gain we observe is a property of the detector's failure profile
-rather than of the allocation. And the objective deserves scrutiny: worst-image recall is an extreme order
-statistic, so its sampling variability is governed by a handful of images, which is why the intervals we
+Two directions follow. The measurement should be repeated on detectors whose per-image recall is flat in object count, since the positional gain is a property of the detector's failure profile rather than of the allocation. The objective also deserves scrutiny: worst-image recall is an extreme order statistic whose sampling variability is governed by a handful of images, which is why the intervals we
 report are wide relative to the effect. Lower quantiles of the per-image recall distribution would trade the
 interpretability of a worst case for estimates a finite benchmark can actually resolve.
 
