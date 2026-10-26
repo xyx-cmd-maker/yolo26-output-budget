@@ -494,6 +494,55 @@ def page_moved_tables(pdf: PdfPages) -> None:
         plt.close(fig)
 
 
+def page_table_s11(pdf: PdfPages) -> None:
+    """Table S11：目标预算 vs 实际发出框数（spend audit）。"""
+    import json as _json
+    _d = _json.loads((ROOT / "results" / "tables" / "spend-audit.json")
+                     .read_text(encoding="utf-8"))
+    _rows = _d["rows"]
+
+    fig = plt.figure(figsize=(W_DOUBLE, 6.4))
+    fig.text(0.005, 0.968, "Table S11.", fontsize=8, fontweight="bold", va="top")
+    fig.text(0.005, 0.944, "Target budget against the boxes actually emitted.",
+             fontsize=7.4, va="top")
+    fig.text(0.005, 0.912,
+             "`emitted` is $\\sum_i \\min(q_i, p_i)$, the number of boxes the short list really emits; "
+             "`capped` is $\\sum_i \\min(q_i, n_i, p_i)$. The two agree on every row, so the spend "
+             "identity used in the main text holds throughout the reported conditions. At `B` = 100 and "
+             "`B` = 300 the emitted count is pinned at $\\sum_i n_i$ = 38,759 rather than at $\\sum_i p_i$ "
+             "= 299,100, which is the direct evidence that the saturation there comes from the annotated "
+             "object count and not from the detector's prediction capacity.\n"
+             "VisDrone2019-DET validation, `N` = 548. `q_i > n_i` never occurs because the cap is imposed "
+             "by construction.",
+             fontsize=5.8, va="top")
+
+    hdr = ["seed", "head", "condition", "allocation", "$S$ target", "emitted", "capped",
+           "error %", "$q>n$", "$q>p$"]
+    xs = [0.030, 0.082, 0.150, 0.268, 0.440, 0.548, 0.640, 0.732, 0.836, 0.906]
+    y0 = 0.735
+    for x, c in zip(xs, hdr):
+        fig.text(x, y0, c, fontsize=5.0, fontweight="bold", va="bottom")
+    fig.lines.append(plt.Line2D([0.022, 0.985], [y0 + 0.009, y0 + 0.009],
+                                color="black", lw=0.6, transform=fig.transFigure))
+
+    dy = 0.0215
+    for i, r in enumerate(_rows):
+        y = y0 - 0.020 - i * dy
+        if y < 0.030:
+            break
+        vals = [str(r["seed"]), r["head"], r["condition"], r["allocation"],
+                f"{r['S_target']:,.0f}", f"{r['emitted']:,.0f}", f"{r['capped']:,.0f}",
+                f"{r['emitted_err_pct']:.4f}", str(r["n_q_gt_n"]), str(r["n_q_gt_p"])]
+        for x, v in zip(xs, vals):
+            fig.text(x, y, v, fontsize=4.8, va="top")
+
+    y_end = y0 - 0.020 - min(len(_rows), int((y0 - 0.05) / dy)) * dy
+    fig.lines.append(plt.Line2D([0.022, 0.985], [y_end, y_end],
+                                color="black", lw=0.6, transform=fig.transFigure))
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 def page_fig_s1(pdf: PdfPages) -> None:
     """Figure S1：训练曲线（两种子）。"""
     runs = [r for r in ("r1_yolo26n_visdrone_640__s42",
@@ -600,6 +649,7 @@ def main() -> int:
         page_table_s6(pdf)
         page_table_s7(pdf)
         page_moved_tables(pdf)
+        page_table_s11(pdf)
         page_fig_s1(pdf)
         page_fig_s2(pdf)
         page_note_s1(pdf)

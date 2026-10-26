@@ -29,6 +29,7 @@ CHECKS = [
     ("scripts/smoke/check_stale_numbers.py", "作废口径", False),
     ("scripts/smoke/check_script_entrypoints.py", "脚本入口", False),
     ("scripts/check_section_order.py", "章节/表/图 编号顺序", False),
+    ("scripts/check_spend_invariants.py", "spend 不变量", False),
     ("scripts/check_seed_consistency.py", "种子数一致性", False),
     ("scripts/check_boundary_condition.py", "条件限定完整性", False),
     ("scripts/count_manuscript_words.py", "字数上限", False),

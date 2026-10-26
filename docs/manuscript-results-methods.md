@@ -124,7 +124,7 @@ claim that the threshold is never reached.
 Supplementary Table S8 reports how much room a fixed budget leaves. That is a property of the labels; whether reallocating changes the worst-image recall is a property of the detector, and the two come apart. To separate them we swept the average per-image budget `B` from 2 to 500, holding the total spend
 identical across the two allocations at every budget (relative difference between spends below 10^-4).
 Panel a of Figure 2 plots the same gain against the budget.
-Of the 17 budgets, 12 are spendable: at `B ≥ 100` neither allocation can spend the budget, because the label-count cap saturates every quota, and those budgets are excluded from the spendable sweep.
+Actual emitted boxes match the target budget to within 0.006% in every spendable condition and pin at Σn at the two saturated ones (Supplementary Table S11). Of the 17 budgets, 12 are spendable: at `B ≥ 100` neither allocation can spend the budget, because the label-count cap saturates every quota, and those budgets are excluded from the spendable sweep.
 
 Three regimes appear, and we separate them by cause rather than by sign. At the smallest budgets the gain
 is negative on the one-to-many head, because proportional rounding gives an image with two to twenty objects one box where uniform gives two, so sparse images lose recall before dense ones gain.
@@ -248,6 +248,19 @@ oracle), and it does so at roughly half the macro cost (−3.44, −3.49 and −
 what the positional account predicts: on that head the worst image is already close to its ceiling under
 the uniform quota, so reallocation has little to replace. Because `p_i` exceeds `n_i` on every image in our records, the prediction-based signal is a noisy proxy for the oracle one, and the gap between the two rows
 is the price of not knowing the object count.
+
+## Spend audit
+
+Because two different sums are both called spend in this literature, we report both for every condition:
+the target total budget `S`, the nominal quota total `Σ_i q_i`, the number of boxes actually emitted
+`E(q) = Σ_i min(q_i, p_i)`, and the annotation-capped sum `Σ_i min(q_i, n_i, p_i)`. Across the thirty
+reported combinations the two sums agree exactly, so no reported number depends on which one is used; the
+per-condition values are in Supplementary Table S11 and in `results/tables/spend-audit.json`. In the
+spendable conditions the emitted count matches the target to within 0.006%. At `B` = 100 and `B` = 300 the
+emitted count is pinned at `Σ_i n_i` = 38,759 rather than at `Σ_i p_i` = 299,100, which is the direct
+evidence that the saturation there comes from the label-count cap and not from the detector's prediction
+capacity. No quota ever exceeds its annotated count, because the cap is imposed by construction, and on
+these records `p_i > n_i` on all 548 images, so the `n_i` term is always the binding one.
 
 ## Budget convention and top-up
 

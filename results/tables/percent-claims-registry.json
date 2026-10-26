@@ -154,6 +154,12 @@
       "scope": "prose",
       "source": "topup-robustness.json: no_topup spend_err max 2.7495%",
       "note": "no-topup 臂在最小预算分数下欠支"
+    },
+    {
+      "value": 0.006,
+      "scope": "prose",
+      "source": "spend-audit.json: spendable emitted_err_pct max 0.0060% < 0.006%",
+      "note": "actual emitted boxes vs target budget relative error bound"
     }
   ]
 }
