@@ -73,8 +73,7 @@ breaks the per-image recall change down by object-count band, for the one-to-man
 (Figure 4).
 
 **Table 2. Per-image recall by object-count band, VisDrone2019-DET validation, one-to-many head, seed 42.**
-ρ = 0.5. Δ is proportional minus uniform, in points. The band boundaries are fixed by the label
-distribution, which does not depend on the model. The interval is a paired percentile bootstrap over
+ρ = 0.5. Δ is proportional minus uniform, in points. The band boundaries are fixed by the label distribution, which does not depend on the model. Bands are formed by sorting images on `n_i` and cutting at fixed ranks, so images that share an object count can fall in adjacent bands; the cuts are rank quantiles rather than disjoint value intervals, the `n_i range` column reports the observed span within each band, and no model output enters the cut. The interval is a paired percentile bootstrap over
 images within the band (10,000 resamples; the RNG is derived per seed so that re-running one seed alone
 reproduces its row), so it estimates the mean cost of the band and not the membership of the band. The one-to-one head gives the same ordering with slightly smaller magnitudes: −23.4 and +10.0 points at the two extremes, both intervals excluding zero.
 
