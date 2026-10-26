@@ -46,7 +46,7 @@ def check(path: Path) -> list[str]:
 
     # ① 章节
     heads = [l[3:].split(".")[0].strip()
-             for l in text.split("\n") if l.startswith("## R")]
+             for l in text.split("\n") if re.match(r"^## R\\d", l)]
     if heads:
         keys = [sec_key(h) for h in heads]
         if any(k != k for k in keys):          # NaN
