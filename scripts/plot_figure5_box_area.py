@@ -198,8 +198,9 @@ def main() -> int:
     ax.set_ylim(0, _ymax * 1.28)
     ax.set_xlabel("Object-count quintile (range of $n_i$)")
     ax.set_ylabel("Mean box area\n(fraction of image area)")
-    # 注释框贴到 axes 顶部（0.988，仍在黑色框内），给首个柱的图数标签 27 让出空间
-    ax.text(0.03, 0.988, f"sparsest / densest = {ratio:.2f}$\\times$",
+    # 注释框放**右上空白区**：柱 2–5 都低于 0.005，右上方整片空白。
+    #   x 从 0.40 起、y=0.95（在黑色框架内），与首个柱的 27 标签完全分离。
+    ax.text(0.40, 0.95, f"sparsest / densest = {ratio:.2f}$\\times$",
             transform=ax.transAxes, fontsize=6, va="top",
             bbox=dict(fc="white", ec="0.6", lw=0.4, alpha=0.95))
 
