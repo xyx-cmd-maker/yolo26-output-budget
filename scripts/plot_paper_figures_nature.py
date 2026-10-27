@@ -175,12 +175,6 @@ def figure1(saveit: bool = True) -> plt.Figure:
     ax.set_ylabel(r"Images with $n_i > B$  (%)")
     # ★ 技能规范：多面板图**一般不设标题**（解释交给 caption）。
     #   但 panel 的身份必须留在图内 → 改用图内彩色标识，去掉 ax.set_title。
-    ax.text(0.035, 0.955, "VisDrone", transform=ax.transAxes, fontsize=6,
-            color=OI["vermillion"], va="top", fontweight="bold")
-    ax.text(0.035, 0.885, "CrowdHuman", transform=ax.transAxes, fontsize=6,
-            color=OI["blue"], va="top", fontweight="bold")
-    ax.text(0.035, 0.815, "COCO", transform=ax.transAxes, fontsize=6,
-            color=OI["green"], va="top", fontweight="bold")
     ax.set_ylim(-3, 105)
     ax.legend(loc="upper right")
     panel_label(ax, "a")
@@ -193,7 +187,7 @@ def figure1(saveit: bool = True) -> plt.Figure:
         ut = [u["utilisation"] * 100 for u in d[key]["util"]]
         ax.plot(Bs, ut, color=c, ls=ls, lw=1.2, marker=mk, ms=2.6, mew=0.4, label=lab)
     ax.axhline(100, color="0.35", lw=0.5, ls="-")
-    ax.text(11, 91, "budget fully absorbed", fontsize=5.5, color="0.35")
+    ax.text(1.6e2, 95, "budget fully absorbed", fontsize=5.5, color="0.35")
     ax.set_xscale("log")
     ax.set_xlabel("Output budget $B$ (boxes per image)")
     ax.set_ylabel(r"Utilisation $\Sigma\min(B,n_i)/(B\,N)$  (%)")
