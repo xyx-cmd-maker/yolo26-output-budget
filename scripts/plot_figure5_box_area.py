@@ -185,15 +185,17 @@ def main() -> int:
     ys = [b["mean_box_area_norm"] for b in bands]
     ax.bar(xs, ys, 0.62, color=[OI["vermillion"]] + ["0.72"] * 3 + [OI["blue"]],
            edgecolor="black", lw=0.4)
+    _ymax0 = max(b["mean_box_area_norm"] for b in bands)
     for x, b in zip(xs, bands):
-        ax.text(x, b["mean_box_area_norm"], f"{b['n_images']}",
-                ha="center", va="bottom", fontsize=5.5)
+        ax.text(x, b["mean_box_area_norm"] + _ymax0 * 0.025, f"{b['n_images']}",
+                ha="center", va="bottom", fontsize=5.5, zorder=12,
+                bbox=dict(fc="white", ec="none", alpha=0.9, pad=0.4))
     ax.set_xticks(xs)
     ax.set_xticklabels([f"{int(b['n_range'][0])}–{int(b['n_range'][1])}"
                         for b in bands], fontsize=5.5)
     # P103: top bar label (27) was clipped -> relax the y upper limit by 18%
     _ymax = max(b["mean_box_area_norm"] for b in bands)
-    ax.set_ylim(0, _ymax * 1.18)
+    ax.set_ylim(0, _ymax * 1.28)
     ax.set_xlabel("Object-count quintile (range of $n_i$)")
     ax.set_ylabel("Mean box area\n(fraction of image area)")
     ax.text(0.03, 0.94, f"sparsest / densest = {ratio:.2f}$\\times$",
