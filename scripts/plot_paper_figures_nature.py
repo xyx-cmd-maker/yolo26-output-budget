@@ -148,6 +148,7 @@ def figure1(saveit: bool = True) -> plt.Figure:
     d = _load(TAB / "n-gt-distributions.json")
     series = [
         ("visdrone_val", "VisDrone-DET val (aerial)", OI["vermillion"], "-", "o"),
+        ("highd", "highD (aerial highway)", OI["purple"], "-.", "^"),
         ("crowdhuman_train", "CrowdHuman train (ground)", OI["blue"], "--", "s"),
         ("coco_val2017", "COCO val2017 (ground)", OI["green"], ":", "^"),
     ]

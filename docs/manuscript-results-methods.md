@@ -404,7 +404,7 @@ error bars are shown; where it is a mean over images, the legend states the inte
 **Figure 1. Per-image annotated object counts across detection benchmarks.** **a**, Percentage of images
 whose object count `n_i` exceeds a budget `B`. **b**, Fraction of the permitted budget the annotations can
 absorb, `Σ_i min(B, n_i)/(B·N)`. Colours, line styles and marker shapes all distinguish the curves, which
-remain separable in grayscale. `N` = 548 (VisDrone val), 15,000 (CrowdHuman train), 4,952 (COCO val2017).
+remain separable in grayscale. `N` = 548 (VisDrone val), 15,000 (CrowdHuman train), 4,952 (COCO val2017), and 1,498,984 (highD, one frame of a recording counted as one image).
 These are exact label counts, so no error bars are shown.
 
 **Figure 2. Gain in worst-image recall from reallocating a fixed output budget, in percentage points.**

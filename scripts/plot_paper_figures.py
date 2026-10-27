@@ -44,6 +44,7 @@ def figure1() -> Path:
 
     series = [
         ("visdrone_val", "VisDrone-DET val (aerial, dense)", "#d62728"),
+        ("highd", "highD (aerial highway)", "#9467bd"),
         ("crowdhuman_train", "CrowdHuman train (ground, crowded)", "#1f77b4"),
         ("coco_val2017", "COCO val2017 (ground, sparse)", "#2ca02c"),
     ]
