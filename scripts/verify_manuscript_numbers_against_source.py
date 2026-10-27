@@ -117,6 +117,11 @@ _add([0.63, 3.78, 1.8, 4.49],
 _add([-3.505, -2.312, 0.409, 2.916, 4.263, 5.838, 7.702, 9.677],
      "percentile-recall.json（min/p5/p10/p25/median 的均匀-比例差值）")
 
+# ⑮ highD 标签分布
+_add([0.0, 0.265, 1.0, 2.4, 2.7, 26.5, 97.0],
+     "highd-label-distribution.json（逐帧车辆数的 mean/max/ceiling/util/frac 与两个倍数）")
+
+
 
 
 

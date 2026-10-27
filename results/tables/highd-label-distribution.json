@@ -1,0 +1,495 @@
+{
+  "source": "highD-dataset-v1.0 (data/raw/highD/data/*_tracks.csv)",
+  "unit": "frame (each frame of each recording counted as one image)",
+  "N": 1498984,
+  "sum_n": 39725708,
+  "mean_n_i": 26.502,
+  "max_n_i": 97,
+  "ceiling_B100": 1.0,
+  "util_B100": 0.265,
+  "frac_gt_B100": 0.0,
+  "n_recordings": 60,
+  "per_recording": [
+    {
+      "recording": "01",
+      "frames": 22539,
+      "mean_vehicles": 15.473,
+      "max_vehicles": 29,
+      "numVehicles_meta": 1047,
+      "sum_frame_counts": 348750
+    },
+    {
+      "recording": "02",
+      "frames": 25076,
+      "mean_vehicles": 15.079,
+      "max_vehicles": 33,
+      "numVehicles_meta": 1113,
+      "sum_frame_counts": 378115
+    },
+    {
+      "recording": "03",
+      "frames": 25288,
+      "mean_vehicles": 12.001,
+      "max_vehicles": 24,
+      "numVehicles_meta": 914,
+      "sum_frame_counts": 303488
+    },
+    {
+      "recording": "04",
+      "frames": 27182,
+      "mean_vehicles": 14.373,
+      "max_vehicles": 29,
+      "numVehicles_meta": 1163,
+      "sum_frame_counts": 390687
+    },
+    {
+      "recording": "05",
+      "frames": 28582,
+      "mean_vehicles": 14.084,
+      "max_vehicles": 27,
+      "numVehicles_meta": 1216,
+      "sum_frame_counts": 402538
+    },
+    {
+      "recording": "06",
+      "frames": 30308,
+      "mean_vehicles": 15.04,
+      "max_vehicles": 31,
+      "numVehicles_meta": 1368,
+      "sum_frame_counts": 455823
+    },
+    {
+      "recording": "07",
+      "frames": 14459,
+      "mean_vehicles": 17.777,
+      "max_vehicles": 38,
+      "numVehicles_meta": 855,
+      "sum_frame_counts": 257031
+    },
+    {
+      "recording": "08",
+      "frames": 27331,
+      "mean_vehicles": 17.645,
+      "max_vehicles": 34,
+      "numVehicles_meta": 1620,
+      "sum_frame_counts": 482252
+    },
+    {
+      "recording": "09",
+      "frames": 26717,
+      "mean_vehicles": 16.343,
+      "max_vehicles": 35,
+      "numVehicles_meta": 1420,
+      "sum_frame_counts": 436634
+    },
+    {
+      "recording": "10",
+      "frames": 15103,
+      "mean_vehicles": 17.103,
+      "max_vehicles": 37,
+      "numVehicles_meta": 856,
+      "sum_frame_counts": 258312
+    },
+    {
+      "recording": "11",
+      "frames": 15277,
+      "mean_vehicles": 43.122,
+      "max_vehicles": 63,
+      "numVehicles_meta": 1776,
+      "sum_frame_counts": 658771
+    },
+    {
+      "recording": "12",
+      "frames": 22939,
+      "mean_vehicles": 49.387,
+      "max_vehicles": 71,
+      "numVehicles_meta": 2728,
+      "sum_frame_counts": 1132881
+    },
+    {
+      "recording": "13",
+      "frames": 26760,
+      "mean_vehicles": 39.05,
+      "max_vehicles": 60,
+      "numVehicles_meta": 2949,
+      "sum_frame_counts": 1044990
+    },
+    {
+      "recording": "14",
+      "frames": 27420,
+      "mean_vehicles": 35.799,
+      "max_vehicles": 55,
+      "numVehicles_meta": 2844,
+      "sum_frame_counts": 981609
+    },
+    {
+      "recording": "15",
+      "frames": 18089,
+      "mean_vehicles": 17.201,
+      "max_vehicles": 35,
+      "numVehicles_meta": 922,
+      "sum_frame_counts": 311143
+    },
+    {
+      "recording": "16",
+      "frames": 23666,
+      "mean_vehicles": 14.284,
+      "max_vehicles": 29,
+      "numVehicles_meta": 998,
+      "sum_frame_counts": 338052
+    },
+    {
+      "recording": "17",
+      "frames": 22798,
+      "mean_vehicles": 14.196,
+      "max_vehicles": 31,
+      "numVehicles_meta": 977,
+      "sum_frame_counts": 323650
+    },
+    {
+      "recording": "18",
+      "frames": 14578,
+      "mean_vehicles": 13.095,
+      "max_vehicles": 27,
+      "numVehicles_meta": 607,
+      "sum_frame_counts": 190895
+    },
+    {
+      "recording": "19",
+      "frames": 24095,
+      "mean_vehicles": 13.625,
+      "max_vehicles": 32,
+      "numVehicles_meta": 999,
+      "sum_frame_counts": 328294
+    },
+    {
+      "recording": "20",
+      "frames": 25232,
+      "mean_vehicles": 16.076,
+      "max_vehicles": 31,
+      "numVehicles_meta": 1199,
+      "sum_frame_counts": 405639
+    },
+    {
+      "recording": "21",
+      "frames": 25097,
+      "mean_vehicles": 14.083,
+      "max_vehicles": 30,
+      "numVehicles_meta": 1077,
+      "sum_frame_counts": 353430
+    },
+    {
+      "recording": "22",
+      "frames": 13307,
+      "mean_vehicles": 17.75,
+      "max_vehicles": 34,
+      "numVehicles_meta": 689,
+      "sum_frame_counts": 236204
+    },
+    {
+      "recording": "23",
+      "frames": 23919,
+      "mean_vehicles": 19.527,
+      "max_vehicles": 38,
+      "numVehicles_meta": 1314,
+      "sum_frame_counts": 467065
+    },
+    {
+      "recording": "24",
+      "frames": 24151,
+      "mean_vehicles": 18.261,
+      "max_vehicles": 38,
+      "numVehicles_meta": 1297,
+      "sum_frame_counts": 441012
+    },
+    {
+      "recording": "25",
+      "frames": 29460,
+      "mean_vehicles": 68.559,
+      "max_vehicles": 97,
+      "numVehicles_meta": 2850,
+      "sum_frame_counts": 2019752
+    },
+    {
+      "recording": "26",
+      "frames": 28014,
+      "mean_vehicles": 56.616,
+      "max_vehicles": 94,
+      "numVehicles_meta": 2708,
+      "sum_frame_counts": 1586031
+    },
+    {
+      "recording": "27",
+      "frames": 30221,
+      "mean_vehicles": 31.522,
+      "max_vehicles": 53,
+      "numVehicles_meta": 2599,
+      "sum_frame_counts": 952640
+    },
+    {
+      "recording": "28",
+      "frames": 31274,
+      "mean_vehicles": 26.177,
+      "max_vehicles": 43,
+      "numVehicles_meta": 2372,
+      "sum_frame_counts": 818651
+    },
+    {
+      "recording": "29",
+      "frames": 27985,
+      "mean_vehicles": 27.044,
+      "max_vehicles": 45,
+      "numVehicles_meta": 2152,
+      "sum_frame_counts": 756828
+    },
+    {
+      "recording": "30",
+      "frames": 30051,
+      "mean_vehicles": 29.384,
+      "max_vehicles": 49,
+      "numVehicles_meta": 2479,
+      "sum_frame_counts": 883030
+    },
+    {
+      "recording": "31",
+      "frames": 27951,
+      "mean_vehicles": 28.94,
+      "max_vehicles": 51,
+      "numVehicles_meta": 2254,
+      "sum_frame_counts": 808891
+    },
+    {
+      "recording": "32",
+      "frames": 19433,
+      "mean_vehicles": 25.242,
+      "max_vehicles": 45,
+      "numVehicles_meta": 1410,
+      "sum_frame_counts": 490536
+    },
+    {
+      "recording": "33",
+      "frames": 27787,
+      "mean_vehicles": 28.878,
+      "max_vehicles": 46,
+      "numVehicles_meta": 2252,
+      "sum_frame_counts": 802434
+    },
+    {
+      "recording": "34",
+      "frames": 21104,
+      "mean_vehicles": 30.144,
+      "max_vehicles": 50,
+      "numVehicles_meta": 1773,
+      "sum_frame_counts": 636161
+    },
+    {
+      "recording": "35",
+      "frames": 27120,
+      "mean_vehicles": 25.496,
+      "max_vehicles": 47,
+      "numVehicles_meta": 1992,
+      "sum_frame_counts": 691465
+    },
+    {
+      "recording": "36",
+      "frames": 31038,
+      "mean_vehicles": 30.676,
+      "max_vehicles": 55,
+      "numVehicles_meta": 2543,
+      "sum_frame_counts": 952136
+    },
+    {
+      "recording": "37",
+      "frames": 26868,
+      "mean_vehicles": 25.76,
+      "max_vehicles": 47,
+      "numVehicles_meta": 1984,
+      "sum_frame_counts": 692115
+    },
+    {
+      "recording": "38",
+      "frames": 28918,
+      "mean_vehicles": 28.752,
+      "max_vehicles": 47,
+      "numVehicles_meta": 2380,
+      "sum_frame_counts": 831446
+    },
+    {
+      "recording": "39",
+      "frames": 29760,
+      "mean_vehicles": 24.447,
+      "max_vehicles": 45,
+      "numVehicles_meta": 2191,
+      "sum_frame_counts": 727555
+    },
+    {
+      "recording": "40",
+      "frames": 29356,
+      "mean_vehicles": 27.121,
+      "max_vehicles": 43,
+      "numVehicles_meta": 2399,
+      "sum_frame_counts": 796159
+    },
+    {
+      "recording": "41",
+      "frames": 27965,
+      "mean_vehicles": 27.844,
+      "max_vehicles": 49,
+      "numVehicles_meta": 2363,
+      "sum_frame_counts": 778660
+    },
+    {
+      "recording": "42",
+      "frames": 26740,
+      "mean_vehicles": 30.772,
+      "max_vehicles": 53,
+      "numVehicles_meta": 2444,
+      "sum_frame_counts": 822853
+    },
+    {
+      "recording": "43",
+      "frames": 25457,
+      "mean_vehicles": 29.683,
+      "max_vehicles": 48,
+      "numVehicles_meta": 2271,
+      "sum_frame_counts": 755628
+    },
+    {
+      "recording": "44",
+      "frames": 29382,
+      "mean_vehicles": 28.995,
+      "max_vehicles": 49,
+      "numVehicles_meta": 2549,
+      "sum_frame_counts": 851925
+    },
+    {
+      "recording": "45",
+      "frames": 27826,
+      "mean_vehicles": 29.314,
+      "max_vehicles": 49,
+      "numVehicles_meta": 2449,
+      "sum_frame_counts": 815693
+    },
+    {
+      "recording": "46",
+      "frames": 29723,
+      "mean_vehicles": 36.705,
+      "max_vehicles": 74,
+      "numVehicles_meta": 2821,
+      "sum_frame_counts": 1090968
+    },
+    {
+      "recording": "47",
+      "frames": 25359,
+      "mean_vehicles": 33.723,
+      "max_vehicles": 53,
+      "numVehicles_meta": 2462,
+      "sum_frame_counts": 855185
+    },
+    {
+      "recording": "48",
+      "frames": 27878,
+      "mean_vehicles": 31.208,
+      "max_vehicles": 49,
+      "numVehicles_meta": 2544,
+      "sum_frame_counts": 870004
+    },
+    {
+      "recording": "49",
+      "frames": 25853,
+      "mean_vehicles": 27.401,
+      "max_vehicles": 48,
+      "numVehicles_meta": 2096,
+      "sum_frame_counts": 708397
+    },
+    {
+      "recording": "50",
+      "frames": 28388,
+      "mean_vehicles": 26.622,
+      "max_vehicles": 44,
+      "numVehicles_meta": 2234,
+      "sum_frame_counts": 755741
+    },
+    {
+      "recording": "51",
+      "frames": 27670,
+      "mean_vehicles": 27.806,
+      "max_vehicles": 45,
+      "numVehicles_meta": 2284,
+      "sum_frame_counts": 769398
+    },
+    {
+      "recording": "52",
+      "frames": 25230,
+      "mean_vehicles": 28.235,
+      "max_vehicles": 48,
+      "numVehicles_meta": 2121,
+      "sum_frame_counts": 712376
+    },
+    {
+      "recording": "53",
+      "frames": 26454,
+      "mean_vehicles": 31.717,
+      "max_vehicles": 51,
+      "numVehicles_meta": 2442,
+      "sum_frame_counts": 839031
+    },
+    {
+      "recording": "54",
+      "frames": 26775,
+      "mean_vehicles": 28.925,
+      "max_vehicles": 47,
+      "numVehicles_meta": 2343,
+      "sum_frame_counts": 774473
+    },
+    {
+      "recording": "55",
+      "frames": 26582,
+      "mean_vehicles": 27.738,
+      "max_vehicles": 47,
+      "numVehicles_meta": 2190,
+      "sum_frame_counts": 737339
+    },
+    {
+      "recording": "56",
+      "frames": 23754,
+      "mean_vehicles": 25.681,
+      "max_vehicles": 48,
+      "numVehicles_meta": 1795,
+      "sum_frame_counts": 610019
+    },
+    {
+      "recording": "57",
+      "frames": 26582,
+      "mean_vehicles": 24.075,
+      "max_vehicles": 35,
+      "numVehicles_meta": 1919,
+      "sum_frame_counts": 639970
+    },
+    {
+      "recording": "58",
+      "frames": 9729,
+      "mean_vehicles": 23.974,
+      "max_vehicles": 40,
+      "numVehicles_meta": 714,
+      "sum_frame_counts": 233239
+    },
+    {
+      "recording": "59",
+      "frames": 11362,
+      "mean_vehicles": 20.35,
+      "max_vehicles": 41,
+      "numVehicles_meta": 722,
+      "sum_frame_counts": 231220
+    },
+    {
+      "recording": "60",
+      "frames": 24022,
+      "mean_vehicles": 20.835,
+      "max_vehicles": 34,
+      "numVehicles_meta": 1467,
+      "sum_frame_counts": 500494
+    }
+  ],
+  "note": "highD contains vehicle trajectories rather than detection annotations; only the label-side quantities (object count per image) are used, which is why no detector was trained or evaluated on it."
+}

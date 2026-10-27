@@ -16,13 +16,13 @@ A detector's output budget is the maximum number of boxes it may emit per image.
 [lin2014coco], the LVIS protocol fixes `max_dets = 300` [gupta2019lvis], and the Ultralytics YOLO
 implementation defaults to `max_det = 300` [jocher2026yolo26].  Whether that is reasonable depends on `n_i`, because a fixed budget binds only on images whose count exceeds it.
 
-We therefore computed, for five benchmark splits, three quantities that depend only on the label
+We therefore computed, for six benchmark splits, three quantities that depend only on the label
 distribution and not on any model: the mean per-image object count, the budget utilisation
 `util(B) = Σ_i min(B, n_i) / (B·N)`, and the fraction of images whose count exceeds the budget,
 `frac(n_i > B)`. Supplementary Table S8 reports them and Figure 1 shows them as curves.
 
 At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on which the budget binds spans
-0.000 to 0.195. The ordering follows the mean object count, not the domain. The largest object count does not predict utilisation either. CrowdHuman
+0.000 to 0.195. The ordering follows the mean object count, not the domain. highD and VisDrone validation are both aerial, yet their mean counts differ by a factor of 2.7 and their utilisation by 2.4, so the split is by density rather than by whether the camera flies. The largest object count does not predict utilisation either. CrowdHuman
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 
