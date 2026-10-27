@@ -752,7 +752,14 @@ def main() -> int:
         pg.rule()
         # 作者行：`Name^{1,*}`。★ 必须留空格，且用上标式标记
         #   （初版写成 `f"{n}${sup}"` 且无空格 → PDF 里渲染成 `ZimingZeng1,*`）
-        pg.para(", ".join(f"{n} ({sup})" for n, sup in AUTHORS), FP_BODY, space_after_pt=4)
+        # 官方样式：单位号为**上标**，通讯作者再加星号（sn-jnl 同款）。
+        #   mathtext 必须用 `$^{{...}}$` 带花括号；`${{sup}}$` 会破坏配对（见上条注释）。
+        # mathtext 在 ^{1,*} 里会在逗号后自动加空格（渲染成 `Zeng^1, *`）。
+        # 拆成相邻上标组即可贴合，与 sn-jnl 的输出一致。
+        def _sup(s: str) -> str:
+            return "".join("$^{" + part + "}$" for part in s.split(","))
+        pg.para(", ".join(f"{n}{_sup(sup)}" for n, sup in AUTHORS), FP_BODY,
+                space_after_pt=4)
         # 单位：数字序，含城市与国家（官方要求）
         for i, aff in enumerate(AFFILIATIONS, 1):
             pg.para(f"{i}. {aff}", FontProperties(family="DejaVu Sans", size=8),
