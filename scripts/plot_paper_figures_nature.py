@@ -170,6 +170,8 @@ def figure1(saveit: bool = True) -> plt.Figure:
         # 少量标记点（冗余编码，灰度也能区分）
         k = max(1, nb // 7)
         ax.plot(right[::k], ccdf[::k], mk, color=c, ms=2.6, mew=0.4, ls="none")
+        # ★ 直接标注：在曲线降到 50% 处写短名，四条曲线在该处横坐标分得很开，
+        #   因此既不遮挡也不重叠；同时保证 highD 与其余三条一样有图内标识。
     ax.set_xscale("log")
     ax.set_xlabel("Output budget $B$ (boxes per image)")
     ax.set_ylabel(r"Images with $n_i > B$  (%)")
