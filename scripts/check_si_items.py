@@ -30,9 +30,21 @@ def main() -> int:
     sup_txt = "".join(pg.get_text() for pg in d)
     d.close()
 
-    cited_tab = sorted(set(re.findall(r"Supplementary Table (S\d+)", main_txt)))
-    cited_fig = sorted(set(re.findall(r"Supplementary Fig(?:ure)?\.? (S\d+)", main_txt)))
-    cited_note = sorted(set(re.findall(r"Supplementary Note (S\d+)", main_txt)))
+    # Sci Rep 七个补充材料类别（官方逐字）：
+    #   Table, Figure, Video, Audio, Note, Data, Discussion, Equations, Methods
+    CATS = ["Table", "Figure", "Video", "Audio", "Note", "Data", "Discussion",
+            "Equations", "Methods"]
+    cited = {}
+    for cat in CATS:
+        if cat == "Figure":
+            pat = r"Supplementary (?:Figure|Fig\.?) (S\d+)"
+        else:
+            pat = rf"Supplementary {cat} (S\d+)"
+        cited[cat] = sorted(set(re.findall(pat, main_txt)))
+    cited_tab = cited["Table"]
+    cited_fig = sorted(set(cited["Figure"]) | set(
+        re.findall(r"Supplementary Fig\. ?(S\d+)", main_txt)))
+    cited_note = cited["Note"]
     print("=" * 78)
     print("SI 条目完整性")
     print("=" * 78)
@@ -50,6 +62,11 @@ def main() -> int:
     for n in cited_note:
         if f"Note {n}" not in sup_txt:
             fails.append(f"Note {n} 被引用但 SI 无编号")
+    # ★ 其它类别：被引用就必须在 SI 里有同类别同编号的条目
+    for cat in ("Video", "Audio", "Data", "Discussion", "Equations", "Methods"):
+        for n in cited.get(cat, []):
+            if f"{cat} {n}" not in sup_txt:
+                fails.append(f"{cat} {n} 被引用但 SI 无此条目")
 
     # 反向：SI 里的每个表/图都必须有简短标题（编号后紧跟文字）
     print()
