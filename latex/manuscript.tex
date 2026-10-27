@@ -18,7 +18,7 @@
 
 \newcolumntype{R}{>{\RaggedRight\arraybackslash\hspace{0pt}}X}
 
-\graphicspath{{../results/figures/}}
+\graphicspath{{figures/}}
 
 \raggedbottom
 %%\unnumbered% uncomment this for unnumbered level heads
@@ -284,15 +284,45 @@ No human or animal subjects were involved, and no personally identifiable inform
 
 \bmhead{Figure legends}
 
-names the sample size and defines the symbols appearing in its figure, as \texttt{publication\_guidelines.md} requires. Where a plotted quantity is an exact count rather than an estimate, the legend says so and no error bars are shown; where it is a mean over images, the legend states the interval.)
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig1-density-distributions}
+\end{figure}
 
 \textbf{Figure 1. Per-image annotated object counts across detection benchmarks.} \textbf{a}, Percentage of images whose object count $n_i$ exceeds a budget $B$. \textbf{b}, Fraction of the permitted budget the annotations can absorb, $\sum_i \min(B, n_i)/(B\cdot{}N)$. Colours, line styles and marker shapes all distinguish the curves, which remain separable in grayscale. $N$ = 548 (VisDrone val), 15,000 (CrowdHuman train), 4,952 (COCO val2017), and 1,498,984 (highD, one frame of a recording counted as one image). These are exact label counts, so no error bars are shown.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig2-delta-vs-budget}
+\end{figure}
+
 \textbf{Figure 2. Gain in worst-image recall from reallocating a fixed output budget, in percentage points.} \textbf{a}, Gain against budget $B$ for both prediction heads; faint crosses mark budgets above which the budget cannot be spent in full, so the two allocations coincide and the comparison is an identity rather than a measurement. The horizontal axis is the average per-image budget. \textbf{b}, The same comparison at the pre-registered budget fraction $\rho$ = 0.5, shown separately for the two prediction heads, so that its horizontal axis is the head and not the budget; only the extreme budgets of panel \textbf{a} are budget separations, and this panel is not one of them. $N$ = 548 throughout; these are exact counts, so no error bars are shown.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig3-criterion}
+\end{figure}
 
 \textbf{Figure 3. What the reallocation does at the level of individual images.} \textbf{a}, \textbf{b}, Per-image recall against object count $n_i$ under a uniform quota (grey) and proportional allocation (vermillion) at $B$ = 25 and $B$ = 70. Connectors join the two allocations for images whose recall changes by more than two points. Circles and squares mark the worst image under each allocation, labelled with its object count, quota and recall; a coloured outline means its quota reached the imposed label-count cap $n_i$, not that the detector ran out of predictions. (The per-image ceiling $\min(n_i, p_i)$ equals $n_i$ throughout these records, because a prediction count $p_i$ below the annotated count $n_i$ never occurs; the outline condition is therefore the binding one.) Green crosses in \textbf{b} mark images that reached $n_i$ under both allocations yet stay below 45\% recall, which is why, under this label-count-capped convention, the gain there is exactly zero. $N$ = 548 in both panels.
 
-\textbf{Figure 4. The cost of the reallocation by object-count band.} \textbf{a}, Change in per-image recall, proportional minus uniform, in percentage points, for each $n_i$ band; horizontal bars are \textbf{95\% confidence intervals} from a paired percentile bootstrap over images within the band (10,000 resamples; the RNG is derived per seed so that re-running one seed alone reproduces its row), and the vertical line marks zero change. Because the band boundaries are fixed by the label distribution, the interval estimates the mean cost of a band and not which images fall in it. Image counts per band are printed beside the labels. Colours and symbols follow Figure 2: circles for the one-to-many head, squares for the one-to-one head. \textbf{b}, Mean per-image recall under each allocation for the same bands; dashed connectors join the two allocations within a band, so the horizontal length of a connector is the change plotted in \textbf{a}. Grey circles mark the uniform allocation and vermillion triangles the proportional one. $\rho$ = 0.5, VisDrone validation, $N$ = 548. Panel \textbf{b} shows the one-to-many head only; the one-to-one head appears in \textbf{a}. \textbf{Figure 5. Sparse images hold larger objects.} \textbf{a}, Mean annotation-box area per image against the annotated object count $n_i$, with the median per logarithmic count bin overlaid. \textbf{b}, Mean box area for the sparsest 5\% of images (27 images, $n_i$ 1-9) and the densest 25\% (137 images, $n_i$ 93-317), the same bands used in Figure 4; the number above each bar is the image count in that band. Areas are normalised (YOLO wh, as a fraction of image area), so no image dimension enters the statistic. The Spearman correlation between object count and mean box area is -0.4596, and the sparsest band's mean box area is 19.62 times the densest band's. This is why a per-image quota costs the sparse images most: when an image holds few but large objects, each box carries more of that image's recall, so a proportional allocation that reclaims that image's boxes removes more recall than the same number of boxes taken from a dense image with small objects. We deliberately do not infer object distance, because VisDrone carries no depth annotation.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig4-quintile-cost}
+\end{figure}
+
+\textbf{Figure 4. The cost of the reallocation by object-count band.} \textbf{a}, Change in per-image recall, proportional minus uniform, in percentage points, for each $n_i$ band; horizontal bars are \textbf{95\% confidence intervals} from a paired percentile bootstrap over images within the band (10,000 resamples; the RNG is derived per seed so that re-running one seed alone reproduces its row), and the vertical line marks zero change. Because the band boundaries are fixed by the label distribution, the interval estimates the mean cost of a band and not which images fall in it. Image counts per band are printed beside the labels. Colours and symbols follow Figure 2: circles for the one-to-many head, squares for the one-to-one head. \textbf{b}, Mean per-image recall under each allocation for the same bands; dashed connectors join the two allocations within a band, so the horizontal length of a connector is the change plotted in \textbf{a}. Grey circles mark the uniform allocation and vermillion triangles the proportional one. $\rho$ = 0.5, VisDrone validation, $N$ = 548. Panel \textbf{b} shows the one-to-many head only; the one-to-one head appears in \textbf{a}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig5-box-area-vs-count}
+\end{figure}
+
+\textbf{Figure 5. Sparse images hold larger objects.} \textbf{a}, Mean annotation-box area per image against the annotated object count $n_i$, with the median per logarithmic count bin overlaid. \textbf{b}, Mean box area for the sparsest 5\% of images (27 images, $n_i$ 1-9) and the densest 25\% (137 images, $n_i$ 93-317), the same bands used in Figure 4; the number above each bar is the image count in that band. Areas are normalised (YOLO wh, as a fraction of image area), so no image dimension enters the statistic. The Spearman correlation between object count and mean box area is -0.4596, and the sparsest band's mean box area is 19.62 times the densest band's. This is why a per-image quota costs the sparse images most: when an image holds few but large objects, each box carries more of that image's recall, so a proportional allocation that reclaims that image's boxes removes more recall than the same number of boxes taken from a dense image with small objects. We deliberately do not infer object distance, because VisDrone carries no depth annotation.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig6-recall-quantiles}
+\end{figure}
 
 \textbf{Figure 6. Reallocation shifts the whole lower tail of the recall distribution.} Quantile curves of per-image recall under uniform (blue) and proportional (orange) allocation at $\rho$ = 0.50, seed 42. \textbf{a}, one-to-many head. \textbf{b}, one-to-one head. The orange curve lies above the blue one below roughly the 35th percentile and below it between the 40th and 95th, so the gain is a property of the lower tail rather than of one image; the two allocations share the upper endpoint but their minimum recalls differ, because reallocation moves the minimum to a different image. Dotted verticals mark the minimum, 5th and 10th percentiles. $N$ = 548 images per panel. Each curve is a quantile function of an exact per-image count, so no error bars are shown.
 

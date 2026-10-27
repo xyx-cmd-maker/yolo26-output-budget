@@ -54,6 +54,7 @@ CHECKS = [
     # ★ P106：按条目清点（能发现「某段内容整块消失」，墨迹统计发现不了）
     ("scripts/check_pdf_items.py", "PDF 条目清点", True),
     ("scripts/check_pdf_render.py", "PDF 渲染版面", True),
+    ("scripts/check_latex_package.py", "LaTeX 投稿件结构", True),
 ]
 
 

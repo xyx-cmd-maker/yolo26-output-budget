@@ -193,7 +193,16 @@ def sections(path: Path) -> list[tuple[str, str]]:
 
 
 def strip_meta(body: str) -> str:
-    """去掉引用块与内部注记。"""
+    """去掉引用块与内部注记。
+
+    ★★ 第 224 轮：`*(...)*` 生产注记**可跨多行**。旧实现只跳过以 `*(` 开头的
+      单行，于是 Figure legends 节里那条四行注记只丢了首行，后三行变成正文，
+      末尾 `)*` 的星号又被强调处理吃掉 —— PDF 里印出断句
+      "names the sample size and defines the symbols…"，结尾还多一个 `)`。
+      改为**块级**丢弃：先按 `*( ... )*` 整体删除，再逐行清引用块。
+    """
+    # ① 块级删除 *( ... )*（非贪婪、允许跨行）
+    body = re.sub(r"\*\(.*?\)\*", "", body, flags=re.S)
     keep = []
     for ln in body.split("\n"):
         st = ln.strip()
@@ -365,7 +374,7 @@ def main() -> int:
           # 表格用 X 列（自动解算宽度）；`\RaggedRight` + 连字允许长词断开，
           # 消掉最后几个 Overfull（`CrowdHuman` / `VisDrone2019-` 等长词撑破首列）。
           r"\newcolumntype{R}{>{\RaggedRight\arraybackslash\hspace{0pt}}X}", r"",
-          r"\graphicspath{{../results/figures/}}", r"",
+          r"\graphicspath{{figures/}}", r"",
           # 官方模板在 \begin{document} 前的这两行，我也必须照抄
           r"\raggedbottom",
           r"%%\unnumbered% uncomment this for unnumbered level heads",
@@ -410,9 +419,35 @@ def main() -> int:
           r"was processed. CrowdHuman images were not downloaded; only its annotation file was used, "
           r"to compute a label distribution.", ""]
 
-    # ── 5. 图（官方要求：图**不嵌入** .tex，单独附；此处用 \includegraphics 引用）──
+    # ── 5. 图 + 图注 ────────────────────────────────────────────────────
+    # ★★ 第 224 轮：**原实现一行 \includegraphics 都没有**，注释写着"此处用
+    #    \includegraphics 引用"却从未输出 —— 编译出的 PDF 只有图注、没有图。
+    #    现在逐图输出 figure 环境，并把它对应的图注紧邻其后。
+    FIG_STEMS = [
+        "fig1-density-distributions", "fig2-delta-vs-budget", "fig3-criterion",
+        "fig4-quintile-cost", "fig5-box-area-vs-count", "fig6-recall-quantiles",
+    ]
+    legends_body = conv_blocks(secs["Figure legends"])
+    # 按 `\textbf{Figure N.` 切段，使每个图与自己的图注相邻
+    parts = re.split(r"(?=\\textbf\{Figure\s+\d+\.)", legends_body)
+    parts = [x for x in (q.strip() for q in parts) if x]
+    legend_by_n: dict[int, str] = {}
+    preamble_parts: list[str] = []
+    for q in parts:
+        m = re.match(r"\\textbf\{Figure\s+(\d+)\.", q)
+        if m:
+            legend_by_n[int(m.group(1))] = q
+        else:
+            preamble_parts.append(q)
+
     L += [r"\bmhead{Figure legends}", ""]
-    L += [conv_blocks(secs["Figure legends"])]
+    for pre in preamble_parts:
+        L += [pre, ""]
+    for n, stem in enumerate(FIG_STEMS, 1):
+        L += [r"\begin{figure}[htbp]", r"\centering",
+              rf"\includegraphics[width=\textwidth]{{{stem}}}", r"\end{figure}", ""]
+        if n in legend_by_n:
+            L += [legend_by_n[n], ""]
     L += [r"\bibliography{references}", r""]
     # ★★ P66：**必须显式闭合 document**。我在重写主循环时漏了它，
     #   编译报 `job aborted, no legal \end found` —— 而那只是症状，
