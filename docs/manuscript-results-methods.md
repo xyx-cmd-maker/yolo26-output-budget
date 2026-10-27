@@ -21,8 +21,7 @@ distribution and not on any model: the mean per-image object count, the budget u
 `util(B) = Σ_i min(B, n_i) / (B·N)`, and the fraction of images whose count exceeds the budget,
 `frac(n_i > B)`. Supplementary Table S8 reports them and Figure 1 shows them as curves.
 
-At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on which the budget binds spans
-0.000 to 0.195. The ordering follows the mean object count, not the domain. highD and VisDrone validation are both aerial, yet their mean counts differ by a factor of 2.7 and their utilisation by 2.4, so the split is by density rather than by whether the camera flies. The largest object count does not predict utilisation either. CrowdHuman
+At `B = 100`, utilisation spans 0.074 to 0.630 and the fraction of images on which the budget binds spans 0.000 to 0.195. The ordering is not an artefact of that budget: it is unchanged at `B` = 50 and `B` = 200. The ordering follows the mean object count, not the domain. highD and VisDrone validation are both aerial, yet their mean counts differ by a factor of 2.7 and their utilisation by 2.4, so the split is by density rather than by whether the camera flies. The largest object count does not predict utilisation either. CrowdHuman
 contains images with 391 annotated people, more than any VisDrone validation image (317), yet only 2.1% of
 CrowdHuman images exceed a budget of 100, against 19.5% of VisDrone validation images.
 

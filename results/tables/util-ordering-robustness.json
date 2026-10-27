@@ -1,0 +1,66 @@
+{
+  "note": "Utilisation ordering versus mean object count, at three budget values.",
+  "robust_ordering": true,
+  "rows": [
+    {
+      "key": "coco_train2017",
+      "label": "COCO train2017 (ground)",
+      "mean": 7.334,
+      "max": 93,
+      "N": 118287,
+      "u50": 0.1417,
+      "u100": 0.0709,
+      "u200": 0.0354
+    },
+    {
+      "key": "coco_val2017",
+      "label": "COCO val2017 (ground)",
+      "mean": 7.428,
+      "max": 63,
+      "N": 5000,
+      "u50": 0.1436,
+      "u100": 0.0718,
+      "u200": 0.0359
+    },
+    {
+      "key": "crowdhuman_train",
+      "label": "CrowdHuman train (ground)",
+      "mean": 23.532,
+      "max": 391,
+      "N": 15000,
+      "u50": 0.3901,
+      "u100": 0.2148,
+      "u200": 0.1108
+    },
+    {
+      "key": "highd",
+      "label": "highD (aerial highway)",
+      "mean": 26.502,
+      "max": 97,
+      "N": 1498984,
+      "u50": 0.4931,
+      "u100": 0.251,
+      "u200": 0.1255
+    },
+    {
+      "key": "visdrone_test",
+      "label": "VisDrone test-dev (aerial)",
+      "mean": 46.647,
+      "max": 461,
+      "N": 1610,
+      "u50": 0.6558,
+      "u100": 0.3988,
+      "u200": 0.2151
+    },
+    {
+      "key": "visdrone_val",
+      "label": "VisDrone val (aerial)",
+      "mean": 70.728,
+      "max": 317,
+      "N": 548,
+      "u50": 0.8341,
+      "u100": 0.6024,
+      "u200": 0.3291
+    }
+  ]
+}
