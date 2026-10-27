@@ -198,7 +198,8 @@ def main() -> int:
     ax.set_ylim(0, _ymax * 1.28)
     ax.set_xlabel("Object-count quintile (range of $n_i$)")
     ax.set_ylabel("Mean box area\n(fraction of image area)")
-    ax.text(0.03, 0.94, f"sparsest / densest = {ratio:.2f}$\\times$",
+    # 注释框贴到 axes 顶部（0.988，仍在黑色框内），给首个柱的图数标签 27 让出空间
+    ax.text(0.03, 0.988, f"sparsest / densest = {ratio:.2f}$\\times$",
             transform=ax.transAxes, fontsize=6, va="top",
             bbox=dict(fc="white", ec="0.6", lw=0.4, alpha=0.95))
 
