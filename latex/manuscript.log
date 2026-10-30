@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  27 OCT 2026 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  30 OCT 2026 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,11 +781,11 @@ Package pdftex.def Info: figures/fig2-delta-vs-budget.pdf  used on input line 2
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/fig3-criterion.pdf, id=281, 519.84914pt x 199.2029pt>
+<figures/fig3-criterion.pdf, id=281, 519.84914pt x 199.20917pt>
 File: figures/fig3-criterion.pdf Graphic file (type pdf)
 <use figures/fig3-criterion.pdf>
 Package pdftex.def Info: figures/fig3-criterion.pdf  used on input line 303.
-(pdftex.def)             Requested size: 372.0pt x 142.54753pt.
+(pdftex.def)             Requested size: 372.0pt x 142.552pt.
 <figures/fig4-quintile-cost.pdf, id=282, 473.47585pt x 196.58151pt>
 File: figures/fig4-quintile-cost.pdf Graphic file (type pdf)
 <use figures/fig4-quintile-cost.pdf>
@@ -868,7 +868,7 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/
 C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on manuscript.pdf (22 pages, 661045 bytes).
+Output written on manuscript.pdf (22 pages, 661145 bytes).
 PDF statistics:
  603 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)

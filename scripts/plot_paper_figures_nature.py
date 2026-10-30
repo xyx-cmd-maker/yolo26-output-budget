@@ -321,7 +321,7 @@ def figure3(saveit: bool = True) -> plt.Figure:
             ax.annotate(f"$n_i$={int(n[idx])}, quota={int(sp[idx])}"
                         f"{' = $n_i$' if at_cap else ''}\nrecall={r[idx] * 100:.2f}%",
                         (n[idx], r[idx] * 100), textcoords="offset points",
-                        xytext=(64, 26) if mk == "o" else (58, -46), fontsize=5.5,
+                        xytext=(64, 26) if mk == "o" else (58, -30), fontsize=5.5,
                         bbox=dict(fc="white", ec=col, alpha=0.95, lw=0.5),
                         arrowprops=dict(arrowstyle="-", color=col, lw=0.6))
         d = (r_w[iw] - r_u[iu]) * 100

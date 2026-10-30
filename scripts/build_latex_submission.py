@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -269,6 +270,12 @@ def main() -> int:
     a = ap.parse_args()
 
     OUT.mkdir(parents=True, exist_ok=True)
+    # ★ 图同步进包内：pdflatex 不能直接嵌 EPS，需 PDF 版
+    _figdst = OUT / "figures"
+    _figdst.mkdir(exist_ok=True)
+    for _ext in ("pdf", "eps"):
+        for _f in sorted((ROOT / "results" / "figures").glob("fig*." + _ext)):
+            shutil.copy2(_f, _figdst / _f.name)
 
     # ── 1. 读手稿并切节 ───────────────────────────────────────────────
     secs: dict[str, str] = {}
