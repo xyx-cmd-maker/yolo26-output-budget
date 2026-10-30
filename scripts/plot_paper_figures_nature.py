@@ -325,12 +325,23 @@ def figure3(saveit: bool = True) -> plt.Figure:
             if int(idx) in _annotated:
                 continue
             _annotated.add(int(idx))
+            # 两面板共用这段代码，但空白位置不同：
+            #   panel a（B=25）：圆在最右下的数据尾 -> 框放它右上，**引线要短**；
+            #                    方在中部 -> 框放正下方（数据带在 y>25）。
+            #   panel b（B=70）：两标记重合于 (12, 25) -> 框放**正下方**空白带，
+            #                    原来的右侧位置会压住橙色散点。
+            if B == 25:
+                _off = (24, 12) if mk == "o" else (0, -18)
+                _ha = "left" if mk == "o" else "center"
+                _va = "bottom" if mk == "o" else "top"
+            else:
+                # 正下方会撞左下角那个绿色说明框；改到**右下方**（x≈20~45, y≈2~13，该区无数据）
+                _off = (28, -16)
+                _ha, _va = "left", "top"
             ax.annotate(f"$n_i$={int(n[idx])}, quota={int(sp[idx])}"
                         f"{' = $n_i$' if at_cap else ''}\nrecall={r[idx] * 100:.2f}%",
                         (n[idx], r[idx] * 100), textcoords="offset points",
-                        xytext=(40, 20) if mk == "o" else (0, -18), fontsize=5.5,
-                        ha="left" if mk == "o" else "center",
-                        va="bottom" if mk == "o" else "top",
+                        xytext=_off, ha=_ha, va=_va, fontsize=5.5,
                         bbox=dict(fc="white", ec=col, alpha=0.95, lw=0.5),
                         arrowprops=dict(arrowstyle="-", color=col, lw=0.6))
         d = (r_w[iw] - r_u[iu]) * 100
