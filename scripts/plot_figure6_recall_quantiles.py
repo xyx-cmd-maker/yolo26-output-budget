@@ -101,9 +101,10 @@ def main() -> None:
         ax.set_ylabel("Recall (%)" if head == "o2m" else "")
         ax.set_xlim(0, 100)
         ax.set_ylim(0, 100)
-        ax.text(0.015, 0.965, tag, transform=ax.transAxes, fontsize=8,
+        ax.text(-0.145, 1.075, tag, transform=ax.transAxes, fontsize=8,
                 fontweight="bold", va="top")
         title = "one-to-many" if head == "o2m" else "one-to-one"
+        # 标题放坐标轴上方：图内文字会与数据混淆，且这是唯一能标识"预测头"的位置
         ax.set_title(title, fontsize=7.5, pad=3)
         ax.legend(loc="lower right", frameon=False, handlelength=1.6)
         ax.spines[["top", "right"]].set_visible(False)
