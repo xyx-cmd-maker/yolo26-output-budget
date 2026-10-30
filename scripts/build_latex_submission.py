@@ -408,7 +408,17 @@ def main() -> int:
           r"(the $\rho$ sweep over ten conditions), Figure~S1 (per-epoch training curves for both "
           r"completed seeds), Figure~S2 (the gain plotted against $\rho$), and Note~S1 (numerical "
           r"self-checks against independent recomputation).", ""]
-    L += [r"\bmhead{Data availability}", "", conv_blocks(secs["Data and code availability"])]
+    L += [r"\bmhead{Data availability}", "",
+      # ★★ 与 build_submission_pdf.py 的 DECLARATIONS 保持**同一段文本**：
+      #    此前 LaTeX 版直接转换 markdown，而 markdown 只写 "released with the
+      #    manuscript"（无 URL），导致 LaTeX PDF 里仓库地址出现 0 次 ——
+      #    稿件声明"代码可用"却在 LaTeX 版给不出地址。
+      r"VisDrone2019-DET is public under CC BY-NC-SA 3.0 for academic use. COCO 2017 "
+      r"and CrowdHuman are public as well; only their annotation files were used here. "
+      r"Code, configurations, per-epoch curves, per-image prediction records and all "
+      r"figures are archived at "
+      r"\url{https://github.com/xyx-cmd-maker/yolo26-output-budget} "
+      r"(release v1.0-submission, MIT licence); the datasets are not redistributed there.", ""]
     L += [r"\bmhead{Author contributions}", "",
           r"Y.X. designed the study, implemented the training and evaluation pipeline, produced all "
           r"per-image prediction records and the numerical results reported here, and drafted the "

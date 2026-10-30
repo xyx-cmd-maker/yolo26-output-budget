@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  30 OCT 2026 21:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  30 OCT 2026 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,13 +765,13 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 267.
 
-<figures/fig1-density-distributions.pdf, id=275, 517.13924pt x 184.76472pt>
+<figures/fig1-density-distributions.pdf, id=276, 517.13924pt x 184.76472pt>
 File: figures/fig1-density-distributions.pdf Graphic file (type pdf)
 <use figures/fig1-density-distributions.pdf>
 Package pdftex.def Info: figures/fig1-density-distributions.pdf  used on input 
 line 289.
 (pdftex.def)             Requested size: 372.0pt x 132.91208pt.
-<figures/fig2-delta-vs-budget.pdf, id=276, 516.50896pt x 191.98068pt>
+<figures/fig2-delta-vs-budget.pdf, id=277, 516.50896pt x 191.98068pt>
 File: figures/fig2-delta-vs-budget.pdf Graphic file (type pdf)
 <use figures/fig2-delta-vs-budget.pdf>
 Package pdftex.def Info: figures/fig2-delta-vs-budget.pdf  used on input line 2
@@ -781,23 +781,23 @@ Package pdftex.def Info: figures/fig2-delta-vs-budget.pdf  used on input line 2
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/fig3-criterion.pdf, id=281, 519.84914pt x 199.20917pt>
+<figures/fig3-criterion.pdf, id=283, 519.84914pt x 199.20917pt>
 File: figures/fig3-criterion.pdf Graphic file (type pdf)
 <use figures/fig3-criterion.pdf>
 Package pdftex.def Info: figures/fig3-criterion.pdf  used on input line 303.
 (pdftex.def)             Requested size: 372.0pt x 142.552pt.
-<figures/fig4-quintile-cost.pdf, id=282, 473.47585pt x 196.58151pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18 <./figures/fig1-density-distributions.pdf> <./figures/fig2-delta-vs-budget
+.pdf> <./figures/fig3-criterion.pdf>]
+<figures/fig4-quintile-cost.pdf, id=392, 473.47585pt x 196.58151pt>
 File: figures/fig4-quintile-cost.pdf Graphic file (type pdf)
 <use figures/fig4-quintile-cost.pdf>
 Package pdftex.def Info: figures/fig4-quintile-cost.pdf  used on input line 310
 .
 (pdftex.def)             Requested size: 372.0pt x 154.4518pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18 <./figures/fig1-density-distributions.pdf> <./figures/fig2-delta-vs-budget
-.pdf>]
-<figures/fig5-box-area-vs-count.pdf, id=357, 530.24693pt x 200.9501pt>
+<figures/fig5-box-area-vs-count.pdf, id=393, 530.24693pt x 200.9501pt>
 File: figures/fig5-box-area-vs-count.pdf Graphic file (type pdf)
 <use figures/fig5-box-area-vs-count.pdf>
 Package pdftex.def Info: figures/fig5-box-area-vs-count.pdf  used on input line
@@ -806,19 +806,18 @@ Package pdftex.def Info: figures/fig5-box-area-vs-count.pdf  used on input line
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19 <./figures/fig3-criterion.pdf> <./figures/fig4-quintile-cost.pdf>]
-<figures/fig6-recall-quantiles.pdf, id=416, 532.8923pt x 204.19829pt>
+ [19 <./figures/fig4-quintile-cost.pdf>]
+<figures/fig6-recall-quantiles.pdf, id=418, 532.8923pt x 204.19829pt>
 File: figures/fig6-recall-quantiles.pdf Graphic file (type pdf)
 <use figures/fig6-recall-quantiles.pdf>
 Package pdftex.def Info: figures/fig6-recall-quantiles.pdf  used on input line 
 324.
 (pdftex.def)             Requested size: 372.0pt x 142.54834pt.
-
+ (manuscript.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20 <./figures/fig5-box-area-vs-count.pdf> <./figures/fig6-recall-quantiles.pd
 f>]
-(manuscript.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21])
@@ -845,7 +844,7 @@ Here is how much of TeX's memory you used:
  41675 multiletter control sequences out of 15000+600000
  643950 words of font info for 108 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,2373b,637s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,93p,2373b,639s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type
@@ -868,9 +867,9 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/
 C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on manuscript.pdf (22 pages, 661813 bytes).
+Output written on manuscript.pdf (22 pages, 662451 bytes).
 PDF statistics:
- 603 PDF objects out of 1000 (max. 8388607)
+ 607 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
  295 words of extra memory for PDF output out of 10000 (max. 10000000)
 
