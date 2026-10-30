@@ -27,6 +27,7 @@ import json
 import sys
 from pathlib import Path
 
+from matplotlib.lines import Line2D
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib as mpl
@@ -314,14 +315,20 @@ def figure3(saveit: bool = True) -> plt.Figure:
         moved = np.abs(r_w - r_u) > 0.02
         ax.vlines(n[moved], r_u[moved] * 100, r_w[moved] * 100,
                   color="0.80", lw=0.3, alpha=0.5, zorder=1)
+        # ★ 当两个分配的最差图是**同一张**时（panel b 即如此），只标一次，
+        #   否则同一个 "n_i=12, quota=12 / recall=25.00%" 会印两遍、互相压住。
+        _annotated: set[int] = set()
         for idx, r, sp, mk in ((iu, r_u, sp_u, "o"), (iw, r_w, sp_w, "s")):
             at_cap = sp[idx] >= cap[idx] - 1e-9
             ax.scatter([n[idx]], [r[idx] * 100], s=80, marker=mk, facecolors="none",
                        edgecolors=col if at_cap else "black", linewidths=1.2, zorder=6)
+            if int(idx) in _annotated:
+                continue
+            _annotated.add(int(idx))
             ax.annotate(f"$n_i$={int(n[idx])}, quota={int(sp[idx])}"
                         f"{' = $n_i$' if at_cap else ''}\nrecall={r[idx] * 100:.2f}%",
                         (n[idx], r[idx] * 100), textcoords="offset points",
-                        xytext=(64, 26) if mk == "o" else (58, -30), fontsize=5.5,
+                        xytext=(64, 26) if mk == "o" else (26, 14), fontsize=5.5,
                         bbox=dict(fc="white", ec=col, alpha=0.95, lw=0.5),
                         arrowprops=dict(arrowstyle="-", color=col, lw=0.6))
         d = (r_w[iw] - r_u[iu]) * 100
@@ -343,7 +350,16 @@ def figure3(saveit: bool = True) -> plt.Figure:
         ax.text(0.97, 0.965, f"$\\Delta$ = {d:+.2f} pp", transform=ax.transAxes,
                 fontsize=6.5, fontweight="bold", color=col, va="top", ha="right")
         ax.set_ylim(-4, 104)
-        ax.legend(loc="upper right", bbox_to_anchor=(1.0, 0.90), markerscale=3.5)
+        # B：边框颜色的编码必须有图例，否则黑圆圈像孤立符号。
+        #    黑边 = 该图配额未触到 label-count cap；彩边 = 触到 cap。
+        _h, _l = ax.get_legend_handles_labels()
+        _h = _h + [
+            Line2D([], [], ls="none", marker="o", ms=1.6, mfc="none", mec="black", mew=0.5),
+            Line2D([], [], ls="none", marker="o", ms=1.6, mfc="none", mec=col, mew=0.5),
+        ]
+        _l = _l + ["worst image, quota below $n_i$", "worst image, quota at $n_i$"]
+        ax.legend(_h, _l, loc="upper right", bbox_to_anchor=(1.0, 0.90),
+                  markerscale=3.0, fontsize=6.0, handletextpad=0.5, labelspacing=0.35)
         panel_label(ax, "a" if B == 25 else "b")
 
     if saveit:
