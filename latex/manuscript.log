@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  30 OCT 2026 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.14)  30 OCT 2026 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,11 +781,11 @@ Package pdftex.def Info: figures/fig2-delta-vs-budget.pdf  used on input line 2
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-<figures/fig3-criterion.pdf, id=283, 519.84914pt x 199.20917pt>
+<figures/fig3-criterion.pdf, id=283, 517.55327pt x 199.20917pt>
 File: figures/fig3-criterion.pdf Graphic file (type pdf)
 <use figures/fig3-criterion.pdf>
 Package pdftex.def Info: figures/fig3-criterion.pdf  used on input line 303.
-(pdftex.def)             Requested size: 372.0pt x 142.552pt.
+(pdftex.def)             Requested size: 372.0pt x 143.19034pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -867,7 +867,7 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/
 C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/本手/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on manuscript.pdf (22 pages, 664410 bytes).
+Output written on manuscript.pdf (22 pages, 664422 bytes).
 PDF statistics:
  607 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
