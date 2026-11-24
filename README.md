@@ -21,6 +21,16 @@ receives the next box. Every comparison in the paper is therefore an offline dia
 both splits. This is stated in the Methods, in the section titled Test-set evaluation and
 label dependence.
 
+## Corrected matcher (major revision)
+
+The major revision uses a corrected class-agnostic greedy matcher. The corrected
+implementation and the six corrected per-image TP-prefix records are in
+[`corrected-matcher/`](corrected-matcher/). The matcher code is MIT-licensed; the
+records are derived from VisDrone2019-DET annotations and are made available under
+CC BY-NC-SA 3.0, as described in `corrected-matcher/DATA-LICENSE.md`. The earlier
+implementation under `src/eval/budget_scan.py` is retained as the historical version
+and is not the corrected matcher.
+
 ## Reproducing the results
 
     pip install -r requirements.lock.txt
